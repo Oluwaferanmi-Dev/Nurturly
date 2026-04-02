@@ -1,13 +1,12 @@
 import type { Metadata } from 'next'
-import { EmailInquiryForm } from '@/components/forms/email-inquiry-form'
 
 export const metadata: Metadata = {
-  title: 'Nurturly | Redefining Care, Redefining Time',
-  description: 'Coming Soon - We are curating a new sanctuary of support where heritage hospitality meets the precision of modern care.',
-  keywords: ['home care', 'elderly care', 'in-home care', 'caregiver', 'hospice'],
+  title: 'Nurturly | Coming Soon - Redefining Care, Redefining Time',
+  description: 'We are curating a new sanctuary of support—where heritage hospitality meets the precision of modern care. Join the waitlist for our exclusive launch.',
+  keywords: ['home care', 'elderly care', 'caregiver', 'in-home care', 'coming soon'],
   openGraph: {
-    title: 'Nurturly | Redefining Care, Redefining Time',
-    description: 'Coming Soon - Heritage hospitality meets modern care.',
+    title: 'Nurturly | Coming Soon',
+    description: 'We are curating a new sanctuary of support—where heritage hospitality meets the precision of modern care.',
     type: 'website',
   },
 }
@@ -15,18 +14,17 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen flex flex-col">
-      {/* Header with centered logo */}
+      {/* Header with prominent centered logo */}
       <header className="w-full pt-16 pb-8 md:pt-24 md:pb-12 px-8 flex justify-center items-center">
-        <div className="max-w-4xl w-full flex justify-center">
+        <div className="max-w-7xl w-full flex justify-center">
           <img
             alt="Nurturly Logo"
-            className="h-16 md:h-24 w-auto object-contain"
+            className="h-20 md:h-32 w-auto object-contain"
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aaafb3d0-8e58-4063-a89f-0b0da8e8c2c2.jpeg"
           />
         </div>
       </header>
 
-      {/* Main content */}
       <main className="flex-grow flex items-center justify-center pb-20 px-6 lg:px-12 max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center w-full">
           {/* Content Column */}
@@ -48,14 +46,28 @@ export default function Home() {
             <div className="bg-surface-container-lowest p-8 md:p-10 rounded-2xl shadow-sm border border-outline-variant/10 max-w-md">
               <h3 className="font-headline text-2xl text-on-surface mb-2">Be the first to know</h3>
               <p className="text-on-surface-variant text-sm mb-8">Register your interest for our private launch.</p>
-              
-              <EmailInquiryForm />
+
+              <form action="mailto:care@nurturlycare.com" className="space-y-6" encType="text/plain" method="post">
+                <div className="relative">
+                  <label className="block text-[10px] uppercase tracking-widest text-outline font-bold mb-1 ml-1" htmlFor="email">
+                    Email Address
+                  </label>
+                  <input
+                    className="w-full bg-surface-container-high border-0 border-b border-outline-variant/40 focus:border-primary focus:ring-0 py-3 px-1 transition-all placeholder:text-outline/40 text-on-surface"
+                    id="email"
+                    placeholder="email@example.com"
+                    type="email"
+                    name="email"
+                    required
+                  />
+                </div>
+                <button className="nurturly-gradient text-white w-full py-4 rounded-xl font-medium tracking-wide shadow-lg shadow-primary-container/20 hover:scale-[1.02] active:scale-[0.98] transition-all" type="submit">
+                  Inquire
+                </button>
+              </form>
 
               <div className="mt-8 flex items-center gap-3 text-[10px] text-outline font-bold tracking-[0.2em] uppercase">
-                <span
-                  className="material-symbols-outlined text-base"
-                  style={{ fontVariationSettings: "'FILL' 1" }}
-                >
+                <span className="material-symbols-outlined text-base" style={{ fontVariationSettings: "'FILL' 1" }}>
                   mail
                 </span>
                 <span>care@nurturlycare.com</span>
@@ -63,7 +75,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Image Gallery Trio */}
+          {/* Image Gallery Trio (Smaller, Overlapping, Soft Shadows) */}
           <div className="relative h-[450px] lg:h-[550px] order-1 lg:order-2 flex items-center justify-center">
             {/* Top Right Image */}
             <div className="absolute top-0 right-4 md:right-10 w-[55%] aspect-[4/5] z-10 rounded-2xl overflow-hidden shadow-xl shadow-on-surface/5 border border-surface-container-high">
@@ -119,10 +131,7 @@ export default function Home() {
             </a>
           </nav>
           <div className="flex gap-4">
-            <span
-              className="material-symbols-outlined text-primary text-xl cursor-pointer hover:opacity-70 transition-opacity"
-              data-icon="mail"
-            >
+            <span className="material-symbols-outlined text-primary text-xl cursor-pointer hover:opacity-70 transition-opacity" data-icon="mail">
               mail
             </span>
           </div>

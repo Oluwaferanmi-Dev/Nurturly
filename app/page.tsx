@@ -2,17 +2,17 @@ import type { Metadata } from 'next'
 import { EmailInquiryForm } from '@/components/forms/email-inquiry-form'
 
 export const metadata: Metadata = {
-  title: 'Nurturly | Expert Care, In the Comfort of Home - Coming Soon',
-  description: 'Coming Soon - Redefining home care with the grace of high-end hospitality. Expert caregiving in the comfort of home.',
-  keywords: ['home care', 'elderly care', 'hospice care', 'caregiver', 'in-home care'],
+  title: 'Nurturly | Redefining Care, Redefining Time',
+  description: 'Coming Soon - We are curating a new sanctuary of support where heritage hospitality meets the precision of modern care.',
+  keywords: ['home care', 'elderly care', 'in-home care', 'caregiver', 'hospice'],
   openGraph: {
-    title: 'Nurturly - Coming Soon',
-    description: 'Redefining home care with the grace of high-end hospitality.',
+    title: 'Nurturly | Redefining Care, Redefining Time',
+    description: 'Coming Soon - Heritage hospitality meets modern care.',
     type: 'website',
   },
 }
 
-export default function ComingSoonPage() {
+export default function Home() {
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen flex flex-col">
       {/* Header with centered logo */}

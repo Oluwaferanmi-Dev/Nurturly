@@ -20,7 +20,7 @@ export default function Home() {
           <img
             alt="Nurturly Logo"
             className="h-20 md:h-32 w-auto object-contain"
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aaafb3d0-8e58-4063-a89f-0b0da8e8c2c2.jpeg"
+            src="/nurturly-logo.jpg"
           />
         </div>
       </header>

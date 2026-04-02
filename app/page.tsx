@@ -46,30 +46,17 @@ export default function Home() {
             <div className="bg-surface-container-lowest p-8 md:p-10 rounded-2xl shadow-sm border border-outline-variant/10 max-w-md">
               <h3 className="font-headline text-2xl text-on-surface mb-2">Be the first to know</h3>
               <p className="text-on-surface-variant text-sm mb-8">Register your interest for our private launch.</p>
-
               <form action="mailto:care@nurturlycare.com" className="space-y-6" encType="text/plain" method="post">
                 <div className="relative">
-                  <label className="block text-[10px] uppercase tracking-widest text-outline font-bold mb-1 ml-1" htmlFor="email">
-                    Email Address
-                  </label>
-                  <input
-                    className="w-full bg-surface-container-high border-0 border-b border-outline-variant/40 focus:border-primary focus:ring-0 py-3 px-1 transition-all placeholder:text-outline/40 text-on-surface"
-                    id="email"
-                    placeholder="email@example.com"
-                    type="email"
-                    name="email"
-                    required
-                  />
+                  <label className="block text-[10px] uppercase tracking-widest text-outline font-bold mb-1 ml-1" htmlFor="email">Email Address</label>
+                  <input className="w-full bg-surface-container-high border-0 border-b border-outline-variant/40 focus:border-primary focus:ring-0 py-3 px-1 transition-all placeholder:text-outline/40 text-on-surface" id="email" placeholder="email@example.com" type="email" />
                 </div>
-                <button className="nurturly-gradient text-white w-full py-4 rounded-xl font-medium tracking-wide shadow-lg shadow-primary-container/20 hover:scale-[1.02] active:scale-[0.98] transition-all" type="submit">
+                <button className="signature-gradient text-white w-full py-4 rounded-xl font-medium tracking-wide shadow-lg shadow-primary-container/20 hover:scale-[1.02] active:scale-[0.98] transition-all" type="submit">
                   Inquire
                 </button>
               </form>
-
               <div className="mt-8 flex items-center gap-3 text-[10px] text-outline font-bold tracking-[0.2em] uppercase">
-                <span className="material-symbols-outlined text-base" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  mail
-                </span>
+                <span className="material-symbols-outlined text-base" style={{ fontVariationSettings: "'FILL' 1" }}>mail</span>
                 <span>care@nurturlycare.com</span>
               </div>
             </div>

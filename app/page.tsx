@@ -68,8 +68,8 @@ export default function Home() {
             <div className="absolute top-0 right-4 md:right-10 w-[55%] aspect-[4/5] z-10 rounded-2xl overflow-hidden shadow-xl shadow-on-surface/5 border border-surface-container-high">
               <img
                 className="w-full h-full object-cover"
-                alt="Serene high-end interior"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIyeXAvWSpBomkaFf6TpQBe7ZtucPhUf7DkmRKNZ58iY2j-BMWr8CFYV9RijjYjhksxze2YyP3KfIVyQYzeluuhuuVrmDmy-rnLwdZLJ45cjQH1KqjUY4jXFjF6Z2IGhBRjEW9eYRAXKaIRhLr8o-mbx-8ERH-fJbcQ2Mr-iQgRzT2xWjBNqyLl8Cv9wHfz-216r_nd2hE2gjdQPxnu3oreMcDo3pdjtifMXPH0hkkPtHNcvl6JCAlSdF1ULS6Qgt_9R_2lwm831Kg"
+                alt="Elderly man and caregiver sharing a meal together"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/42b3fbd6-d104-44e0-a6ce-4689a68d4b0d.jpeg"
               />
             </div>
 
@@ -77,8 +77,8 @@ export default function Home() {
             <div className="absolute bottom-4 left-4 md:left-10 w-[50%] aspect-square z-30 rounded-2xl overflow-hidden shadow-2xl shadow-on-surface/10 border-[6px] border-surface">
               <img
                 className="w-full h-full object-cover"
-                alt="Care-focused close up"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhDSEzxXo68ex6fl8ZIPeduwv85X3m9Aqmov_9VtaLOWbHdBfnyo4KbwAU3PFmIy3UqO2Rak1CNgr4-8K7gh7Xi5imNObnR_7vrakn1Ta6qf1vn-IJ0zauF8RHzsLo3YcrOlANzxOZqIt_3iCnqWbgMvxdwqfBLH4OQJ-e5jNWV5SVZg_WPn4XNVXKECzpNsN-DQG1SyMPaB7g0sHMzlY-SYsT_p8bpUbxMFaxEd_cf1RLPIB0PGZy6Ep1BVNH7wbdl9xLvcPPiyxc"
+                alt="Two people holding hands with health monitoring smartwatch"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/b1bac61e-8ad4-4812-910c-bcb6c1bfbac3.jpeg"
               />
             </div>
 
@@ -86,8 +86,8 @@ export default function Home() {
             <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[35%] aspect-[3/4] z-20 rounded-xl overflow-hidden shadow-xl shadow-on-surface/5 border-[4px] border-surface hidden sm:block">
               <img
                 className="w-full h-full object-cover"
-                alt="Sanctuary details"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjRQJCGUMF-E2cA-VG7cMhcpLl0t3VVY-hrMPNW5hps7bx8rptJ61BT6RUMX0-pLPQM8f4GGr6iHwNzg7GeH5MPV3p6Pj4BSZsJ-3i7lMQLQ_IaWOz1ob7htIazHCaDn2UB5W4U8BUGngUA-_RTFH0Wcrh0F7W671tmq5ttXJl-kY9d03Ed7cRzqOlk5PeVGsnOeRamVgaEivGQUKJHxQSDbeqlItmzMhViftbclxRdbj3lZM4f7-1KsWCPHEzOGZ4MQdtYz5awyRp"
+                alt="Caregiver in blue scrubs with elderly woman on couch"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/46555651-34a3-4a3b-81f5-f539f4d4db3f.jpeg"
               />
             </div>
           </div>

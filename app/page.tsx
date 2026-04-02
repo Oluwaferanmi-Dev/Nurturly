@@ -100,7 +100,7 @@ export default function Home() {
           <div className="flex flex-col items-center md:items-start gap-2">
             <span className="font-headline text-lg font-semibold text-primary">Nurturly</span>
             <p className="font-body text-sm tracking-wide text-on-surface/60 text-center md:text-left">
-              © 2024 Nurturly. Redefining Care, Redefining Time.
+              © 2026 Nurturly. Redefining Care, Redefining Time.
             </p>
           </div>
           <nav className="flex gap-8">

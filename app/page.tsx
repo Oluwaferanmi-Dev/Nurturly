@@ -20,7 +20,7 @@ export default function Home() {
           <img
             alt="Nurturly Logo"
             className="h-20 md:h-32 w-auto object-contain"
-            src="/nurturly-logo.jpg"
+            src="/nurturly-logo.png"
           />
         </div>
       </header>

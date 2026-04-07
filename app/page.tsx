@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Header from '@/components/Header'
 
 export const metadata: Metadata = {
   title: 'Nurturly | Coming Soon - Redefining Care, Redefining Time',
@@ -13,17 +14,9 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen flex flex-col">
-      {/* Header with prominent centered logo */}
-      <header className="w-full pt-16 pb-8 md:pt-24 md:pb-12 px-8 flex justify-center items-center">
-        <div className="max-w-7xl w-full flex justify-center">
-          <img
-            alt="Nurturly Logo"
-            className="h-20 md:h-32 w-auto object-contain"
-            src="/nurturly-logo.png"
-          />
-        </div>
-      </header>
+    <>
+      <Header />
+      <div className="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen flex flex-col">
 
       <main className="flex-grow flex items-center justify-center pb-20 px-6 lg:px-12 max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center w-full">
@@ -124,6 +117,16 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-on-surface text-surface-container py-16 px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto">
+          <p className="font-body text-sm tracking-wide text-center md:text-left">
+            © 2026 Nurturly. Redefining Care, Redefining Time.
+          </p>
+        </div>
+      </footer>
+    </>
   )
 }

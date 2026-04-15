@@ -10,7 +10,7 @@ export default function Header() {
     { href: '/about', label: 'About' },
     { href: '/services', label: 'Services' },
     { href: '/how-it-works', label: 'How It Works' },
-    { href: '/why-nurturly', label: 'Why Us' },
+    { href: '/why-us', label: 'Why Us' },
     { href: '/careers', label: 'Careers' },
   ]
 

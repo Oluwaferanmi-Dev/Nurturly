@@ -1,6 +1,6 @@
 # Nurturly
 
-This is a [Next.js](https://nextjs.org) project (https://v0.app/chat/projects/prj_oq5Tnvq89AJUX0HoY2cHeM6favJv)
+
 
 ## Getting Started
 

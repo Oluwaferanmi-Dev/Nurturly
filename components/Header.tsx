@@ -8,18 +8,10 @@ export default function Header() {
 
   const navigationLinks = [
     { href: '/', label: 'Home' },
-    { href: '/about', label: 'About Nurturly' },
+    { href: '/about', label: 'About' },
     { href: '/services', label: 'Services' },
     { href: '/how-it-works', label: 'How It Works' },
-    { href: '/why-nurturly', label: 'Why Nurturly' },
-    { href: '/service-areas', label: 'Service Areas' },
-    { href: '/for-families', label: 'For Families' },
-    { href: '/for-professionals', label: 'For Professionals / Referrals' },
-    { href: '/careers', label: 'Careers' },
-    { href: '/resources', label: 'Resources / Insights' },
-    { href: '/contact', label: 'Contact' },
-    { href: '/privacy', label: 'Privacy Policy' },
-    { href: '/accessibility', label: 'Accessibility' },
+    { href: '/why-nurturly', label: 'Why Us' },
   ]
 
   return (
@@ -45,6 +37,12 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            className="px-6 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
+          >
+            Book a Consultation
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -72,6 +70,13 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
+              <Link
+                href="/contact"
+                className="block w-full text-center px-6 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-semibold hover:opacity-90 transition-opacity mt-4"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Book a Consultation
+              </Link>
             </div>
           </div>
         )}

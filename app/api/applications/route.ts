@@ -20,12 +20,15 @@ type ApplicationData = z.infer<typeof applicationSchema>
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
+    console.log('[v0] Application request received:', { name: body.name, email: body.email, job_slug: body.job_slug })
 
     // Validate the application data
     const validatedData = applicationSchema.parse(body)
+    console.log('[v0] Application validation passed')
 
     // Initialize Supabase server client
     const supabase = await createClient()
+    console.log('[v0] Supabase client initialized')
 
     // Insert application into database
     const { data, error } = await supabase
@@ -46,17 +49,19 @@ export async function POST(request: NextRequest) {
       .select()
 
     if (error) {
-      console.error('Supabase insert error:', error)
+      console.error('[v0] Supabase insert error:', error)
       return NextResponse.json(
-        { error: 'Failed to submit application. Please try again.' },
+        { error: `Database error: ${error.message}` },
         { status: 500 }
       )
     }
 
+    console.log('[v0] Application inserted successfully')
+
     // Send email notification to admin
     const emailResponse = await sendApplicationEmail(validatedData)
     if (!emailResponse.success) {
-      console.warn('Failed to send application email:', emailResponse.error)
+      console.warn('[v0] Failed to send application email:', emailResponse.error)
       // Continue even if email fails - the application is saved
     }
 
@@ -69,10 +74,11 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     )
   } catch (error) {
-    console.error('API error:', error)
+    console.error('[v0] API error:', error)
 
     // Handle validation errors
     if (error instanceof z.ZodError) {
+      console.error('[v0] Validation errors:', error.errors)
       return NextResponse.json(
         { error: error.errors[0]?.message || 'Validation failed' },
         { status: 400 }
@@ -80,7 +86,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { error: 'Something went wrong. Please try again.' },
+      { error: error instanceof Error ? error.message : 'Something went wrong. Please try again.' },
       { status: 500 }
     )
   }

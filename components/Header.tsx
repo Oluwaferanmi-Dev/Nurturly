@@ -7,11 +7,10 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navigationLinks = [
-    { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/services', label: 'Services' },
     { href: '/how-it-works', label: 'How It Works' },
-    { href: '/why-nurturly', label: 'Why Us' },
+    { href: '/why-us', label: 'Why Us' },
     { href: '/careers', label: 'Careers' },
   ]
 
@@ -19,13 +18,13 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full bg-surface border-b border-outline-variant/10">
       <nav className="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <a href="/" className="flex items-center">
           <img
             alt="Nurturly Logo"
             className="h-12 w-auto object-contain"
             src="/nurturly-logo.png"
           />
-        </Link>
+        </a>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8">

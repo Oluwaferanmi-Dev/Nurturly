@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
+import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact Us | Nurturly',
@@ -69,60 +70,7 @@ export default function Contact() {
               <h2 className="text-4xl font-headline mb-4">Send a Message</h2>
               <p className="text-on-surface-variant">Tell us a bit about your needs, and a care coordinator will reach out within 24 hours.</p>
             </div>
-            <form className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="group relative">
-                  <label className="block text-sm font-label text-on-surface-variant mb-2">Name</label>
-                  <input
-                    className="w-full bg-surface-container-high border-0 border-b border-outline-variant/30 px-4 py-4 rounded-t-lg focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all duration-300"
-                    placeholder="Your full name"
-                    type="text"
-                  />
-                </div>
-                <div className="group relative">
-                  <label className="block text-sm font-label text-on-surface-variant mb-2">Email</label>
-                  <input
-                    className="w-full bg-surface-container-high border-0 border-b border-outline-variant/30 px-4 py-4 rounded-t-lg focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all duration-300"
-                    placeholder="example@email.com"
-                    type="email"
-                  />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="group relative">
-                  <label className="block text-sm font-label text-on-surface-variant mb-2">Phone</label>
-                  <input
-                    className="w-full bg-surface-container-high border-0 border-b border-outline-variant/30 px-4 py-4 rounded-t-lg focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all duration-300"
-                    placeholder="(555) 000-0000"
-                    type="tel"
-                  />
-                </div>
-                <div className="group relative">
-                  <label className="block text-sm font-label text-on-surface-variant mb-2">Interested In</label>
-                  <select className="w-full bg-surface-container-high border-0 border-b border-outline-variant/30 px-4 py-4 rounded-t-lg focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all duration-300">
-                    <option>Consultation Request</option>
-                    <option>General Inquiry</option>
-                    <option>Career Opportunities</option>
-                  </select>
-                </div>
-              </div>
-              <div className="group relative">
-                <label className="block text-sm font-label text-on-surface-variant mb-2">Message</label>
-                <textarea
-                  className="w-full bg-surface-container-high border-0 border-b border-outline-variant/30 px-4 py-4 rounded-t-lg focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all duration-300 resize-none"
-                  placeholder="How can we help your family?"
-                  rows={5}
-                ></textarea>
-              </div>
-              <div className="pt-4 flex justify-end">
-                <button
-                  className="signature-gradient text-on-primary px-12 py-4 rounded-full text-lg font-medium hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-primary/20"
-                  type="submit"
-                >
-                  Send Message
-                </button>
-              </div>
-            </form>
+            <ContactForm />
           </section>
 
           {/* Location Section */}

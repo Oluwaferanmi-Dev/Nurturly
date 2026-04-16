@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
+import CareersForm from '@/components/CareersForm'
 
 export const metadata: Metadata = {
   title: 'Work That Feels Meaningful | Nurturly Heritage Careers',
@@ -202,6 +203,21 @@ export default function Careers() {
           </div>
         </section>
 
+        {/* Application Form Section */}
+        <section className="py-20 md:py-32 bg-surface-container-low">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-4xl mx-auto">
+              <div className="mb-12 md:mb-16 text-center">
+                <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl text-primary mb-4">Apply Now</h2>
+                <p className="text-on-surface-variant text-base md:text-lg">Join our team and start your journey in a sanctuary of care.</p>
+              </div>
+              <div className="bg-surface-container-lowest rounded-xl p-8 md:p-12 shadow-sm border border-outline-variant/10">
+                <CareersForm />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Final CTA Section */}
         <section className="py-20 md:py-32 bg-surface">
           <div className="container mx-auto px-6 lg:px-12">
@@ -210,9 +226,9 @@ export default function Careers() {
               <div className="relative z-10 max-w-2xl mx-auto">
                 <h2 className="font-headline text-3xl md:text-4xl lg:text-6xl text-white mb-6 md:mb-8">Ready to Curate Sanctuary?</h2>
                 <p className="text-white/90 text-base md:text-xl mb-10 md:mb-12">We are always looking for compassionate souls to join our heritage properties across the country.</p>
-                <button className="px-10 md:px-12 py-4 md:py-5 bg-white text-primary font-extrabold text-base md:text-lg rounded-xl shadow-xl hover:scale-105 active:scale-95 transition-transform">
+                <a href="#apply-form" className="px-10 md:px-12 py-4 md:py-5 bg-white text-primary font-extrabold text-base md:text-lg rounded-xl shadow-xl hover:scale-105 active:scale-95 transition-transform inline-block">
                   Explore Open Roles
-                </button>
+                </a>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { createClient } from '@/lib/supabase/server'
+import { sendApplicationEmail } from '@/lib/email'
 
 const applicationSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -50,6 +51,13 @@ export async function POST(request: NextRequest) {
         { error: 'Failed to submit application. Please try again.' },
         { status: 500 }
       )
+    }
+
+    // Send email notification to admin
+    const emailResponse = await sendApplicationEmail(validatedData)
+    if (!emailResponse.success) {
+      console.warn('Failed to send application email:', emailResponse.error)
+      // Continue even if email fails - the application is saved
     }
 
     return NextResponse.json(

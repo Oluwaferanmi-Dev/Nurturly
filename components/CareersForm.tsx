@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { createClient } from '@/lib/supabase/client'
 
 interface FormData {
   name: string
@@ -34,8 +33,6 @@ export default function CareersForm() {
   const [successMessage, setSuccessMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
 
-  const supabase = createClient()
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
@@ -64,26 +61,21 @@ export default function CareersForm() {
 
   const uploadResume = async (file: File): Promise<string | null> => {
     try {
-      const timestamp = Date.now()
-      const fileName = `${timestamp}-${file.name}`
+      const formData = new FormData()
+      formData.append('file', file)
 
-      const { data, error } = await supabase.storage
-        .from('resumes')
-        .upload(fileName, file, {
-          cacheControl: '3600',
-          upsert: false,
-        })
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      })
 
-      if (error) {
-        throw new Error(`Upload failed: ${error.message}`)
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Upload failed')
       }
 
-      // Get public URL
-      const { data: publicUrlData } = supabase.storage
-        .from('resumes')
-        .getPublicUrl(data.path)
-
-      return publicUrlData.publicUrl
+      return data.url
     } catch (error) {
       console.error('Resume upload error:', error)
       throw error

@@ -2,36 +2,44 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { createClient } from '@/lib/supabase/server'
 
-const inquirySchema = z.object({
+const applicationSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
-  phone: z.string().optional().nullable(),
-  care_type: z.string().optional().nullable(),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+  phone: z.string().min(10, 'Please enter a valid phone number'),
+  location: z.string().optional().nullable(),
+  experience: z.string().optional().nullable(),
+  certifications: z.string().optional().nullable(),
+  message: z.string().optional().nullable(),
+  resume_url: z.string().url('Invalid resume URL').optional().nullable(),
+  job_slug: z.string().min(1, 'Job slug is required'),
 })
 
-type InquiryData = z.infer<typeof inquirySchema>
+type ApplicationData = z.infer<typeof applicationSchema>
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
 
-    // Validate the form data
-    const validatedData = inquirySchema.parse(body)
+    // Validate the application data
+    const validatedData = applicationSchema.parse(body)
 
     // Initialize Supabase server client
     const supabase = await createClient()
 
-    // Insert inquiry into database
+    // Insert application into database
     const { data, error } = await supabase
-      .from('inquiries')
+      .from('applications')
       .insert([
         {
           name: validatedData.name,
           email: validatedData.email,
-          phone: validatedData.phone || null,
-          care_type: validatedData.care_type || null,
-          message: validatedData.message,
+          phone: validatedData.phone,
+          job_slug: validatedData.job_slug,
+          location: validatedData.location || null,
+          experience: validatedData.experience || null,
+          certifications: validatedData.certifications || null,
+          resume_url: validatedData.resume_url || null,
+          message: validatedData.message || null,
         },
       ])
       .select()
@@ -39,7 +47,7 @@ export async function POST(request: NextRequest) {
     if (error) {
       console.error('Supabase insert error:', error)
       return NextResponse.json(
-        { error: 'Failed to submit inquiry. Please try again.' },
+        { error: 'Failed to submit application. Please try again.' },
         { status: 500 }
       )
     }
@@ -47,7 +55,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: true,
-        message: 'Thank you for your inquiry! We\'ll be in touch soon.',
+        message: 'Thank you for your application! We\'ll review it and be in touch soon.',
         data: data,
       },
       { status: 201 }

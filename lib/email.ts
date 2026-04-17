@@ -2,8 +2,8 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@nurturlyheritage.com'
-const COMPANY_NAME = 'Nurturly Heritage'
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@nurturlycare.com'
+const COMPANY_NAME = 'Nurturly Care'
 
 // Brand colors for emails
 const colors = {
@@ -156,7 +156,7 @@ export async function sendInquiryEmail(data: {
 
   try {
     const response = await resend.emails.send({
-      from: `${COMPANY_NAME} <noreply@nurturlyheritage.com>`,
+      from: `${COMPANY_NAME} <noreply@nurturlycare.com>`,
       to: ADMIN_EMAIL,
       subject: `New Inquiry from ${data.name}`,
       html: htmlContent,
@@ -368,7 +368,7 @@ export async function sendApplicationEmail(data: {
 
   try {
     const response = await resend.emails.send({
-      from: `${COMPANY_NAME} <noreply@nurturlyheritage.com>`,
+      from: `${COMPANY_NAME} <noreply@nurturlycare.com>`,
       to: ADMIN_EMAIL,
       subject: `New Application from ${data.name} - ${formatJobTitle(data.job_slug)}`,
       html: htmlContent,

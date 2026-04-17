@@ -49,9 +49,9 @@ export async function POST(request: NextRequest) {
       })
 
     if (error) {
-      console.error('Supabase upload error:', error)
+      console.error('Resume upload error:', error)
       return NextResponse.json(
-        { error: `Upload failed: ${error.message}` },
+        { error: 'Failed to upload resume. Please try again.' },
         { status: 500 }
       )
     }
@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     )
   } catch (error) {
-    console.error('Upload API error:', error)
+    console.error('File upload error:', error)
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Failed to upload file' },
       { status: 500 }

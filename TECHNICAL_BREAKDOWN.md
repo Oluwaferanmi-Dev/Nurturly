@@ -326,7 +326,7 @@
 - User receives success message
 
 **Admin Notification Email:**
-- To: admin@nurturlyheritage.com
+- To: admin@nurturlycare.com
 - Format: HTML with branded styling
 - Contains: applicant info, experience, certifications, message, resume URL
 
@@ -356,7 +356,7 @@
 - Form automatically resets
 
 **Admin Notification Email:**
-- To: admin@nurturlyheritage.com
+- To: admin@nurturlycare.com
 - Format: HTML with branded styling
 - Contains: name, email, phone, care_type, message
 
@@ -370,8 +370,8 @@
 
 **Configuration:**
 - API Key: `RESEND_API_KEY` environment variable
-- Default Admin Email: `admin@nurturlyheritage.com` (configurable via `ADMIN_EMAIL` env var)
-- From Address: `noreply@nurturlyheritage.com`
+- Default Admin Email: `admin@nurturlycare.com` (configurable via `ADMIN_EMAIL` env var)
+- From Address: `noreply@nurturlycare.com`
 
 **Email Utility Functions** (`lib/email.ts`)
 
@@ -463,7 +463,7 @@ SUPABASE_SERVICE_ROLE_KEY=<supabase-service-role-key>
 RESEND_API_KEY=<resend-api-key>
 
 # Optional
-ADMIN_EMAIL=admin@nurturlyheritage.com (defaults if not set)
+ADMIN_EMAIL=admin@nurturlycare.com (defaults if not set)
 ```
 
 ### Currently Available (Via Vercel Integration)

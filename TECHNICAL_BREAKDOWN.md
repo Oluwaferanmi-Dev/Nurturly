@@ -595,7 +595,7 @@ ADMIN_EMAIL=admin@nurturlycare.com (defaults if not set)
 ## 12. ARCHITECTURE SUMMARY
 
 ```
-Nurturly Heritage
+Nurturly Care
 ├── Frontend (Next.js 16)
 │   ├── Pages (13 routes)
 │   ├── Components (4 shared)

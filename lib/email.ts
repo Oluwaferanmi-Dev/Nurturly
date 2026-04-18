@@ -4,16 +4,45 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@nurturlycare.com'
 const COMPANY_NAME = 'Nurturly Care'
+const LOGO_URL = 'https://nurturlycare.com/nurturly-logo.png'
 
-// Brand colors for emails
-const colors = {
-  primary: '#00535b',
-  secondary: '#8c4e35',
-  accent: '#006d77',
-  background: '#fcf9f4',
-  text: '#1c1c19',
-  textLight: '#3e494a',
+// ─── Helper functions ────────────────────────────────────────────────────────
+
+function escapeHtml(text: string): string {
+  const map: { [key: string]: string } = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;',
+  }
+  return text.replace(/[&<>"']/g, (m) => map[m])
 }
+
+function formatJobTitle(slug: string): string {
+  return slug
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, (char) => char.toUpperCase())
+}
+
+// ─── Shared email styles ──────────────────────────────────────────────────────
+
+const sharedStyles = `
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap');
+    body {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f5f5f5;
+      color: #1c1c19;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      padding: 0;
+    }
+    .serif { font-family: 'Newsreader', Georgia, serif; }
+  </style>
+`
+
+// ─── Inquiry Email ────────────────────────────────────────────────────────────
 
 export async function sendInquiryEmail(data: {
   name: string
@@ -24,133 +53,93 @@ export async function sendInquiryEmail(data: {
 }) {
   const htmlContent = `
     <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="UTF-8">
-        <style>
-          body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: ${colors.text};
-            background-color: #f5f5f5;
-          }
-          .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: ${colors.background};
-            padding: 40px;
-            border-radius: 8px;
-          }
-          .header {
-            border-bottom: 3px solid ${colors.primary};
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-          }
-          .header h1 {
-            margin: 0;
-            color: ${colors.primary};
-            font-size: 28px;
-            font-weight: 600;
-          }
-          .header p {
-            margin: 5px 0 0 0;
-            color: ${colors.textLight};
-            font-size: 14px;
-          }
-          .content {
-            margin-bottom: 30px;
-          }
-          .field {
-            margin-bottom: 20px;
-          }
-          .field-label {
-            color: ${colors.secondary};
-            font-weight: 600;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-            display: block;
-          }
-          .field-value {
-            color: ${colors.text};
-            font-size: 15px;
-            padding: 12px;
-            background-color: rgba(0, 83, 91, 0.05);
-            border-left: 3px solid ${colors.primary};
-            border-radius: 4px;
-          }
-          .message-box {
-            background-color: rgba(0, 83, 91, 0.08);
-            border: 1px solid ${colors.primary}33;
-            border-radius: 6px;
-            padding: 16px;
-            margin-top: 20px;
-          }
-          .footer {
-            border-top: 1px solid ${colors.primary}22;
-            padding-top: 20px;
-            margin-top: 30px;
-            color: ${colors.textLight};
-            font-size: 12px;
-            text-align: center;
-          }
-          .cta-button {
-            display: inline-block;
-            background-color: ${colors.primary};
-            color: white;
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 20px;
-          }
-        </style>
-      </head>
-      <body>
-        <div class="container">
-          <div class="header">
-            <h1>New Inquiry Received</h1>
-            <p>A new inquiry has been submitted through your website</p>
-          </div>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      ${sharedStyles}
+    </head>
+    <body style="font-family:'Manrope',sans-serif;background-color:#f5f5f5;color:#1c1c19;margin:0;padding:48px 16px;">
 
-          <div class="content">
-            <div class="field">
-              <span class="field-label">Sender Name</span>
-              <div class="field-value">${escapeHtml(data.name)}</div>
-            </div>
+      <div style="max-width:640px;margin:0 auto;background-color:#fcf9f4;border-radius:2px;box-shadow:0 10px 30px -5px rgba(0,0,0,0.05);overflow:hidden;border:1px solid rgba(0,109,119,0.1);">
 
-            <div class="field">
-              <span class="field-label">Email Address</span>
-              <div class="field-value"><a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></div>
-            </div>
-
-            ${data.phone ? `
-            <div class="field">
-              <span class="field-label">Phone Number</span>
-              <div class="field-value">${escapeHtml(data.phone)}</div>
-            </div>
-            ` : ''}
-
-            ${data.care_type ? `
-            <div class="field">
-              <span class="field-label">Care Type Interest</span>
-              <div class="field-value">${escapeHtml(data.care_type)}</div>
-            </div>
-            ` : ''}
-
-            <div class="field">
-              <span class="field-label">Message</span>
-              <div class="message-box">${escapeHtml(data.message).replace(/\n/g, '<br>')}</div>
-            </div>
-          </div>
-
-          <div class="footer">
-            <p>© ${new Date().getFullYear()} ${COMPANY_NAME}. All rights reserved.</p>
-            <p>This is an automated message from your inquiry form.</p>
-          </div>
+        <!-- Logo Header -->
+        <div style="padding:48px 48px 32px 48px;text-align:center;border-bottom:1px solid rgba(0,109,119,0.05);">
+          <img alt="Nurturly Care" src="${LOGO_URL}" style="height:48px;width:auto;object-fit:contain;" />
         </div>
-      </body>
+
+        <!-- Main Content -->
+        <div style="padding:48px;">
+
+          <!-- Title -->
+          <div style="text-align:center;margin-bottom:64px;">
+            <h1 style="font-family:'Newsreader',Georgia,serif;font-size:36px;font-weight:300;color:#006D77;margin:0 0 12px 0;letter-spacing:-0.02em;">New Inquiry Received</h1>
+            <p style="color:#3e494a;font-weight:300;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;margin:0;">Digital Concierge Notification</p>
+          </div>
+
+          <!-- Fields -->
+          <div style="margin-bottom:40px;">
+
+            <!-- Client Name -->
+            <div style="margin-bottom:40px;">
+              <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#8c4e35;font-weight:600;margin-bottom:8px;display:block;">Client Name</span>
+              <div style="font-family:'Newsreader',Georgia,serif;font-size:20px;color:#1c1c19;font-style:italic;font-weight:500;">${escapeHtml(data.name)}</div>
+              <div style="margin-top:16px;height:1px;background-color:rgba(0,109,119,0.1);"></div>
+            </div>
+
+            <!-- Email + Phone grid -->
+            <table style="width:100%;border-collapse:collapse;margin-bottom:40px;">
+              <tr>
+                <td style="width:50%;padding-right:24px;vertical-align:top;">
+                  <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#8c4e35;font-weight:600;margin-bottom:8px;display:block;">Email Address</span>
+                  <div style="font-size:14px;font-weight:500;color:#006D77;">
+                    <a href="mailto:${escapeHtml(data.email)}" style="color:#006D77;text-decoration:none;">${escapeHtml(data.email)}</a>
+                  </div>
+                </td>
+                ${data.phone ? `
+                <td style="width:50%;padding-left:24px;vertical-align:top;">
+                  <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#8c4e35;font-weight:600;margin-bottom:8px;display:block;">Contact Number</span>
+                  <div style="font-size:14px;font-weight:500;color:#1c1c19;">${escapeHtml(data.phone)}</div>
+                </td>
+                ` : '<td></td>'}
+              </tr>
+            </table>
+
+            <!-- Service Interest -->
+            ${data.care_type ? `
+            <div style="margin-bottom:40px;padding-top:8px;">
+              <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#8c4e35;font-weight:600;margin-bottom:8px;display:block;">Service Interest</span>
+              <span style="display:inline-block;padding:6px 16px;background-color:rgba(0,109,119,0.05);border:1px solid rgba(0,109,119,0.1);border-radius:999px;font-size:11px;font-weight:600;color:#006D77;text-transform:uppercase;letter-spacing:0.1em;">${escapeHtml(data.care_type)}</span>
+            </div>
+            ` : ''}
+
+            <!-- Message -->
+            <div style="margin-bottom:40px;padding-top:16px;">
+              <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#8c4e35;font-weight:600;margin-bottom:16px;display:block;">Message Details</span>
+              <div style="font-family:'Newsreader',Georgia,serif;font-size:18px;line-height:1.7;color:#3e494a;background-color:rgba(255,255,255,0.5);padding:32px;border:1px solid rgba(0,109,119,0.05);font-style:italic;">&ldquo;${escapeHtml(data.message).replace(/\n/g, '<br/>')}&rdquo;</div>
+            </div>
+
+          </div>
+
+          <!-- CTA -->
+          <div style="text-align:center;margin-top:64px;">
+            <a href="https://supabase.com/dashboard/project/lslsbdbqhfjdonbwpnvd/editor" style="display:inline-block;background-color:#006D77;color:#ffffff;padding:16px 40px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.2em;text-decoration:none;">Review in Dashboard</a>
+          </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div style="background-color:rgba(255,255,255,0.5);padding:40px 48px;border-top:1px solid rgba(0,109,119,0.05);text-align:center;">
+          <p style="font-size:10px;text-transform:uppercase;letter-spacing:0.3em;color:#8c4e35;font-weight:700;margin:0 0 16px 0;">${COMPANY_NAME}</p>
+          <div style="max-width:300px;margin:0 auto 24px auto;height:1px;background-color:rgba(0,109,119,0.1);"></div>
+          <p style="font-size:11px;color:rgba(62,73,74,0.7);line-height:1.7;font-weight:300;margin:0;">
+            &copy; ${new Date().getFullYear()} ${COMPANY_NAME}. All rights reserved.<br/>
+            This is an automated correspondence regarding a website submission.
+          </p>
+        </div>
+
+      </div>
+    </body>
     </html>
   `
 
@@ -170,6 +159,8 @@ export async function sendInquiryEmail(data: {
   }
 }
 
+// ─── Application Email ────────────────────────────────────────────────────────
+
 export async function sendApplicationEmail(data: {
   name: string
   email: string
@@ -183,186 +174,140 @@ export async function sendApplicationEmail(data: {
 }) {
   const htmlContent = `
     <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="UTF-8">
-        <style>
-          body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: ${colors.text};
-            background-color: #f5f5f5;
-          }
-          .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: ${colors.background};
-            padding: 40px;
-            border-radius: 8px;
-          }
-          .header {
-            background: linear-gradient(135deg, ${colors.primary} 0%, ${colors.accent} 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-          }
-          .header h1 {
-            margin: 0 0 10px 0;
-            font-size: 28px;
-            font-weight: 600;
-          }
-          .header p {
-            margin: 0;
-            font-size: 14px;
-            opacity: 0.95;
-          }
-          .content {
-            margin-bottom: 30px;
-          }
-          .section {
-            margin-bottom: 30px;
-          }
-          .section-title {
-            color: ${colors.secondary};
-            font-weight: 700;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid ${colors.primary}33;
-          }
-          .field {
-            margin-bottom: 15px;
-          }
-          .field-label {
-            color: ${colors.secondary};
-            font-weight: 600;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-            display: block;
-          }
-          .field-value {
-            color: ${colors.text};
-            font-size: 15px;
-            padding: 10px 12px;
-            background-color: rgba(0, 83, 91, 0.05);
-            border-left: 3px solid ${colors.primary};
-            border-radius: 4px;
-          }
-          .message-box {
-            background-color: rgba(0, 83, 91, 0.08);
-            border: 1px solid ${colors.primary}33;
-            border-radius: 6px;
-            padding: 16px;
-          }
-          .resume-link {
-            display: inline-block;
-            background-color: ${colors.primary};
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            margin-top: 10px;
-          }
-          .footer {
-            border-top: 1px solid ${colors.primary}22;
-            padding-top: 20px;
-            margin-top: 30px;
-            color: ${colors.textLight};
-            font-size: 12px;
-            text-align: center;
-          }
-          .badge {
-            display: inline-block;
-            background-color: ${colors.accent};
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-top: 10px;
-          }
-        </style>
-      </head>
-      <body>
-        <div class="container">
-          <div class="header">
-            <h1>New Career Application</h1>
-            <p>A new application has been submitted for the ${formatJobTitle(data.job_slug)} position</p>
-          </div>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      ${sharedStyles}
+      <style>
+        .field-grid {
+          display: grid;
+          grid-template-columns: 140px 1fr;
+          align-items: baseline;
+          gap: 20px;
+          padding: 12px 0;
+          border-bottom: 1px solid rgba(0, 109, 119, 0.08);
+        }
+        .field-grid:last-child { border-bottom: none; }
+      </style>
+    </head>
+    <body style="font-family:'Manrope',sans-serif;background-color:#f5f5f5;color:#1c1c19;margin:0;padding:0;">
 
-          <div class="content">
-            <div class="section">
-              <div class="section-title">Applicant Information</div>
-              
-              <div class="field">
-                <span class="field-label">Full Name</span>
-                <div class="field-value">${escapeHtml(data.name)}</div>
-              </div>
+      <div style="max-width:650px;margin:40px auto;background-color:#fcf9f4;box-shadow:0 10px 30px rgba(0,0,0,0.05);overflow:hidden;border:1px solid #f0f0f0;border-radius:2px;">
 
-              <div class="field">
-                <span class="field-label">Email Address</span>
-                <div class="field-value"><a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></div>
-              </div>
-
-              <div class="field">
-                <span class="field-label">Phone Number</span>
-                <div class="field-value"><a href="tel:${escapeHtml(data.phone)}">${escapeHtml(data.phone)}</a></div>
-              </div>
-
-              ${data.location ? `
-              <div class="field">
-                <span class="field-label">Preferred Location</span>
-                <div class="field-value">${escapeHtml(data.location)}</div>
-              </div>
-              ` : ''}
-            </div>
-
-            <div class="section">
-              <div class="section-title">Professional Details</div>
-              
-              ${data.experience ? `
-              <div class="field">
-                <span class="field-label">Experience</span>
-                <div class="field-value">${escapeHtml(data.experience)}</div>
-              </div>
-              ` : ''}
-
-              ${data.certifications ? `
-              <div class="field">
-                <span class="field-label">Certifications</span>
-                <div class="field-value">${escapeHtml(data.certifications)}</div>
-              </div>
-              ` : ''}
-            </div>
-
-            ${data.message ? `
-            <div class="section">
-              <div class="section-title">Cover Letter / Additional Information</div>
-              <div class="message-box">${escapeHtml(data.message).replace(/\n/g, '<br>')}</div>
-            </div>
-            ` : ''}
-
-            ${data.resume_url ? `
-            <div class="section">
-              <div class="section-title">Resume</div>
-              <a href="${escapeHtml(data.resume_url)}" class="resume-link">Download Resume</a>
-            </div>
-            ` : ''}
-          </div>
-
-          <div class="footer">
-            <p>© ${new Date().getFullYear()} ${COMPANY_NAME}. All rights reserved.</p>
-            <p>This is an automated message from your career application form.</p>
-          </div>
+        <!-- Header -->
+        <div style="padding:48px;text-align:center;background-color:#ffffff;border-bottom:1px solid #fcf9f4;">
+          <img alt="Nurturly Care" src="${LOGO_URL}" style="height:64px;margin:0 auto 32px auto;object-fit:contain;display:block;" />
+          <div style="max-width:300px;margin:0 auto 32px auto;height:1px;background-color:rgba(0,109,119,0.1);"></div>
+          <h1 style="font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:36px;color:#006D77;margin:0 0 12px 0;font-weight:500;">New Career Application</h1>
+          <p style="color:rgba(28,28,25,0.6);font-weight:300;font-size:11px;text-transform:uppercase;letter-spacing:0.2em;margin:0;">Application Receipt &bull; ${escapeHtml(formatJobTitle(data.job_slug))}</p>
         </div>
-      </body>
+
+        <!-- Body -->
+        <div style="padding:40px 48px;">
+
+          <!-- Applicant Information -->
+          <section style="margin-bottom:48px;">
+            <h2 style="font-family:'Newsreader',Georgia,serif;font-size:20px;color:#006D77;margin:0 0 24px 0;font-weight:500;font-style:italic;border-bottom:1px solid rgba(0,109,119,0.2);padding-bottom:8px;">Applicant Information</h2>
+
+            <!-- Using table for email client compatibility -->
+            <table style="width:100%;border-collapse:collapse;">
+              <tr style="border-bottom:1px solid rgba(0,109,119,0.08);">
+                <td style="width:140px;padding:12px 0;vertical-align:baseline;">
+                  <span style="font-size:10px;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;color:#8c4e35;opacity:0.8;">Full Name</span>
+                </td>
+                <td style="padding:12px 0 12px 20px;vertical-align:baseline;">
+                  <span style="font-size:15px;font-weight:500;">${escapeHtml(data.name)}</span>
+                </td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(0,109,119,0.08);">
+                <td style="width:140px;padding:12px 0;vertical-align:baseline;">
+                  <span style="font-size:10px;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;color:#8c4e35;opacity:0.8;">Email</span>
+                </td>
+                <td style="padding:12px 0 12px 20px;vertical-align:baseline;">
+                  <a href="mailto:${escapeHtml(data.email)}" style="color:#006D77;text-decoration:none;font-size:15px;">${escapeHtml(data.email)}</a>
+                </td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(0,109,119,0.08);">
+                <td style="width:140px;padding:12px 0;vertical-align:baseline;">
+                  <span style="font-size:10px;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;color:#8c4e35;opacity:0.8;">Phone</span>
+                </td>
+                <td style="padding:12px 0 12px 20px;vertical-align:baseline;">
+                  <a href="tel:${escapeHtml(data.phone)}" style="color:#006D77;text-decoration:none;font-size:14px;">${escapeHtml(data.phone)}</a>
+                </td>
+              </tr>
+              ${data.location ? `
+              <tr>
+                <td style="width:140px;padding:12px 0;vertical-align:baseline;">
+                  <span style="font-size:10px;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;color:#8c4e35;opacity:0.8;">Location</span>
+                </td>
+                <td style="padding:12px 0 12px 20px;vertical-align:baseline;">
+                  <span style="font-size:15px;font-weight:500;">${escapeHtml(data.location)}</span>
+                </td>
+              </tr>
+              ` : ''}
+            </table>
+          </section>
+
+          <!-- Professional Profile -->
+          ${(data.experience || data.certifications) ? `
+          <section style="margin-bottom:48px;">
+            <h2 style="font-family:'Newsreader',Georgia,serif;font-size:20px;color:#006D77;margin:0 0 24px 0;font-weight:500;font-style:italic;border-bottom:1px solid rgba(0,109,119,0.2);padding-bottom:8px;">Professional Profile</h2>
+            <table style="width:100%;border-collapse:collapse;">
+              <tr>
+                ${data.experience ? `
+                <td style="width:50%;padding-right:16px;vertical-align:top;">
+                  <div style="background-color:rgba(255,255,255,0.5);padding:20px;border:1px solid rgba(0,109,119,0.05);">
+                    <span style="font-size:10px;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;color:#8c4e35;opacity:0.8;display:block;margin-bottom:8px;">Experience</span>
+                    <span style="font-size:18px;font-weight:500;text-transform:capitalize;">${escapeHtml(data.experience)}</span>
+                  </div>
+                </td>
+                ` : '<td style="width:50%;"></td>'}
+                ${data.certifications ? `
+                <td style="width:50%;padding-left:16px;vertical-align:top;">
+                  <div style="background-color:rgba(255,255,255,0.5);padding:20px;border:1px solid rgba(0,109,119,0.05);">
+                    <span style="font-size:10px;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;color:#8c4e35;opacity:0.8;display:block;margin-bottom:8px;">Certifications</span>
+                    <span style="font-size:18px;font-weight:500;">${escapeHtml(data.certifications)}</span>
+                  </div>
+                </td>
+                ` : '<td style="width:50%;"></td>'}
+              </tr>
+            </table>
+          </section>
+          ` : ''}
+
+          <!-- Cover Letter / Message -->
+          ${data.message ? `
+          <section style="margin-bottom:48px;">
+            <h2 style="font-family:'Newsreader',Georgia,serif;font-size:20px;color:#006D77;margin:0 0 16px 0;font-weight:500;font-style:italic;border-bottom:1px solid rgba(0,109,119,0.2);padding-bottom:8px;">Additional Remarks</h2>
+            <div style="padding:32px;background-color:#ffffff;border:1px solid rgba(0,109,119,0.1);font-family:'Newsreader',Georgia,serif;font-style:italic;color:rgba(28,28,25,0.8);line-height:1.7;font-size:18px;">
+              &ldquo;${escapeHtml(data.message).replace(/\n/g, '<br/>')}&rdquo;
+            </div>
+          </section>
+          ` : ''}
+
+          <!-- Resume CTA -->
+          ${data.resume_url ? `
+          <section style="margin-bottom:24px;text-align:center;">
+            <div style="height:1px;background:linear-gradient(to right,transparent,rgba(0,109,119,0.2),transparent);margin:24px 0;"></div>
+            <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.25em;font-weight:600;color:rgba(140,78,53,0.6);margin:0 0 24px 0;">Documentation</p>
+            <a href="${escapeHtml(data.resume_url)}" style="display:inline-block;padding:16px 40px;background-color:#006D77;color:#ffffff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;text-decoration:none;border-radius:2px;">Review Professional Resume</a>
+          </section>
+          ` : ''}
+
+        </div>
+
+        <!-- Footer -->
+        <footer style="background-color:#ffffff;padding:48px;text-align:center;border-top:1px solid #fcf9f4;">
+          <p style="font-size:11px;font-weight:500;color:#006D77;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 16px 0;">${COMPANY_NAME} Management</p>
+          <p style="font-size:10px;color:rgba(28,28,25,0.4);font-weight:300;max-width:320px;margin:0 auto;line-height:1.7;">
+            &copy; ${new Date().getFullYear()} ${COMPANY_NAME}. All rights reserved.<br/>
+            This is an automated notification for the internal talent acquisition team.
+          </p>
+        </footer>
+
+      </div>
+    </body>
     </html>
   `
 
@@ -380,22 +325,4 @@ export async function sendApplicationEmail(data: {
     console.error('Failed to send application email:', error)
     return { success: false, error }
   }
-}
-
-// Helper functions
-function escapeHtml(text: string): string {
-  const map: { [key: string]: string } = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;',
-  }
-  return text.replace(/[&<>"']/g, (m) => map[m])
-}
-
-function formatJobTitle(slug: string): string {
-  return slug
-    .replace(/-/g, ' ')
-    .replace(/\b\w/g, (char) => char.toUpperCase())
 }

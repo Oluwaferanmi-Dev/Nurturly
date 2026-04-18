@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'About Nurturly | Care that feels like home',
@@ -25,12 +27,18 @@ export default function About() {
                 Nurturly was created to bring comfort, trust, and human connection back into home care.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="signature-gradient text-on-primary px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:opacity-95 transition-all">
+                <Link
+                  href="/contact"
+                  className="signature-gradient text-on-primary px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:opacity-95 transition-all text-center"
+                >
                   Schedule a Consultation
-                </button>
-                <button className="bg-surface-container-lowest border border-outline-variant/30 text-primary px-8 py-4 rounded-xl font-semibold text-lg hover:bg-surface-container-low transition-all">
+                </Link>
+                <Link
+                  href="/contact"
+                  className="bg-surface-container-lowest border border-outline-variant/30 text-primary px-8 py-4 rounded-xl font-semibold text-lg hover:bg-surface-container-low transition-all text-center"
+                >
                   Speak With Our Team
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -110,18 +118,19 @@ export default function About() {
               </h2>
               <div className="space-y-6 text-lg text-on-surface-variant leading-relaxed">
                 <p>
-                  Nurturly was born from a simple realization: home care had become too clinical. We saw a world of checklists and schedules, but very little of the "home" in home care. We set out to change that.
+                  We believe care should feel personal, consistent, and deeply human. Too often, home care feels rushed, impersonal, and transactional. We built Nurturly to be different.
                 </p>
                 <p>
-                  We believe that every senior deserves more than just a provider; they deserve a companion who understands their history, respects their independence, and celebrates their individuality. Our model is built on relationship-based care, where we match caregivers not just based on skills, but on personality and shared interests.
+                  Born from the principles of hospitality, our approach focuses on attentiveness, reliability, and thoughtful service. We pay attention to routines, preferences, personalities, and the small details that make people feel comfortable and at ease.
+                </p>
+                <p>
+                  Our caregivers are selected not only for their skills, but for their empathy, emotional intelligence, and reliability. We believe great care comes from relationships built over time, not just tasks completed.
                 </p>
                 <div className="pt-8 border-t border-outline-variant/20">
-                  <blockquote className="italic text-2xl font-headline text-secondary mb-4">
-                    "We don't just enter a house; we enter a life. That is a sacred trust we never take lightly."
+                  <p className="font-semibold text-on-surface mb-2">Our purpose is simple:</p>
+                  <blockquote className="italic text-2xl font-headline text-secondary">
+                    &ldquo;To help people live comfortably, safely, and with dignity at home &mdash; while giving families peace of mind.&rdquo;
                   </blockquote>
-                  <cite className="block font-bold text-on-surface">
-                    — The Nurturly Founders
-                  </cite>
                 </div>
               </div>
             </div>
@@ -244,57 +253,25 @@ export default function About() {
                 Join the families who have rediscovered peace of mind through our attentive, hospitality-first approach to home care.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <button className="w-full sm:w-auto bg-surface-container-lowest text-primary px-10 py-5 rounded-xl font-bold text-lg shadow-2xl hover:bg-white transition-all">
+                <Link
+                  href="/contact"
+                  className="w-full sm:w-auto bg-surface-container-lowest text-primary px-10 py-5 rounded-xl font-bold text-lg shadow-2xl hover:bg-white transition-all text-center"
+                >
                   Schedule a Consultation
-                </button>
-                <button className="w-full sm:w-auto border-2 border-white/30 text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
+                </Link>
+                <Link
+                  href="/contact"
+                  className="w-full sm:w-auto border-2 border-white/30 text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-white/10 transition-all text-center"
+                >
                   Speak With Our Team
-                </button>
+                </Link>
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-surface-container-low border-t border-outline-variant/10 pt-16 pb-8">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div>
-            <div className="font-headline text-3xl italic text-primary mb-6">Nurturly</div>
-            <p className="text-on-surface-variant text-sm leading-relaxed">
-              Redefining the home care experience through the lens of luxury hospitality and human connection.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Navigation</h4>
-            <ul className="space-y-4">
-              <li><a href="/" className="text-on-surface-variant hover:text-primary transition-all text-sm">Home</a></li>
-              <li><a href="/services" className="text-on-surface-variant hover:text-primary transition-all text-sm">Services</a></li>
-              <li><a href="/contact" className="text-on-surface-variant hover:text-primary transition-all text-sm">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Company</h4>
-            <ul className="space-y-4">
-              <li><a href="/careers" className="text-on-surface-variant hover:text-primary transition-all text-sm">Careers</a></li>
-              <li><a href="/resources" className="text-on-surface-variant hover:text-primary transition-all text-sm">Resources</a></li>
-              <li><a href="/how-it-works" className="text-on-surface-variant hover:text-primary transition-all text-sm">How It Works</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Legal</h4>
-            <ul className="space-y-4">
-              <li><a href="/privacy" className="text-on-surface-variant hover:text-primary transition-all text-sm">Privacy</a></li>
-              <li><a href="/accessibility" className="text-on-surface-variant hover:text-primary transition-all text-sm">Accessibility</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 border-t border-outline-variant/10 pt-8">
-          <p className="text-on-surface-variant text-sm text-center md:text-left">
-            © 2026 Nurturly. Redefining Care, Redefining Time.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import ContactForm from '@/components/ContactForm'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Contact Us | Nurturly',
@@ -100,14 +101,7 @@ export default function Contact() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-on-surface text-surface-container py-16 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <p className="font-body text-sm tracking-wide text-center md:text-left">
-            © 2026 Nurturly. Redefining Care, Redefining Time.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

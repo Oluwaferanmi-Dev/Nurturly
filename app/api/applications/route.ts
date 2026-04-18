@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { createClient } from '@/lib/supabase/server'
-import { sendApplicationEmail } from '@/lib/email'
+import { sendApplicationEmail, sendApplicationConfirmation } from '@/lib/email'
 
 const applicationSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -58,6 +58,16 @@ export async function POST(request: NextRequest) {
     if (!emailResponse.success) {
       console.warn('Failed to send application email:', emailResponse.error)
       // Continue even if email fails - the application is saved
+    }
+
+    // Send confirmation to the applicant
+    const confirmResponse = await sendApplicationConfirmation({
+      name: validatedData.name,
+      email: validatedData.email,
+      job_slug: validatedData.job_slug,
+    })
+    if (!confirmResponse.success) {
+      console.warn('Failed to send application confirmation:', confirmResponse.error)
     }
 
     return NextResponse.json(

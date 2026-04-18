@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Nurturly | Premium Home Care Sanctuary',
@@ -35,13 +36,19 @@ export default function Home() {
                 for your loved ones in the space they love most.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="signature-gradient text-on-primary px-10 py-4 rounded-xl text-lg font-semibold hover:scale-[1.02] transition-transform">
+                <Link
+                  href="/contact"
+                  className="signature-gradient text-on-primary px-10 py-4 rounded-xl text-lg font-semibold hover:scale-[1.02] transition-transform text-center"
+                >
                   Start Your Journey
-                </button>
-                <button className="bg-surface-container-lowest text-primary border border-outline-variant/30 px-10 py-4 rounded-xl text-lg font-semibold hover:bg-surface-container-low transition-colors flex items-center gap-2">
+                </Link>
+                <Link
+                  href="/about"
+                  className="bg-surface-container-lowest text-primary border border-outline-variant/30 px-10 py-4 rounded-xl text-lg font-semibold hover:bg-surface-container-low transition-colors flex items-center gap-2 justify-center"
+                >
                   <span className="material-symbols-outlined">play_circle</span>
                   View Our Story
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -224,73 +231,24 @@ export default function Home() {
               Join the families who have found peace of mind and professional care that feels like family.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
-              <button className="bg-surface-container-lowest text-primary px-12 py-5 rounded-xl text-lg font-bold hover:bg-surface transition-transform hover:scale-105 active:scale-95">
-                Schedule a Free Tour
-              </button>
-              <button className="border border-white/30 text-white px-12 py-5 rounded-xl text-lg font-bold hover:bg-white/10 transition-colors">
+              <Link
+                href="/contact"
+                className="bg-surface-container-lowest text-primary px-12 py-5 rounded-xl text-lg font-bold hover:bg-surface transition-transform hover:scale-105 active:scale-95 text-center"
+              >
+                Schedule a Free Consultation
+              </Link>
+              <Link
+                href="/contact"
+                className="border border-white/30 text-white px-12 py-5 rounded-xl text-lg font-bold hover:bg-white/10 transition-colors text-center"
+              >
                 Speak with a Care Manager
-              </button>
+              </Link>
             </div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-stone-100 dark:bg-stone-900 mt-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 max-w-screen-2xl mx-auto">
-          <div>
-            <div className="flex items-center gap-3 mb-8">
-              <img alt="Nurturly Logo" className="h-6 w-6 object-contain" src="/nurturly-logo.png" />
-              <span className="font-headline text-xl font-bold text-teal-900 dark:text-teal-100">Nurturly</span>
-            </div>
-            <p className="font-body text-sm leading-relaxed text-stone-500 dark:text-stone-400">
-              Providing world-class home care that honors the sanctuary of the home and the dignity of the individual.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <h5 className="text-teal-800 dark:text-teal-400 font-semibold mb-2">Company</h5>
-            <Link href="/about" className="font-body text-sm text-stone-500 dark:text-stone-400 hover:underline">
-              About
-            </Link>
-            <Link href="/careers" className="font-body text-sm text-stone-500 dark:text-stone-400 hover:underline">
-              Careers
-            </Link>
-            <Link href="/contact" className="font-body text-sm text-stone-500 dark:text-stone-400 hover:underline">
-              Contact
-            </Link>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <h5 className="text-teal-800 dark:text-teal-400 font-semibold mb-2">Services</h5>
-            <Link href="/services" className="font-body text-sm text-stone-500 dark:text-stone-400 hover:underline">
-              Home Care
-            </Link>
-            <Link href="/for-professionals" className="font-body text-sm text-stone-500 dark:text-stone-400 hover:underline">
-              For Professionals
-            </Link>
-            <Link href="/how-it-works" className="font-body text-sm text-stone-500 dark:text-stone-400 hover:underline">
-              How It Works
-            </Link>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <h5 className="text-teal-800 dark:text-teal-400 font-semibold mb-2">Legal</h5>
-            <Link href="/privacy" className="font-body text-sm text-stone-500 dark:text-stone-400 hover:underline">
-              Privacy Policy
-            </Link>
-            <Link href="/accessibility" className="font-body text-sm text-stone-500 dark:text-stone-400 hover:underline">
-              Accessibility
-            </Link>
-          </div>
-        </div>
-
-        <div className="border-t border-stone-200 dark:border-stone-800 px-12 py-8">
-          <p className="text-center text-stone-500 dark:text-stone-400 text-sm">
-            © 2026 Nurturly. Redefining Care, Redefining Time.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

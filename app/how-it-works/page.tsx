@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'How It Works | Nurturly - Care Begins Here',
@@ -224,55 +226,23 @@ export default function HowItWorks() {
             Our compassionate team is ready to listen whenever you&apos;re ready to share. No obligations, just genuine support.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:opacity-90 transition-all">
+            <Link
+              href="/contact"
+              className="bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:opacity-90 transition-all text-center"
+            >
               Book a Consultation
-            </button>
-            <button className="bg-background text-foreground border border-border px-10 py-4 rounded-xl font-bold text-lg hover:bg-secondary/5 transition-all">
+            </Link>
+            <Link
+              href="/resources"
+              className="bg-background text-foreground border border-border px-10 py-4 rounded-xl font-bold text-lg hover:bg-secondary/5 transition-all text-center"
+            >
               Download Family Guide
-            </button>
+            </Link>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="w-full pt-16 pb-8 bg-secondary/5 border-t border-border/20">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div className="col-span-1 md:col-span-1 space-y-6">
-            <div className="font-headline text-3xl italic text-primary">Nurturly</div>
-            <p className="text-muted-foreground leading-relaxed text-sm">
-              Creating sanctuaries of care and dignity for the people you love most.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-bold text-foreground mb-6 text-sm uppercase tracking-widest">Explore</h4>
-            <ul className="space-y-4">
-              <li><a className="text-muted-foreground hover:text-primary transition-all text-sm underline-offset-4 hover:underline" href="#">Service Areas</a></li>
-              <li><a className="text-muted-foreground hover:text-primary transition-all text-sm underline-offset-4 hover:underline" href="#">For Families</a></li>
-              <li><a className="text-muted-foreground hover:text-primary transition-all text-sm underline-offset-4 hover:underline" href="#">Referrals</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-foreground mb-6 text-sm uppercase tracking-widest">Company</h4>
-            <ul className="space-y-4">
-              <li><a className="text-muted-foreground hover:text-primary transition-all text-sm underline-offset-4 hover:underline" href="#">Careers</a></li>
-              <li><a className="text-muted-foreground hover:text-primary transition-all text-sm underline-offset-4 hover:underline" href="#">Resources</a></li>
-              <li><a className="text-muted-foreground hover:text-primary transition-all text-sm underline-offset-4 hover:underline" href="#">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-foreground mb-6 text-sm uppercase tracking-widest">Contact</h4>
-            <p className="text-muted-foreground mb-4 text-sm">123 Sanctuary Way<br/>Careington, ST 12345</p>
-            <p className="text-muted-foreground text-sm">hello@nurturly.care</p>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-border/20 flex flex-col sm:flex-row justify-between items-center text-muted-foreground text-sm gap-4">
-          <p>© 2026 Nurturly Home Care. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a className="hover:text-primary transition-all" href="#">Privacy Policy</a>
-            <a className="hover:text-primary transition-all" href="#">Terms of Service</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

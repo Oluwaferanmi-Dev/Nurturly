@@ -159,6 +159,153 @@ export async function sendInquiryEmail(data: {
   }
 }
 
+// ─── Inquiry Confirmation (to submitter) ────────────────────────────────────────
+
+export async function sendInquiryConfirmation(data: {
+  name: string
+  email: string
+}) {
+  const htmlContent = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      ${sharedStyles}
+    </head>
+    <body style="font-family:'Manrope',sans-serif;background-color:#f5f5f5;color:#1c1c19;margin:0;padding:48px 16px;">
+
+      <div style="max-width:600px;margin:0 auto;background-color:#fcf9f4;border-radius:2px;box-shadow:0 10px 30px -5px rgba(0,0,0,0.05);overflow:hidden;border:1px solid rgba(0,109,119,0.1);">
+
+        <!-- Logo -->
+        <div style="padding:40px 48px;text-align:center;border-bottom:1px solid rgba(0,109,119,0.05);">
+          <img alt="Nurturly Care" src="${LOGO_URL}" style="height:44px;width:auto;object-fit:contain;" />
+        </div>
+
+        <!-- Content -->
+        <div style="padding:48px;">
+
+          <h1 style="font-family:'Newsreader',Georgia,serif;font-size:32px;font-weight:300;color:#006D77;margin:0 0 16px 0;letter-spacing:-0.01em;">We received your message.</h1>
+          <p style="font-size:17px;color:#3e494a;margin:0 0 32px 0;line-height:1.7;font-weight:300;">Thank you, ${escapeHtml(data.name)}. A member of our care team will review your inquiry and get back to you within <strong style="color:#006D77;">24 hours</strong>.</p>
+
+          <div style="background-color:rgba(0,109,119,0.04);border-left:3px solid #006D77;padding:24px 28px;margin-bottom:40px;">
+            <p style="margin:0 0 12px 0;font-size:13px;text-transform:uppercase;letter-spacing:0.15em;font-weight:600;color:#8c4e35;">What happens next</p>
+            <ol style="margin:0;padding-left:20px;color:#3e494a;font-size:15px;line-height:2;">
+              <li>A care coordinator will call or email you</li>
+              <li>We&rsquo;ll discuss your specific needs and questions</li>
+              <li>We&rsquo;ll schedule a free in-home consultation</li>
+            </ol>
+          </div>
+
+          <p style="font-size:14px;color:#3e494a;margin:0 0 8px 0;">In the meantime, feel free to reach us directly:</p>
+          <p style="font-size:15px;margin:0;"><a href="mailto:hello@nurturlycare.com" style="color:#006D77;text-decoration:none;font-weight:500;">hello@nurturlycare.com</a></p>
+
+        </div>
+
+        <!-- Footer -->
+        <div style="background-color:rgba(255,255,255,0.5);padding:32px 48px;border-top:1px solid rgba(0,109,119,0.05);text-align:center;">
+          <p style="font-size:10px;text-transform:uppercase;letter-spacing:0.3em;color:#8c4e35;font-weight:700;margin:0 0 12px 0;">${COMPANY_NAME}</p>
+          <p style="font-size:11px;color:rgba(62,73,74,0.7);line-height:1.7;font-weight:300;margin:0;">
+            &copy; ${new Date().getFullYear()} ${COMPANY_NAME}. All rights reserved.<br/>
+            You&rsquo;re receiving this because you submitted a form on nurturlycare.com.
+          </p>
+        </div>
+
+      </div>
+    </body>
+    </html>
+  `
+
+  try {
+    const response = await resend.emails.send({
+      from: `${COMPANY_NAME} <noreply@nurturlycare.com>`,
+      to: data.email,
+      subject: `We received your inquiry, ${data.name}`,
+      html: htmlContent,
+    })
+    return { success: true, messageId: response.data?.id }
+  } catch (error) {
+    console.error('Failed to send inquiry confirmation:', error)
+    return { success: false, error }
+  }
+}
+
+// ─── Application Confirmation (to applicant) ──────────────────────────────────
+
+export async function sendApplicationConfirmation(data: {
+  name: string
+  email: string
+  job_slug: string
+}) {
+  const htmlContent = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      ${sharedStyles}
+    </head>
+    <body style="font-family:'Manrope',sans-serif;background-color:#f5f5f5;color:#1c1c19;margin:0;padding:48px 16px;">
+
+      <div style="max-width:600px;margin:0 auto;background-color:#fcf9f4;border-radius:2px;box-shadow:0 10px 30px -5px rgba(0,0,0,0.05);overflow:hidden;border:1px solid rgba(0,109,119,0.1);">
+
+        <!-- Logo -->
+        <div style="padding:40px 48px;text-align:center;border-bottom:1px solid rgba(0,109,119,0.05);">
+          <img alt="Nurturly Care" src="${LOGO_URL}" style="height:44px;width:auto;object-fit:contain;" />
+        </div>
+
+        <!-- Content -->
+        <div style="padding:48px;">
+
+          <h1 style="font-family:'Newsreader',Georgia,serif;font-size:32px;font-weight:300;color:#006D77;margin:0 0 16px 0;letter-spacing:-0.01em;">Application received.</h1>
+          <p style="font-size:17px;color:#3e494a;margin:0 0 32px 0;line-height:1.7;font-weight:300;">
+            Thank you, ${escapeHtml(data.name)}. We&rsquo;ve received your application for the <strong style="color:#006D77;">${escapeHtml(formatJobTitle(data.job_slug))}</strong> position and are genuinely excited to learn more about you.
+          </p>
+
+          <div style="background-color:rgba(0,109,119,0.04);border-left:3px solid #006D77;padding:24px 28px;margin-bottom:40px;">
+            <p style="margin:0 0 16px 0;font-size:13px;text-transform:uppercase;letter-spacing:0.15em;font-weight:600;color:#8c4e35;">Your journey with us</p>
+            <table style="width:100%;border-collapse:collapse;">
+              <tr><td style="padding:6px 0;vertical-align:top;width:28px;"><span style="font-size:13px;font-weight:700;color:#006D77;">01</span></td><td style="padding:6px 0;font-size:14px;color:#3e494a;">Discovery &mdash; Application review by our team</td></tr>
+              <tr><td style="padding:6px 0;vertical-align:top;"><span style="font-size:13px;font-weight:700;color:#006D77;">02</span></td><td style="padding:6px 0;font-size:14px;color:#3e494a;">Initial Chat &mdash; A brief values-alignment call</td></tr>
+              <tr><td style="padding:6px 0;vertical-align:top;"><span style="font-size:13px;font-weight:700;color:#006D77;">03</span></td><td style="padding:6px 0;font-size:14px;color:#3e494a;">Immersive &mdash; Visit a sanctuary, see our culture</td></tr>
+              <tr><td style="padding:6px 0;vertical-align:top;"><span style="font-size:13px;font-weight:700;color:#006D77;">04</span></td><td style="padding:6px 0;font-size:14px;color:#3e494a;">Deep Dive &mdash; Meet your future team</td></tr>
+              <tr><td style="padding:6px 0;vertical-align:top;"><span style="font-size:13px;font-weight:700;color:#006D77;">05</span></td><td style="padding:6px 0;font-size:14px;color:#3e494a;">Welcome Home &mdash; Begin your journey</td></tr>
+            </table>
+          </div>
+
+          <p style="font-size:14px;color:#3e494a;margin:0 0 8px 0;">Our team typically responds within 48 hours. Questions in the meantime?</p>
+          <p style="font-size:15px;margin:0;"><a href="mailto:hello@nurturlycare.com" style="color:#006D77;text-decoration:none;font-weight:500;">hello@nurturlycare.com</a></p>
+
+        </div>
+
+        <!-- Footer -->
+        <div style="background-color:rgba(255,255,255,0.5);padding:32px 48px;border-top:1px solid rgba(0,109,119,0.05);text-align:center;">
+          <p style="font-size:10px;text-transform:uppercase;letter-spacing:0.3em;color:#8c4e35;font-weight:700;margin:0 0 12px 0;">${COMPANY_NAME}</p>
+          <p style="font-size:11px;color:rgba(62,73,74,0.7);line-height:1.7;font-weight:300;margin:0;">
+            &copy; ${new Date().getFullYear()} ${COMPANY_NAME}. All rights reserved.<br/>
+            You&rsquo;re receiving this because you applied for a role at nurturlycare.com.
+          </p>
+        </div>
+
+      </div>
+    </body>
+    </html>
+  `
+
+  try {
+    const response = await resend.emails.send({
+      from: `${COMPANY_NAME} <noreply@nurturlycare.com>`,
+      to: data.email,
+      subject: `Your application to Nurturly — ${formatJobTitle(data.job_slug)}`,
+      html: htmlContent,
+    })
+    return { success: true, messageId: response.data?.id }
+  } catch (error) {
+    console.error('Failed to send application confirmation:', error)
+    return { success: false, error }
+  }
+}
+
 // ─── Application Email ────────────────────────────────────────────────────────
 
 export async function sendApplicationEmail(data: {

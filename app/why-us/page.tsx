@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Why Nurturly | Premium Home Care Philosophy',
@@ -195,54 +197,24 @@ export default function WhyUs() {
               Ready to experience a different kind of care?
             </h2>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="bg-primary-foreground text-primary px-10 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-all">
+              <Link
+                href="/contact"
+                className="bg-primary-foreground text-primary px-10 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-all text-center"
+              >
                 Book a Consultation
-              </button>
-              <button className="border-2 border-primary-foreground/30 text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
-                Download Brochure
-              </button>
+              </Link>
+              <Link
+                href="/contact"
+                className="border-2 border-primary-foreground/30 text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all text-center"
+              >
+                Get in Touch
+              </Link>
             </div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-secondary/5 border-t border-border/20 w-full pt-16 pb-8">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12 font-body text-sm leading-relaxed mb-12">
-          <div className="flex flex-col gap-4">
-            <div className="font-headline text-3xl italic text-primary font-bold">Nurturly</div>
-            <p className="text-muted-foreground">Cultivating sanctuaries of care and dignity for the ones you love most.</p>
-          </div>
-          <div>
-            <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Company</h4>
-            <div className="flex flex-col gap-3">
-              <a className="text-muted-foreground hover:text-primary transition-all text-sm" href="#">About Us</a>
-              <a className="text-muted-foreground hover:text-primary transition-all text-sm" href="#">Careers</a>
-              <a className="text-muted-foreground hover:text-primary transition-all text-sm" href="#">Contact</a>
-            </div>
-          </div>
-          <div>
-            <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Resources</h4>
-            <div className="flex flex-col gap-3">
-              <a className="text-muted-foreground hover:text-primary transition-all text-sm" href="#">Service Areas</a>
-              <a className="text-muted-foreground hover:text-primary transition-all text-sm" href="#">For Families</a>
-              <a className="text-muted-foreground hover:text-primary transition-all text-sm" href="#">Insights</a>
-            </div>
-          </div>
-          <div>
-            <h4 className="font-bold text-primary mb-6 uppercase tracking-wider text-xs">Legal</h4>
-            <div className="flex flex-col gap-3">
-              <a className="text-muted-foreground hover:text-primary transition-all text-sm" href="#">Privacy Policy</a>
-              <a className="text-muted-foreground hover:text-primary transition-all text-sm" href="#">Terms of Service</a>
-            </div>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 border-t border-border/20 pt-8">
-          <p className="text-muted-foreground text-sm text-center md:text-left">
-            © 2026 Nurturly Home Care. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

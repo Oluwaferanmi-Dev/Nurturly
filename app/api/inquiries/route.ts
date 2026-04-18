@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { createClient } from '@/lib/supabase/server'
-import { sendInquiryEmail } from '@/lib/email'
+import { sendInquiryEmail, sendInquiryConfirmation } from '@/lib/email'
 
 const inquirySchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -50,6 +50,15 @@ export async function POST(request: NextRequest) {
     if (!emailResponse.success) {
       console.warn('Failed to send inquiry email:', emailResponse.error)
       // Continue even if email fails - the inquiry is saved
+    }
+
+    // Send confirmation to the submitter
+    const confirmResponse = await sendInquiryConfirmation({
+      name: validatedData.name,
+      email: validatedData.email,
+    })
+    if (!confirmResponse.success) {
+      console.warn('Failed to send inquiry confirmation:', confirmResponse.error)
     }
 
     return NextResponse.json(

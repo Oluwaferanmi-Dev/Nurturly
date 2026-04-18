@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Our Services | Nurturly Home Care',
@@ -75,9 +77,12 @@ export default function Services() {
               <p className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed mb-10 max-w-xl">
                 We provide non-medical home care and personal assistance services designed to support daily life at home with comfort, dignity, and consistency.
               </p>
-              <button className="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:opacity-90 transition-all">
+              <Link
+                href="/contact"
+                className="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:opacity-90 transition-all text-center"
+              >
                 Request a Personalized Care Plan
-              </button>
+              </Link>
             </div>
 
             <div className="relative hidden lg:block">
@@ -159,15 +164,13 @@ export default function Services() {
                 </p>
               </div>
               <div className="z-10">
-                <button className="bg-card text-primary px-8 py-4 rounded-xl font-bold hover:bg-primary-foreground transition-colors flex items-center gap-2 whitespace-nowrap">
-                  Explore Care Options
-                  <span
-                    className="material-symbols-outlined text-sm"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                  >
-                    arrow_forward
-                  </span>
-                </button>
+                <Link
+                href="/contact"
+                className="bg-card text-primary px-8 py-4 rounded-xl font-bold hover:bg-primary-foreground transition-colors flex items-center gap-2 whitespace-nowrap"
+              >
+                Explore Care Options
+                <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>arrow_forward</span>
+              </Link>
               </div>
               <div className="absolute right-0 top-0 w-96 h-96 opacity-10 pointer-events-none hidden md:block">
                 <span
@@ -200,66 +203,24 @@ export default function Services() {
               &quot;Our mission is to bring peace of mind back to families. We aren&apos;t just caregivers; we are an extension of your home.&quot;
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <button className="bg-primary text-primary-foreground px-10 py-5 rounded-xl font-bold text-lg shadow-xl hover:opacity-90 transition-all w-full sm:w-auto">
+              <Link
+                href="/contact"
+                className="bg-primary text-primary-foreground px-10 py-5 rounded-xl font-bold text-lg shadow-xl hover:opacity-90 transition-all w-full sm:w-auto text-center"
+              >
                 Request a Personalized Care Plan
-              </button>
-              <button className="bg-card border border-border text-foreground px-10 py-5 rounded-xl font-bold text-lg hover:bg-secondary/5 transition-all w-full sm:w-auto">
-                View Pricing &amp; FAQ
-              </button>
+              </Link>
+              <Link
+                href="/contact"
+                className="bg-card border border-border text-foreground px-10 py-5 rounded-xl font-bold text-lg hover:bg-secondary/5 transition-all w-full sm:w-auto text-center"
+              >
+                Speak With Our Team
+              </Link>
             </div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="w-full pt-16 pb-8 bg-secondary/5 border-t border-border/20">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div className="col-span-1 md:col-span-1">
-            <div className="font-headline text-3xl italic text-primary mb-6">Nurturly</div>
-            <p className="text-muted-foreground leading-relaxed mb-6 font-body text-sm">
-              Premium home care services rooted in hospitality, warmth, and dignified aging.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-bold text-foreground mb-6 text-sm uppercase tracking-wider">Quick Links</h4>
-            <ul className="space-y-4">
-              <li><a className="text-muted-foreground hover:text-primary transition-all text-sm" href="#">Service Areas</a></li>
-              <li><a className="text-muted-foreground hover:text-primary transition-all text-sm" href="#">For Families</a></li>
-              <li><a className="text-muted-foreground hover:text-primary transition-all text-sm" href="#">Referrals</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-foreground mb-6 text-sm uppercase tracking-wider">Support</h4>
-            <ul className="space-y-4">
-              <li><a className="text-muted-foreground hover:text-primary transition-all text-sm" href="#">Resources</a></li>
-              <li><a className="text-muted-foreground hover:text-primary transition-all text-sm" href="#">Privacy Policy</a></li>
-              <li><a className="text-muted-foreground hover:text-primary transition-all text-sm" href="#">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-foreground mb-6 text-sm uppercase tracking-wider">Newsletter</h4>
-            <p className="text-muted-foreground text-sm mb-4">Caregiving insights delivered to your inbox.</p>
-            <div className="flex gap-2">
-              <input
-                className="bg-input border border-border rounded-lg text-sm w-full px-4 py-2 text-foreground placeholder:text-muted-foreground focus:ring-1 focus:ring-primary outline-none"
-                placeholder="Email address"
-                type="email"
-              />
-              <button className="bg-primary text-primary-foreground p-2 rounded-lg hover:opacity-90 transition-all">
-                <span
-                  className="material-symbols-outlined"
-                  style={{ fontVariationSettings: "'FILL' 1" }}
-                >
-                  send
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-border/20 text-center">
-          <p className="text-muted-foreground text-sm">© 2026 Nurturly Home Care. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

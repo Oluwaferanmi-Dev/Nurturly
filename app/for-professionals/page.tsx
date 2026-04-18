@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'For Professionals & Referral Partners | Nurturly',
@@ -59,21 +61,17 @@ export default function ForProfessionals() {
               </p>
             </div>
 
-            <button className="signature-gradient text-white px-8 py-4 rounded-xl font-medium tracking-wide shadow-lg shadow-primary-container/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+            <Link
+              href="/contact"
+              className="signature-gradient text-white px-8 py-4 rounded-xl font-medium tracking-wide shadow-lg shadow-primary-container/20 hover:scale-[1.02] active:scale-[0.98] transition-all inline-block"
+            >
               Get in Touch
-            </button>
+            </Link>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-on-surface text-surface-container py-16 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <p className="font-body text-sm tracking-wide text-center md:text-left">
-            © 2026 Nurturly. Redefining Care, Redefining Time.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

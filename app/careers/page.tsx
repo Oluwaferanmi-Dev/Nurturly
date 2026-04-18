@@ -1,52 +1,97 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import CareersForm from '@/components/CareersForm'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Work That Feels Meaningful | Nurturly Heritage Careers',
-  description: 'Join Nurturly Heritage and work in a sanctuary of care. Discover meaningful careers dedicated to the art of hospitality in healthcare.',
+  title: 'Careers | Nurturly Home Care Houston',
+  description:
+    'Join the Nurturly team in Houston, TX. We provide thoughtful, relationship-based home care. Meaningful work for people who care deeply.',
 }
 
 export default function Careers() {
   const responsibilities = [
-    { icon: 'heart_check', title: 'Curate Daily Joy', description: 'Go beyond medical tasks to facilitate moments of genuine happiness, from shared stories to personal hobbies.' },
-    { icon: 'verified_user', title: 'Maintain Heritage Standards', description: 'Uphold our signature hospitality-first approach in every interaction, ensuring a premium resident experience.' },
-    { icon: 'groups', title: 'Collaborative Care', description: 'Work in multidisciplinary teams to create personalized wellness plans that respect individual history.' },
+    {
+      icon: 'calendar_today',
+      title: 'Support Daily Routines',
+      description:
+        'Assist with activities of daily living and everyday routines, helping clients remain independent and comfortable.',
+    },
+    {
+      icon: 'favorite',
+      title: 'Companionship & Emotional Support',
+      description:
+        'Provide genuine companionship and emotional presence that makes each day feel meaningful and connected.',
+    },
+    {
+      icon: 'home',
+      title: 'Create a Calm Environment',
+      description:
+        'Help create a calm, safe, and comfortable home environment where clients feel secure and at ease.',
+    },
+    {
+      icon: 'handshake',
+      title: 'Build Trust with Families',
+      description:
+        'Develop consistent, reliable relationships with clients and their families built on honesty and care.',
+    },
   ]
 
   const qualities = [
-    'Emotional Intelligence',
-    'Hospitality Mindset',
-    'Dignity-First Approach',
-    'Growth Seekers',
+    'Calm and patient',
+    'Reliable and consistent',
+    'Observant and detail-oriented',
+    'Emotionally steady',
+    'Respectful and professional',
   ]
 
   const standards = [
-    { icon: 'workspace_premium', title: 'Excellence', description: 'A commitment to the highest quality in every micro-moment of care.' },
-    { icon: 'eco', title: 'Integrity', description: 'Unwavering ethical conduct and transparency with families.' },
-    { icon: 'volunteer_activism', title: 'Empathy', description: 'The ability to walk alongside our residents in their lived experience.' },
-    { icon: 'local_library', title: 'Tradition', description: 'Respecting the stories and heritage of those we serve.' },
+    {
+      icon: 'workspace_premium',
+      title: 'Dignity in Every Moment',
+      description:
+        'We treat every person with respect, protect their independence, and honor their choices.',
+    },
+    {
+      icon: 'eco',
+      title: 'Reliability Builds Trust',
+      description:
+        'Families depend on us, and we take that seriously. We show up, stay consistent, and follow through.',
+    },
+    {
+      icon: 'volunteer_activism',
+      title: 'Relationship-Centered Care',
+      description:
+        'Care should feel familiar. We prioritize consistency and real relationships.',
+    },
+    {
+      icon: 'spa',
+      title: 'The Warmth of Hospitality',
+      description:
+        'We bring attentiveness and thoughtful service into the home so every interaction feels personal.',
+    },
   ]
 
   const process = [
-    { step: '01', title: 'Discovery', description: 'Submit your application and share your story.' },
-    { step: '02', title: 'Initial Chat', description: 'A brief call to align on values and vision.' },
-    { step: '03', title: 'Immersive', description: 'Visit a sanctuary to see our culture in action.' },
-    { step: '04', title: 'Deep Dive', description: 'Connect with your future team and leaders.' },
-    { step: '05', title: 'Refinement', description: 'Aligning logistics and mutual expectations.' },
-    { step: '06', title: 'Welcome Home', description: 'Begin your journey in a sanctuary of care.' },
+    { step: '01', title: 'Application', description: 'Submit your application and tell us about yourself.' },
+    { step: '02', title: 'Phone Interview', description: 'A brief call to learn more about you and answer your questions.' },
+    { step: '03', title: 'Reference Check', description: 'We reach out to your references to confirm your background.' },
+    { step: '04', title: 'In-Person Interview', description: 'Meet the team and get a feel for who we are.' },
+    { step: '05', title: 'Shadow Shift', description: 'Spend time with an experienced caregiver to see care in action.' },
+    { step: '06', title: 'Final Decision', description: 'We make our decision and welcome you to the Nurturly team.' },
   ]
 
   return (
     <>
       <Header />
       <main className="bg-surface text-on-surface font-body min-h-screen">
+
         {/* Hero Section */}
         <section className="relative h-[600px] md:h-[700px] lg:h-[870px] flex items-center overflow-hidden mt-16">
           <div className="absolute inset-0 z-0">
             <img
-              alt="Nurturly Heritage Workplace"
-              className="w-full h-full object-cover brightness-[0.85]"
+              alt="Nurturly caregiver at work"
+              className="w-full h-full object-cover brightness-[0.75]"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjGcWAI3g1cyeI962zZIEE6o92o0vt1ZH2_gKsa0hqCHpIoT25DP_lxPYZciutWDlQHHU99XPOMFhyzeynMuAAD4Fk_ijpPdi8NVZqw3cj3h9-r9MkRYQdbZsLnqsjVXZcK3Wg053FaS-ZTV2zPNe1dmIKz-gRNnMcEIO0FLopdOnwsPkw6012pe7stO9VodhAFcv7rHTZ1yKjKNiefrwBQhfaQaXAdz1UP2YK6ECg8Z7UWxnfdoc7Vcdrw3lGdslEBTc8-ii8dcd7"
             />
           </div>
@@ -57,21 +102,27 @@ export default function Careers() {
                 <span className="italic">Meaningful</span>
               </h1>
               <p className="text-white/90 text-lg md:text-xl lg:text-2xl font-light leading-relaxed mb-8 md:mb-10 max-w-xl">
-                At Nurturly Heritage, we don&apos;t just provide care. We curate sanctuaries. Join a team dedicated to the art of hospitality in healthcare.
+                Care for people, not just tasks.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="px-8 md:px-10 py-3 md:py-4 signature-gradient text-white font-bold rounded-xl shadow-lg hover:scale-105 transition-transform active:scale-95">
-                  View Open Positions
-                </button>
-                <button className="px-8 md:px-10 py-3 md:py-4 bg-white/10 backdrop-blur-md text-white border border-white/20 font-bold rounded-xl hover:bg-white/20 transition-all">
-                  Our Philosophy
-                </button>
+                <a
+                  href="#apply-form"
+                  className="px-8 md:px-10 py-3 md:py-4 signature-gradient text-white font-bold rounded-xl shadow-lg hover:scale-105 transition-transform active:scale-95 text-center"
+                >
+                  View Open Roles
+                </a>
+                <a
+                  href="#apply-form"
+                  className="px-8 md:px-10 py-3 md:py-4 bg-white/10 backdrop-blur-md text-white border border-white/20 font-bold rounded-xl hover:bg-white/20 transition-all text-center"
+                >
+                  Apply Now
+                </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* We Care Differently Section */}
+        {/* We Care Differently */}
         <section className="py-20 md:py-32 bg-surface">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
@@ -81,22 +132,22 @@ export default function Careers() {
                     We Care <span className="italic font-medium">Differently</span>
                   </h2>
                   <p className="text-base md:text-lg text-on-surface-variant leading-relaxed mb-4 md:mb-6">
-                    We&apos;ve moved beyond the clinical. Our sanctuary model focuses on the dignity of our residents and the fulfillment of our staff. We believe that to care for others, our team must first feel cared for.
+                    At Nurturly, we provide thoughtful, relationship-based care designed to feel calm, personal, and human.
                   </p>
                   <p className="text-base md:text-lg text-on-surface-variant leading-relaxed">
-                    From unhurried schedules to beautiful environments, every detail is designed to foster genuine human connection. This isn&apos;t just a job; it&apos;s a practice of empathy and excellence.
+                    You care for one family deeply instead of many clients quickly. We prioritize relationships over rushed, task-based care. This isn&apos;t just a job &mdash; it&apos;s meaningful work done well.
                   </p>
                 </div>
                 <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl -z-10"></div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                 <img
-                  alt="Trust"
+                  alt="Caregiver with client"
                   className="rounded-xl w-full h-60 sm:h-72 md:h-80 object-cover"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_2g6RlTgQM1xMynhJu-Q3TIZit3mVpaI9mS1xCuq2z0nCB0otRmD9TT_iEhBv5j0j2gHcggAFdV6_3l8PWiA1ZzJAWq3v-H2juxjq-I2Kw6p5nhOKZdun7d_4NAJcv_IDY7ozPU1cn2dea0uhV4m270Axs45iEhYJay_yllODWHqYnVO-YSgPG8HSrMzOhZbRPtdtKa5yu8XUPAUbCiyhZ0vw5Bov-rBcyMR9dT_dSNJG4mBoCB0RY0jnTXQ3uj_xpkg9yoO3Ia0x"
                 />
                 <img
-                  alt="Environment"
+                  alt="Home care environment"
                   className="rounded-xl w-full h-60 sm:h-72 md:h-80 object-cover sm:mt-12"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGZe5jnvVDkHZKhxkBzdCQy_quzm1TjQ3pGyabKEp32spzsn43LoaxJ_ha1_JH6tHEFtB9mDRSPBpj7n9qvs0rVlao_k-glVWPGbWjquLroDhJKOhTV4i6GvbmPUvoY7kAJA0A8yN1jT3W_H2knPW-vD-gcDdZW5b4L1tvQh2IkW-p0nuIbXd5e_ATzyzBkZdPTQ-FJFv-bgpoyGL2xr6Fs1IZtVj6XhSBRuDhoVXJQSEZC6Z2S7PJrdWgLPyPlMcaRHO3lTWFMj79"
                 />
@@ -105,13 +156,15 @@ export default function Careers() {
           </div>
         </section>
 
-        {/* What You'll Do & Who We Look For Section */}
+        {/* What You'll Do & Who We Look For */}
         <section className="py-20 md:py-24 bg-surface-container-low">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
               {/* What You'll Do */}
               <div className="lg:col-span-4 bg-surface-container-lowest p-8 md:p-12 rounded-xl shadow-sm">
-                <span className="text-secondary font-semibold tracking-widest text-xs uppercase mb-4 block">The Mission</span>
+                <span className="text-secondary font-semibold tracking-widest text-xs uppercase mb-4 block">
+                  The Role
+                </span>
                 <h3 className="font-headline text-3xl md:text-4xl mb-8">What You&apos;ll Do</h3>
                 <div className="space-y-8">
                   {responsibilities.map((item, index) => (
@@ -136,36 +189,55 @@ export default function Careers() {
                       Who We <br />
                       <span className="italic">Look For</span>
                     </h3>
-                    <p className="text-white/80 mb-8 text-sm md:text-base">We seek individuals who view care as a craft, not just a career.</p>
+                    <p className="text-white/80 mb-8 text-sm md:text-base">
+                      This role is designed for people who value patience, consistency, and meaningful connection.
+                    </p>
                   </div>
                   <ul className="space-y-4 font-medium text-base md:text-lg">
                     {qualities.map((quality, index) => (
                       <li key={index} className="flex items-center gap-3">
-                        <span className="material-symbols-outlined text-secondary-fixed-dim text-5xl leading-none">check_circle</span>
+                        <span
+                          className="material-symbols-outlined text-white/80"
+                          style={{ fontVariationSettings: "'FILL' 1", fontSize: '20px' }}
+                        >
+                          check_circle
+                        </span>
                         <span>{quality}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="bg-secondary-container/30 p-6 md:p-8 rounded-xl border border-secondary/10">
-                  <p className="font-headline text-xl md:text-2xl text-secondary italic">&quot;The best care doesn&apos;t come from a handbook, it comes from the heart.&quot;</p>
+                  <p className="font-headline text-xl md:text-2xl text-secondary italic">
+                    &ldquo;Care should feel personal, consistent, and human.&rdquo;
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Our Standards Grid */}
+        {/* Our Standards */}
         <section className="py-20 md:py-32 bg-surface">
           <div className="container mx-auto px-6 lg:px-12 text-center mb-12 md:mb-16">
-            <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl mb-4">Our Heritage Standards</h2>
-            <p className="text-on-surface-variant max-w-2xl mx-auto text-sm md:text-base">The pillars that uphold our community and define our professional excellence.</p>
+            <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl mb-4">Our Standards</h2>
+            <p className="text-on-surface-variant max-w-2xl mx-auto text-sm md:text-base">
+              The values that guide everything we do.
+            </p>
           </div>
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {standards.map((standard, index) => (
-                <div key={index} className="bg-surface-container-high p-8 md:p-10 rounded-xl hover:bg-surface-container-lowest transition-all duration-300 group">
-                  <span className="material-symbols-outlined text-primary text-3xl md:text-4xl mb-6 block">{standard.icon}</span>
+                <div
+                  key={index}
+                  className="bg-surface-container-high p-8 md:p-10 rounded-xl hover:bg-surface-container-lowest transition-all duration-300"
+                >
+                  <span
+                    className="material-symbols-outlined text-primary text-3xl md:text-4xl mb-6 block"
+                    style={{ fontVariationSettings: "'FILL' 1" }}
+                  >
+                    {standard.icon}
+                  </span>
                   <h4 className="font-bold text-lg md:text-xl mb-3 md:mb-4">{standard.title}</h4>
                   <p className="text-on-surface-variant text-xs md:text-sm">{standard.description}</p>
                 </div>
@@ -178,19 +250,25 @@ export default function Careers() {
         <section className="py-20 md:py-32 bg-surface-container-low overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12">
             <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl mb-12 md:mb-20 text-center">
-              Your Journey to <span className="italic">Joining Us</span>
+              Our Process
             </h2>
             <div className="relative">
               <div className="hidden lg:block absolute top-12 left-0 w-full h-[1px] bg-outline-variant/30 z-0"></div>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 lg:gap-12 relative z-10">
                 {process.map((item, index) => (
                   <div key={index} className="text-center group">
-                    <div className={`w-20 h-20 md:w-24 md:h-24 flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-sm border-4 rounded-full transition-all ${
-                      index === process.length - 1
-                        ? 'signature-gradient text-white'
-                        : 'bg-surface-container-lowest border-surface group-hover:border-primary-container'
-                    }`}>
-                      <span className={`font-headline text-2xl md:text-3xl ${index === process.length - 1 ? 'text-white' : 'text-primary'}`}>
+                    <div
+                      className={`w-20 h-20 md:w-24 md:h-24 flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-sm border-4 rounded-full transition-all ${
+                        index === process.length - 1
+                          ? 'signature-gradient text-white border-transparent'
+                          : 'bg-surface-container-lowest border-surface group-hover:border-primary-container'
+                      }`}
+                    >
+                      <span
+                        className={`font-headline text-2xl md:text-3xl ${
+                          index === process.length - 1 ? 'text-white' : 'text-primary'
+                        }`}
+                      >
                         {item.step}
                       </span>
                     </div>
@@ -203,13 +281,17 @@ export default function Careers() {
           </div>
         </section>
 
-        {/* Application Form Section */}
-        <section className="py-20 md:py-32 bg-surface-container-low">
+        {/* Application Form */}
+        <section id="apply-form" className="py-20 md:py-32 bg-surface-container-low">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl mx-auto">
               <div className="mb-12 md:mb-16 text-center">
-                <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl text-primary mb-4">Apply Now</h2>
-                <p className="text-on-surface-variant text-base md:text-lg">Join our team and start your journey in a sanctuary of care.</p>
+                <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl text-primary mb-4">
+                  Join Nurturly
+                </h2>
+                <p className="text-on-surface-variant text-base md:text-lg max-w-xl mx-auto">
+                  If you believe care should feel personal, consistent, and human &mdash; we&apos;d love to hear from you.
+                </p>
               </div>
               <div className="bg-surface-container-lowest rounded-xl p-8 md:p-12 shadow-sm border border-outline-variant/10">
                 <CareersForm />
@@ -218,63 +300,8 @@ export default function Careers() {
           </div>
         </section>
 
-        {/* Final CTA Section */}
-        <section className="py-20 md:py-32 bg-surface">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="signature-gradient rounded-2xl md:rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] opacity-20"></div>
-              <div className="relative z-10 max-w-2xl mx-auto">
-                <h2 className="font-headline text-3xl md:text-4xl lg:text-6xl text-white mb-6 md:mb-8">Ready to Curate Sanctuary?</h2>
-                <p className="text-white/90 text-base md:text-xl mb-10 md:mb-12">We are always looking for compassionate souls to join our heritage properties across the country.</p>
-                <a href="#apply-form" className="px-10 md:px-12 py-4 md:py-5 bg-white text-primary font-extrabold text-base md:text-lg rounded-xl shadow-xl hover:scale-105 active:scale-95 transition-transform inline-block">
-                  Explore Open Roles
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
-
-      {/* Footer */}
-      <footer className="bg-surface-container-lowest dark:bg-on-surface w-full pt-16 md:pt-20 pb-8 md:pb-10 px-6 lg:px-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-7xl mx-auto mb-12 md:mb-20">
-          <div className="col-span-1 sm:col-span-2">
-            <div className="font-headline text-lg md:text-xl text-primary mb-4 md:mb-6">Nurturly Heritage</div>
-            <p className="text-on-surface-variant font-body max-w-md mb-6 md:mb-8 text-sm md:text-base">A curated sanctuary dedicated to the art of aging with dignity, grace, and unparalleled personal attention.</p>
-            <div className="flex gap-4">
-              <a className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
-                <span className="material-symbols-outlined text-lg">public</span>
-              </a>
-              <a className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
-                <span className="material-symbols-outlined text-lg">mail</span>
-              </a>
-              <a className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
-                <span className="material-symbols-outlined text-lg">call</span>
-              </a>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h6 className="font-bold text-xs md:text-sm tracking-widest uppercase text-primary">Company</h6>
-            <div className="flex flex-col gap-3">
-              <a className="text-xs md:text-sm tracking-wide text-on-surface-variant hover:text-secondary transition-colors" href="#">Our Story</a>
-              <a className="text-xs md:text-sm tracking-wide text-primary font-semibold" href="#">Careers</a>
-              <a className="text-xs md:text-sm tracking-wide text-on-surface-variant hover:text-secondary transition-colors" href="#">Employee Portal</a>
-              <a className="text-xs md:text-sm tracking-wide text-on-surface-variant hover:text-secondary transition-colors" href="#">Sustainability</a>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h6 className="font-bold text-xs md:text-sm tracking-widest uppercase text-primary">Legal</h6>
-            <div className="flex flex-col gap-3">
-              <a className="text-xs md:text-sm tracking-wide text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
-              <a className="text-xs md:text-sm tracking-wide text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
-              <a className="text-xs md:text-sm tracking-wide text-on-surface-variant hover:text-secondary transition-colors" href="#">Accessibility</a>
-            </div>
-          </div>
-        </div>
-        <div className="border-t border-outline-variant/10 pt-8 md:pt-10 max-w-7xl mx-auto text-center">
-          <p className="text-xs md:text-sm tracking-wide text-on-surface-variant">© 2024 Nurturly Heritage. A Sanctuary of Care.</p>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

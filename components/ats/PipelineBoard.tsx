@@ -21,8 +21,10 @@ interface Column {
   cards: Card[]
 }
 
-interface PipelineBoardProps {
-  columns: Column[]
+function urgencyColor(days: number) {
+  if (days <= 3) return '#22c55e'
+  if (days <= 7) return '#f59e0b'
+  return '#ef4444'
 }
 
 function KanbanCard({ card, stageId }: { card: Card; stageId: string }) {
@@ -35,72 +37,94 @@ function KanbanCard({ card, stageId }: { card: Card; stageId: string }) {
   }
 
   return (
-    <div className="bg-surface-container-lowest p-5 rounded-2xl group hover:shadow-md transition-all cursor-default">
-      <div className="flex justify-between items-start mb-4">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary font-bold font-body text-sm flex-shrink-0">
+    <div
+      className="p-4 rounded-2xl group cursor-default transition-shadow hover:shadow-md"
+      style={{ background: '#ffffff', border: '1px solid #e4e2dc' }}
+    >
+      <div className="flex justify-between items-start gap-2 mb-3">
+        <div className="flex items-center gap-3 min-w-0">
+          <div
+            className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+            style={{ background: '#d0f0f3', color: '#00363b' }}
+          >
             {card.initials}
           </div>
-          <div>
+          <div className="min-w-0">
             <Link
               href={`/ats/applicants/${card.id}`}
-              className="font-headline text-lg leading-none hover:text-primary transition-colors"
+              className="font-semibold text-sm leading-tight block truncate hover:underline"
+              style={{ color: '#1c1c19' }}
             >
               {card.name}
             </Link>
-            <p className="text-xs text-secondary mt-1 font-body">{card.role}</p>
+            <p className="text-xs truncate mt-0.5" style={{ color: '#4a6367' }}>{card.role}</p>
           </div>
         </div>
         {nextStage && (
           <button
             onClick={handleMove}
             disabled={isPending}
-            title="Move to next stage"
-            className="opacity-0 group-hover:opacity-100 p-1.5 rounded-full hover:bg-primary/10 text-primary transition-all disabled:opacity-50"
+            title="Advance to next stage"
+            className="opacity-0 group-hover:opacity-100 p-1.5 rounded-full transition-all flex-shrink-0 disabled:opacity-40"
+            style={{ background: '#d0f0f3', color: '#006d77' }}
           >
-            <span className="material-symbols-outlined text-[18px]">
+            <span className="material-symbols-outlined text-[16px]">
               {isPending ? 'hourglass_empty' : 'arrow_forward'}
             </span>
           </button>
         )}
       </div>
-      <div className="flex justify-between items-center pt-3 border-t border-surface-container/30">
-        <span className="text-[10px] uppercase font-body tracking-tight text-secondary">
+      <div
+        className="flex justify-between items-center pt-3"
+        style={{ borderTop: '1px solid #f0ede8' }}
+      >
+        <span className="text-[9px] uppercase font-bold" style={{ color: '#72706b' }}>
           {card.days === 0 ? 'Today' : `${card.days}d in stage`}
         </span>
-        <div className={`w-2.5 h-2.5 rounded-full ${card.urgencyClass}`} />
+        <div
+          className="w-2.5 h-2.5 rounded-full"
+          style={{ background: urgencyColor(card.days), boxShadow: `0 0 0 3px ${urgencyColor(card.days)}30` }}
+        />
       </div>
     </div>
   )
 }
 
-export default function PipelineBoard({ columns }: PipelineBoardProps) {
+export default function PipelineBoard({ columns }: { columns: Column[] }) {
   return (
-    <div className="flex-1 overflow-x-auto px-8 pb-12 mt-2">
-      <div className="flex gap-5 min-w-max h-full">
+    <div className="flex-1 overflow-x-auto px-4 md:px-8 pb-12 mt-2">
+      <div className="flex gap-4 min-w-max pb-4">
         {columns.map((col) => (
           <div
             key={col.id}
-            className="w-72 flex flex-col bg-surface-container-low/60 rounded-2xl p-4"
+            className="flex flex-col rounded-2xl p-3"
+            style={{ width: 272, background: '#f6f3ee', border: '1px solid #e4e2dc' }}
           >
             {/* Column Header */}
-            <div className="flex justify-between items-center mb-5 px-1">
-              <h3 className="font-body text-[10px] uppercase tracking-widest text-secondary font-bold">
+            <div className="flex justify-between items-center mb-4 px-1">
+              <h3
+                className="text-[9px] uppercase tracking-widest font-bold"
+                style={{ color: '#72706b' }}
+              >
                 {col.label}
               </h3>
-              <span className="text-xs font-body bg-surface-container-high px-2 py-0.5 rounded text-on-surface-variant">
+              <span
+                className="text-xs font-bold px-2 py-0.5 rounded-full"
+                style={{ background: '#eae7e2', color: '#42413e' }}
+              >
                 {col.cards.length}
               </span>
             </div>
 
             {/* Cards */}
-            <div className="space-y-3 flex-1 overflow-y-auto">
+            <div className="space-y-2 flex-1 overflow-y-auto max-h-[calc(100vh-260px)]">
               {col.cards.length === 0 ? (
-                <div className="flex flex-col items-center justify-center py-12 text-center opacity-40">
-                  <span className="material-symbols-outlined text-3xl text-outline mb-2">
-                    inbox
-                  </span>
-                  <p className="text-xs font-body text-secondary">No applicants</p>
+                <div
+                  className="flex flex-col items-center justify-center py-10 text-center rounded-xl"
+                  style={{ border: '2px dashed #e4e2dc' }}
+                >
+                  <span className="material-symbols-outlined text-2xl mb-1" style={{ color: '#c4c2bc' }}>inbox</span>
+                  <p className="text-xs" style={{ color: '#72706b' }}>Empty</p>
                 </div>
               ) : (
                 col.cards.map((card) => (

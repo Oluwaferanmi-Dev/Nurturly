@@ -4,19 +4,142 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Nurturly | Premium Home Care Sanctuary',
-  description: 'Expert care in the comfort of home. Experience the gold standard of care where medical expertise meets boutique hospitality.',
-  keywords: ['home care', 'elderly care', 'caregiver', 'in-home care', 'premium care'],
+  title: 'Nurturly | Premium Home Care in Houston, TX',
+  description: 'Nurturly provides compassionate, non-medical home care in Houston, Texas. Companionship, personal care, meal prep, mobility support, and more — care that feels personal, consistent, and deeply human.',
+  keywords: [
+    'home care Houston TX',
+    'non-medical home care Houston',
+    'in-home caregiver Houston Texas',
+    'senior care Houston',
+    'elderly home care Houston',
+    'companion care Houston',
+    'personal care assistant Houston',
+    'respite care Houston',
+    'memory care Houston',
+    'post-hospital care Houston',
+  ],
+  alternates: {
+    canonical: 'https://nurturlycare.com',
+  },
   openGraph: {
-    title: 'Nurturly | Premium Home Care Sanctuary',
-    description: 'Expert care in the comfort of home. Experience the gold standard of care where medical expertise meets boutique hospitality.',
+    title: 'Nurturly | Premium Home Care in Houston, TX',
+    description: 'Compassionate, non-medical home care in Houston. Care that feels personal, consistent, and deeply human.',
     type: 'website',
+    url: 'https://nurturlycare.com',
+    siteName: 'Nurturly Home Care',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Nurturly | Premium Home Care in Houston, TX',
+    description: 'Compassionate, non-medical home care in Houston. Care that feels personal, consistent, and deeply human.',
+  },
+  other: {
+    'geo.region': 'US-TX',
+    'geo.placename': 'Houston',
+    'geo.position': '29.7604;-95.3698',
+    'ICBM': '29.7604, -95.3698',
   },
 }
 
 export default function Home() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': ['LocalBusiness', 'HomeHealthCare'],
+        '@id': 'https://nurturlycare.com/#business',
+        name: 'Nurturly Home Care',
+        alternateName: 'Nurturly',
+        description:
+          'Nurturly provides compassionate, non-medical home care in Houston, Texas. We offer companionship, personal care, meal preparation, mobility support, respite care, memory care, and post-hospital transitional care.',
+        url: 'https://nurturlycare.com',
+        telephone: '+1-832-000-0000',
+        email: 'hello@nurturlycare.com',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Houston',
+          addressLocality: 'Houston',
+          addressRegion: 'TX',
+          postalCode: '77002',
+          addressCountry: 'US',
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 29.7604,
+          longitude: -95.3698,
+        },
+        areaServed: [
+          { '@type': 'City', name: 'Houston', sameAs: 'https://en.wikipedia.org/wiki/Houston' },
+          { '@type': 'City', name: 'Sugar Land' },
+          { '@type': 'City', name: 'Pearland' },
+          { '@type': 'City', name: 'Katy' },
+          { '@type': 'City', name: 'The Woodlands' },
+          { '@type': 'City', name: 'Spring' },
+          { '@type': 'City', name: 'Missouri City' },
+          { '@type': 'State', name: 'Texas', sameAs: 'https://en.wikipedia.org/wiki/Texas' },
+        ],
+        serviceType: [
+          'Companion Care',
+          'Personal Care',
+          'Meal Preparation',
+          'Mobility Support',
+          'Medication Reminders',
+          'Light Housekeeping',
+          'Transportation',
+          'Respite Care',
+          'Memory Care Support',
+          'Post-Hospital Transitional Care',
+        ],
+        openingHoursSpecification: [
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            opens: '00:00',
+            closes: '23:59',
+          },
+        ],
+        priceRange: '$$',
+        currenciesAccepted: 'USD',
+        paymentAccepted: 'Cash, Credit Card, Check',
+        sameAs: [
+          'https://www.facebook.com/nurturlycare',
+          'https://www.instagram.com/nurturlycare',
+          'https://www.linkedin.com/company/nurturly',
+        ],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://nurturlycare.com/#website',
+        url: 'https://nurturlycare.com',
+        name: 'Nurturly Home Care',
+        description: 'Compassionate non-medical home care in Houston, TX',
+        publisher: { '@id': 'https://nurturlycare.com/#business' },
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: 'https://nurturlycare.com/?s={search_term_string}',
+          'query-input': 'required name=search_term_string',
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nurturlycare.com' },
+          { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://nurturlycare.com/services' },
+          { '@type': 'ListItem', position: 3, name: 'How It Works', item: 'https://nurturlycare.com/how-it-works' },
+          { '@type': 'ListItem', position: 4, name: 'About', item: 'https://nurturlycare.com/about' },
+          { '@type': 'ListItem', position: 5, name: 'Careers', item: 'https://nurturlycare.com/careers' },
+          { '@type': 'ListItem', position: 6, name: 'Contact', item: 'https://nurturlycare.com/contact' },
+        ],
+      },
+    ],
+  }
+
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
 
       <main className="pt-24">

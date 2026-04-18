@@ -4,8 +4,9 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'How It Works | Nurturly - Care Begins Here',
-  description: 'Discover our simple 5-step process for personalized home care. From initial conversation to ongoing support, we make starting care easy.',
+  title: 'How It Works | Nurturly Home Care Houston',
+  description: 'Starting home care with Nurturly is simple. Learn our 5-step process — from your first call to ongoing support — and see why Houston families trust us.',
+  keywords: ['how home care works', 'starting home care Houston', 'home care process', 'caregiver matching Houston'],
 }
 
 export default function HowItWorks() {
@@ -18,13 +19,13 @@ export default function HowItWorks() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="z-10">
               <span className="text-secondary/60 font-semibold tracking-widest text-xs uppercase mb-6 block">
-                Our Process
+                Our Process · Houston, TX
               </span>
               <h1 className="font-headline text-6xl md:text-7xl font-bold text-primary leading-tight mb-8">
-                How Care Begins
+                How It Works
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed mb-10 max-w-lg">
-                Starting home care can feel overwhelming, so we keep the process simple and personal.
+                Starting care shouldn&apos;t be stressful. Here&apos;s exactly what happens from your first call to your first care day — step by step, clearly explained.
               </p>
             </div>
 
@@ -37,7 +38,7 @@ export default function HowItWorks() {
                 />
               </div>
               <div className="absolute -bottom-8 -left-8 bg-card p-8 rounded-xl shadow-xl max-w-xs border border-border/20">
-                <p className="font-headline italic text-xl text-primary">&quot;A journey of a thousand miles begins with a single step toward comfort.&quot;</p>
+                <p className="font-headline italic text-xl text-primary">&quot;We built Nurturly to feel personal, consistent, and deeply human.&quot;</p>
               </div>
             </div>
           </div>
@@ -54,20 +55,20 @@ export default function HowItWorks() {
                   <h2 className="font-headline text-4xl text-primary">Start with a conversation</h2>
                 </div>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Everything begins with understanding. We listen to your concerns, your history, and your hopes for the future during a relaxed, no-pressure introductory call.
+                  Reach out through our contact form or give us a call. We&apos;ll have a relaxed, no-pressure conversation to understand your situation, answer your questions, and explain exactly how Nurturly works.
                 </p>
                 <ul className="space-y-3 py-4">
                   <li className="flex items-center gap-3 text-muted-foreground">
                     <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>
                       check_circle
                     </span>
-                    Initial needs discovery
+                    No commitment required
                   </li>
                   <li className="flex items-center gap-3 text-muted-foreground">
                     <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>
                       check_circle
                     </span>
-                    Address immediate questions
+                    Get all your questions answered
                   </li>
                 </ul>
               </div>
@@ -98,10 +99,10 @@ export default function HowItWorks() {
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <span className="w-12 h-12 flex items-center justify-center rounded-full bg-primary text-white font-bold text-xl shadow-lg">02</span>
-                  <h2 className="font-headline text-4xl text-primary">Learn, assess &amp; develop</h2>
+                  <h2 className="font-headline text-4xl text-primary">We assess your needs</h2>
                 </div>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Our clinical specialists visit your home to conduct a comprehensive assessment. We don&apos;t just look at health needs; we learn about routines, preferences, and the environment to build a tailored sanctuary plan.
+                  We take time to properly understand the care needed — daily routines, health considerations, home environment, and personal preferences. Nothing is assumed. Everything is documented and built into your care plan.
                 </p>
                 <div className="grid grid-cols-2 gap-4 mt-6">
                   <div className="p-4 rounded-xl bg-secondary-foreground/5 border border-border/20">
@@ -128,10 +129,10 @@ export default function HowItWorks() {
               <div className="w-full md:w-1/2 space-y-6">
                 <div className="flex items-center gap-4">
                   <span className="w-12 h-12 flex items-center justify-center rounded-full bg-primary text-white font-bold text-xl shadow-lg">03</span>
-                  <h2 className="font-headline text-4xl text-primary">Match with the right caregiver</h2>
+                  <h2 className="font-headline text-4xl text-primary">We match your caregiver</h2>
                 </div>
                 <p className="text-lg text-muted-foreground">
-                  We believe chemistry is as important as clinical skill. We hand-select caregivers based on personality, shared interests, and specific expertise to ensure a harmonious bond.
+                  The right caregiver isn&apos;t just qualified — they&apos;re the right fit. We hand-select based on experience, personality, and the specific needs documented in your care plan. You meet them before care begins.
                 </p>
                 <button className="text-secondary font-bold flex items-center gap-2 group hover:gap-3 transition-all">
                   Our matching philosophy
@@ -165,15 +166,15 @@ export default function HowItWorks() {
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <span className="w-12 h-12 flex items-center justify-center rounded-full bg-primary text-white font-bold text-xl shadow-lg">04</span>
-                  <h2 className="font-headline text-4xl text-primary">Begin Care</h2>
+                  <h2 className="font-headline text-4xl text-primary">Care begins</h2>
                 </div>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  On the first day, your Care Manager will accompany the caregiver to facilitate introductions and ensure a smooth transition. We handle all the logistics so you can focus on quality time.
+                  On day one, your Care Manager introduces your caregiver and walks through the care plan with everyone present. We make sure the transition is smooth, comfortable, and clear for your whole family.
                 </p>
                 <div className="p-6 bg-card rounded-xl border border-border/20 shadow-sm">
-                  <h4 className="text-primary font-bold mb-2">Concierge Onboarding</h4>
+                  <h4 className="text-primary font-bold mb-2">Supervised First Visit</h4>
                   <p className="text-sm text-muted-foreground">
-                    We assist with scheduling, equipment setup, and communication protocols right from hour one.
+                    A Nurturly Care Manager is present on the first visit — not just to observe, but to ensure everything starts right.
                   </p>
                 </div>
               </div>
@@ -204,15 +205,15 @@ export default function HowItWorks() {
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <span className="w-12 h-12 flex items-center justify-center rounded-full bg-primary text-white font-bold text-xl shadow-lg">05</span>
-                  <h2 className="font-headline text-4xl text-primary">Stay connected</h2>
+                  <h2 className="font-headline text-4xl text-primary">We stay connected</h2>
                 </div>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Care is dynamic. We maintain constant communication through our digital family portal and regular check-ins. Your plan evolves as your needs do.
+                  Care doesn&apos;t end at the door. We check in regularly, update care plans as needs change, and keep families informed every step of the way. You always know how your loved one is doing.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <span className="px-4 py-2 rounded-full bg-tertiary text-tertiary-foreground text-xs font-bold uppercase tracking-wider">Family Portal</span>
-                  <span className="px-4 py-2 rounded-full bg-tertiary text-tertiary-foreground text-xs font-bold uppercase tracking-wider">24/7 Support</span>
-                  <span className="px-4 py-2 rounded-full bg-tertiary text-tertiary-foreground text-xs font-bold uppercase tracking-wider">Monthly Reviews</span>
+                  <span className="px-4 py-2 rounded-full bg-tertiary text-tertiary-foreground text-xs font-bold uppercase tracking-wider">Regular Check-ins</span>
+                  <span className="px-4 py-2 rounded-full bg-tertiary text-tertiary-foreground text-xs font-bold uppercase tracking-wider">24/7 Support Line</span>
+                  <span className="px-4 py-2 rounded-full bg-tertiary text-tertiary-foreground text-xs font-bold uppercase tracking-wider">Plan Reviews</span>
                 </div>
               </div>
             </div>
@@ -221,22 +222,22 @@ export default function HowItWorks() {
 
         {/* Final CTA */}
         <section className="max-w-4xl mx-auto px-6 md:px-12 mt-48 mb-32 text-center bg-card p-16 rounded-3xl shadow-lg border border-border/20">
-          <h2 className="font-headline text-5xl text-primary mb-6">Ready to start the conversation?</h2>
+          <h2 className="font-headline text-5xl text-primary mb-6">Ready to take the first step?</h2>
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Our compassionate team is ready to listen whenever you&apos;re ready to share. No obligations, just genuine support.
+            The hardest part is often just starting. Our team is here to listen — no pressure, no sales pitch, just an honest conversation about what your family needs.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/contact"
               className="bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:opacity-90 transition-all text-center"
             >
-              Book a Consultation
+              Start the Conversation
             </Link>
             <Link
-              href="/resources"
+              href="/services"
               className="bg-background text-foreground border border-border px-10 py-4 rounded-xl font-bold text-lg hover:bg-secondary/5 transition-all text-center"
             >
-              Download Family Guide
+              View Our Services
             </Link>
           </div>
         </section>

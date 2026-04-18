@@ -4,8 +4,9 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Our Services | Nurturly Home Care',
-  description: 'Explore our comprehensive non-medical home care and personal assistance services designed to support daily life with comfort, dignity, and consistency.',
+  title: 'Our Services | Nurturly Home Care Houston',
+  description: 'Nurturly provides non-medical home care in Houston, TX — companionship, personal care, meal prep, mobility support, memory care, and more. Care that feels personal, consistent, and deeply human.',
+  keywords: ['home care Houston', 'non-medical home care', 'in-home caregiver Houston Texas', 'senior care Houston', 'companionship care', 'personal care services'],
 }
 
 export default function Services() {
@@ -13,22 +14,22 @@ export default function Services() {
     {
       icon: 'favorite',
       title: 'Companionship',
-      description: 'Meaningful conversation, social engagement, and emotional support to prevent isolation and brighten each day.',
+      description: 'Genuine conversation, shared activities, and a steady presence so your loved one never feels alone — because connection is care too.',
     },
     {
       icon: 'wash',
       title: 'Personal Care',
-      description: 'Respectful assistance with bathing, dressing, and grooming to maintain personal dignity and hygiene.',
+      description: 'Sensitive, dignified assistance with bathing, dressing, and grooming — delivered with the respect every person deserves.',
     },
     {
       icon: 'assist_walker',
-      title: 'Mobility',
-      description: 'Supporting safe movement within the home, transfers, and light exercise to encourage physical well-being.',
+      title: 'Mobility Support',
+      description: 'Safe assistance with moving around the home, transfers, and gentle activity to maintain independence and reduce fall risk.',
     },
     {
       icon: 'restaurant',
-      title: 'Meal Prep',
-      description: 'Nutritious, home-cooked meals prepared with dietary preferences and restrictions in mind for optimal health.',
+      title: 'Meal Preparation',
+      description: 'Fresh, nourishing meals planned around dietary needs, personal preferences, and cultural comfort — cooked with care, not convenience.',
     },
   ]
 
@@ -36,27 +37,27 @@ export default function Services() {
     {
       icon: 'alarm',
       title: 'Medication Reminders',
-      description: 'Ensuring prescriptions are taken consistently and at the correct times for peace of mind.',
+      description: 'Gentle, consistent reminders to take medications on schedule — keeping health routines intact without clinical pressure.',
     },
     {
       icon: 'cleaning_services',
       title: 'Light Housekeeping',
-      description: 'Maintaining a clean, safe, and organized living environment for comfort and safety.',
+      description: 'A tidy, safe, and organized home environment so your loved one can move comfortably and live with ease.',
     },
     {
       icon: 'directions_car',
       title: 'Transportation',
-      description: 'Safe escorting to medical appointments, grocery shopping, and social gatherings.',
+      description: 'Reliable, safe rides to medical appointments, errands, and social outings — so life doesn\'t stop at the front door.',
     },
     {
       icon: 'weekend',
       title: 'Respite Care',
-      description: 'Support for family caregivers, providing necessary breaks to recharge and avoid burnout.',
+      description: 'Planned relief for family caregivers — so you can rest, recharge, and return to your role without burning out.',
     },
     {
       icon: 'psychology',
-      title: 'Memory Care',
-      description: 'Compassionate engagement techniques for those living with Alzheimer\'s or dementia.',
+      title: 'Memory Care Support',
+      description: 'Patient, technique-driven support for clients living with Alzheimer\'s or dementia — focused on safety, calm, and dignity.',
     },
   ]
 
@@ -69,13 +70,14 @@ export default function Services() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="z-10">
               <span className="text-secondary/60 font-semibold tracking-widest text-xs uppercase mb-6 block">
-                Holistic Care Solutions
+                Non-Medical Home Care · Houston, TX
               </span>
               <h1 className="font-headline text-6xl md:text-7xl font-bold text-primary leading-tight mb-8">
-                Our Services
+                Care That Feels
+                <em className="block not-italic text-secondary">Personal</em>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed mb-10 max-w-xl">
-                We provide non-medical home care and personal assistance services designed to support daily life at home with comfort, dignity, and consistency.
+                We provide non-medical home care and personal assistance across Houston — built around the individual, not a one-size-fits-all package.
               </p>
               <Link
                 href="/contact"
@@ -101,8 +103,8 @@ export default function Services() {
         <section className="bg-secondary/5 py-24 md:py-32 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-20">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold text-foreground mb-4">Comprehensive Support</h2>
-              <p className="text-muted-foreground text-lg">Every plan is tailored to the individual, ensuring your loved one receives exactly what they need to thrive in the sanctuary of their own home.</p>
+              <h2 className="font-headline text-4xl md:text-5xl font-bold text-foreground mb-4">What We Offer</h2>
+              <p className="text-muted-foreground text-lg">Every care plan is built around the individual — their routines, preferences, and health needs — so your loved one receives consistent, attentive support right where they are most comfortable: home.</p>
             </div>
 
             {/* Main Services Grid */}
@@ -160,7 +162,7 @@ export default function Services() {
               <div className="z-10 max-w-xl">
                 <h3 className="font-headline text-3xl font-bold mb-4">Post-Hospital Transitional Care</h3>
                 <p className="text-primary-foreground/90 text-lg leading-relaxed">
-                  Transitioning home after a hospital stay can be challenging. Our team provides dedicated support during those critical first days to ensure a safe and smooth recovery.
+                  Coming home after a hospital stay is a vulnerable moment. Our team steps in during those critical first days — managing routines, monitoring comfort, and giving families peace of mind when it matters most.
                 </p>
               </div>
               <div className="z-10">
@@ -168,7 +170,7 @@ export default function Services() {
                 href="/contact"
                 className="bg-card text-primary px-8 py-4 rounded-xl font-bold hover:bg-primary-foreground transition-colors flex items-center gap-2 whitespace-nowrap"
               >
-                Explore Care Options
+                Request Care Now
                 <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>arrow_forward</span>
               </Link>
               </div>
@@ -197,10 +199,10 @@ export default function Services() {
               LICENSED &amp; COMPASSIONATE CARE
             </div>
             <h2 className="font-headline text-5xl font-bold text-primary mb-8">
-              Ready to begin your journey with Nurturly?
+              Ready to get started?
             </h2>
             <p className="text-xl text-muted-foreground mb-12 font-light italic">
-              &quot;Our mission is to bring peace of mind back to families. We aren&apos;t just caregivers; we are an extension of your home.&quot;
+              &quot;Our mission is to bring peace of mind back to families. We aren&apos;t just caregivers — we are an extension of your home.&quot;
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link

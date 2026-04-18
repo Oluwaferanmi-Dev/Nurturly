@@ -11,9 +11,10 @@ export const metadata: Metadata = {
 
 export default function ATSLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-surface text-on-surface font-body">
+    <div className="min-h-screen" style={{ background: '#fcf9f4', color: '#1c1c19' }}>
       <ATSSidebar />
-      <div className="pl-64 min-h-screen flex flex-col">{children}</div>
+      {/* On desktop: offset by sidebar width. On mobile: no offset (sidebar is overlay/drawer) */}
+      <div className="md:pl-64 min-h-screen flex flex-col">{children}</div>
     </div>
   )
 }

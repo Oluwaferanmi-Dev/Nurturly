@@ -1,17 +1,20 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
-import {
-  STAGES,
-  getStageBadgeClass,
-  getStageLabel,
-  formatJobTitle,
-  getInitials,
-  formatDate,
-} from '@/lib/ats/constants'
+import { STAGES, getStageLabel, formatJobTitle, getInitials, formatDate } from '@/lib/ats/constants'
 import TimeGreeting from '@/components/ats/TimeGreeting'
 
 export const metadata: Metadata = { title: 'Dashboard' }
+
+// color map for stages
+const STAGE_COLORS: Record<string, { bg: string; text: string }> = {
+  application_received: { bg: '#e4e2dc', text: '#42413e' },
+  phone_interview:      { bg: '#cde8ec', text: '#051f23' },
+  reference_check:      { bg: '#d0f0f3', text: '#00363b' },
+  in_person_interview:  { bg: '#f5e0a9', text: '#2d1f00' },
+  shadow_shift:         { bg: '#d0f0f3', text: '#00363b' },
+  decision_made:        { bg: '#006d77', text: '#ffffff' },
+}
 
 async function getDashboardData() {
   const supabase = await createClient()
@@ -26,35 +29,12 @@ async function getDashboardData() {
     { data: stageData },
     { data: recent },
   ] = await Promise.all([
-    supabase
-      .from('applications')
-      .select('*', { count: 'exact', head: true })
-      .eq('status', 'active'),
-    supabase
-      .from('applications')
-      .select('*', { count: 'exact', head: true })
-      .eq('status', 'active')
-      .gte('created_at', oneWeekAgo.toISOString()),
-    supabase
-      .from('applications')
-      .select('*', { count: 'exact', head: true })
-      .eq('status', 'active')
-      .in('stage', ['in_person_interview', 'shadow_shift']),
-    supabase
-      .from('applications')
-      .select('*', { count: 'exact', head: true })
-      .eq('status', 'active')
-      .eq('stage', 'decision_made'),
-    supabase
-      .from('applications')
-      .select('stage')
-      .eq('status', 'active'),
-    supabase
-      .from('applications')
-      .select('*')
-      .eq('status', 'active')
-      .order('created_at', { ascending: false })
-      .limit(8),
+    supabase.from('applications').select('*', { count: 'exact', head: true }).eq('status', 'active'),
+    supabase.from('applications').select('*', { count: 'exact', head: true }).eq('status', 'active').gte('created_at', oneWeekAgo.toISOString()),
+    supabase.from('applications').select('*', { count: 'exact', head: true }).eq('status', 'active').in('stage', ['in_person_interview', 'shadow_shift']),
+    supabase.from('applications').select('*', { count: 'exact', head: true }).eq('status', 'active').eq('stage', 'decision_made'),
+    supabase.from('applications').select('stage').eq('status', 'active'),
+    supabase.from('applications').select('*').eq('status', 'active').order('created_at', { ascending: false }).limit(8),
   ])
 
   const stageCounts = STAGES.map((s) => ({
@@ -62,16 +42,7 @@ async function getDashboardData() {
     count: stageData?.filter((a) => a.stage === s.id).length ?? 0,
   }))
 
-  return {
-    stats: {
-      total: total ?? 0,
-      newThisWeek: newThisWeek ?? 0,
-      interviews: interviews ?? 0,
-      offers: offers ?? 0,
-    },
-    stageCounts,
-    recent: recent ?? [],
-  }
+  return { stats: { total: total ?? 0, newThisWeek: newThisWeek ?? 0, interviews: interviews ?? 0, offers: offers ?? 0 }, stageCounts, recent: recent ?? [] }
 }
 
 export default async function ATSDashboard() {
@@ -79,100 +50,98 @@ export default async function ATSDashboard() {
   const maxCount = Math.max(...stageCounts.map((s) => s.count), 1)
 
   return (
-    <>
-      {/* Top Bar */}
-      <header className="flex justify-between items-center px-12 py-6 sticky top-0 bg-surface/80 backdrop-blur-md z-30 border-b border-surface-container">
+    <div style={{ background: '#fcf9f4', minHeight: '100vh' }}>
+      {/* Header */}
+      <header
+        className="flex flex-wrap justify-between items-start gap-4 px-4 md:px-10 py-5 sticky top-0 z-30 backdrop-blur-md"
+        style={{ borderBottom: '1px solid #e4e2dc', background: 'rgba(252,249,244,0.85)' }}
+      >
         <div>
           <TimeGreeting />
-          <p className="text-secondary text-sm font-body mt-1">
-            Here&apos;s what&apos;s happening with your recruitment funnel today.
+          <p className="text-sm mt-1" style={{ color: '#4a6367' }}>
+            Here&apos;s what&apos;s happening with your recruitment pipeline today.
           </p>
         </div>
-        <div className="flex items-center gap-4">
-          <div className="relative">
-            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-[18px]">
-              search
-            </span>
-            <input
-              className="bg-surface-container-highest border-none rounded-full py-2.5 pl-10 pr-6 text-sm font-body w-56 focus:outline-none focus:ring-2 focus:ring-primary/20 placeholder:text-outline"
-              placeholder="Search applicants..."
-              type="text"
-              readOnly
-            />
-          </div>
-          <Link href="/ats/applicants" className="text-secondary hover:text-primary transition-colors">
-            <span className="material-symbols-outlined">notifications</span>
-          </Link>
-        </div>
+        <Link
+          href="/ats/applicants"
+          className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold"
+          style={{ background: '#d0f0f3', color: '#006d77' }}
+        >
+          <span className="material-symbols-outlined text-[18px]">group</span>
+          View All
+        </Link>
       </header>
 
-      <section className="px-12 py-10 space-y-10">
+      <div className="px-4 md:px-10 py-8 space-y-8">
         {/* Stat Cards */}
-        <div className="grid grid-cols-4 gap-6">
-          <div className="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between h-40 hover:bg-surface-container-high transition-colors">
-            <span className="text-[10px] font-body uppercase tracking-widest text-secondary">
-              Total Applications
-            </span>
-            <div className="flex items-end justify-between">
-              <span className="text-4xl font-headline text-primary">{stats.total}</span>
-              {stats.newThisWeek > 0 && (
-                <span className="text-xs font-body text-primary font-bold bg-primary/10 px-2 py-1 rounded-full">
-                  +{stats.newThisWeek}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { label: 'Total Applications', value: stats.total, badge: stats.newThisWeek > 0 ? `+${stats.newThisWeek}` : null, accent: false },
+            { label: 'New This Week', value: stats.newThisWeek, badge: null, accent: false },
+            { label: 'In Interview Stage', value: stats.interviews, badge: null, accent: false },
+            { label: 'Offers Pending', value: stats.offers, badge: null, accent: true },
+          ].map((card) => (
+            <div
+              key={card.label}
+              className="p-5 md:p-7 rounded-2xl flex flex-col justify-between"
+              style={{
+                background: card.accent ? 'rgba(201,168,76,0.12)' : '#f6f3ee',
+                border: card.accent ? '1px solid rgba(201,168,76,0.3)' : '1px solid transparent',
+                minHeight: 120,
+              }}
+            >
+              <span
+                className="text-[9px] font-bold uppercase tracking-widest leading-tight"
+                style={{ color: card.accent ? '#2d1f00' : '#4a6367' }}
+              >
+                {card.label}
+              </span>
+              <div className="flex items-end justify-between mt-3">
+                <span
+                  className="text-3xl md:text-4xl font-bold"
+                  style={{ color: card.accent ? '#c9a84c' : '#006d77', fontFamily: 'Georgia, serif' }}
+                >
+                  {card.value}
                 </span>
-              )}
+                {card.badge && (
+                  <span
+                    className="text-xs font-bold px-2 py-0.5 rounded-full"
+                    style={{ background: '#d0f0f3', color: '#006d77' }}
+                  >
+                    {card.badge}
+                  </span>
+                )}
+              </div>
             </div>
-          </div>
-          <div className="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between h-40 hover:bg-surface-container-high transition-colors">
-            <span className="text-[10px] font-body uppercase tracking-widest text-secondary">
-              New This Week
-            </span>
-            <span className="text-4xl font-headline text-primary">{stats.newThisWeek}</span>
-          </div>
-          <div className="bg-surface-container-low p-8 rounded-xl flex flex-col justify-between h-40 hover:bg-surface-container-high transition-colors">
-            <span className="text-[10px] font-body uppercase tracking-widest text-secondary">
-              Interviews Scheduled
-            </span>
-            <span className="text-4xl font-headline text-primary">{stats.interviews}</span>
-          </div>
-          <div className="bg-tertiary-container/10 p-8 rounded-xl border border-tertiary/10 flex flex-col justify-between h-40 hover:bg-tertiary-container/20 transition-colors">
-            <span className="text-[10px] font-body uppercase tracking-widest text-on-tertiary-container">
-              Offers Pending
-            </span>
-            <span className="text-4xl font-headline text-tertiary">{stats.offers}</span>
-          </div>
+          ))}
         </div>
 
         {/* Funnel */}
-        <div className="bg-surface-container-low p-8 rounded-xl">
-          <h3 className="font-headline text-xl mb-8 text-on-surface">
-            Recruitment Funnel Overview
+        <div className="rounded-2xl p-5 md:p-8" style={{ background: '#f6f3ee' }}>
+          <h3 className="font-bold text-lg mb-6" style={{ color: '#1c1c19', fontFamily: 'Georgia, serif' }}>
+            Recruitment Funnel
           </h3>
-          <div className="flex items-center w-full gap-1">
+          <div className="flex items-center w-full gap-1 overflow-x-auto">
             {stageCounts.map((stage, i) => {
               const flex = Math.max(0.12, stage.count / maxCount)
-              const isFirst = i === 0
-              const isLast = i === stageCounts.length - 1
-              const isTertiary = i >= 4
               const opacity = 1 - i * 0.11
-
+              const isLast = i === stageCounts.length - 1
+              const isGold = i >= 4
               return (
                 <div
                   key={stage.id}
                   title={`${stage.label}: ${stage.count}`}
-                  className={`h-14 flex items-center justify-center transition-all ${
-                    isFirst ? 'rounded-l-full' : ''
-                  } ${isLast ? 'rounded-r-full' : ''}`}
+                  className="h-12 flex items-center justify-center flex-shrink-0 transition-all"
                   style={{
                     flex,
-                    background: isTertiary
-                      ? i === 4
-                        ? 'rgba(201,168,76,0.35)'
-                        : '#c9a84c'
+                    minWidth: 40,
+                    background: isGold
+                      ? i === 4 ? 'rgba(201,168,76,0.4)' : '#c9a84c'
                       : `rgba(0, 83, 91, ${opacity})`,
-                    color: isTertiary ? '#503d00' : 'white',
+                    borderRadius: i === 0 ? '999px 0 0 999px' : isLast ? '0 999px 999px 0' : 0,
                   }}
                 >
-                  <span className="text-[9px] font-body font-bold whitespace-nowrap px-2 leading-none">
+                  <span className="text-[9px] font-bold whitespace-nowrap px-2 leading-none" style={{ color: isGold && i < 5 ? '#2d1f00' : '#fff' }}>
                     {stage.short} ({stage.count})
                   </span>
                 </div>
@@ -182,110 +151,103 @@ export default async function ATSDashboard() {
         </div>
 
         {/* Recent Applications */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div className="flex justify-between items-center">
-            <h3 className="font-headline text-2xl">Recent Applications</h3>
-            <Link
-              href="/ats/applicants"
-              className="text-sm text-primary font-body font-semibold hover:underline"
-            >
+            <h3 className="font-bold text-xl" style={{ color: '#1c1c19', fontFamily: 'Georgia, serif' }}>
+              Recent Applications
+            </h3>
+            <Link href="/ats/applicants" className="text-sm font-semibold hover:underline" style={{ color: '#006d77' }}>
               View all →
             </Link>
           </div>
 
-          <div className="overflow-hidden rounded-xl bg-surface-container-low">
+          {/* Desktop table */}
+          <div className="hidden md:block rounded-2xl overflow-hidden" style={{ border: '1px solid #e4e2dc' }}>
             <table className="w-full text-left border-collapse">
-              <thead className="bg-surface-container-high">
+              <thead style={{ background: '#eae7e2' }}>
                 <tr>
-                  <th className="px-8 py-4 text-[10px] font-body tracking-widest text-secondary uppercase">
-                    Applicant
-                  </th>
-                  <th className="px-8 py-4 text-[10px] font-body tracking-widest text-secondary uppercase">
-                    Role
-                  </th>
-                  <th className="px-8 py-4 text-[10px] font-body tracking-widest text-secondary uppercase">
-                    Date
-                  </th>
-                  <th className="px-8 py-4 text-[10px] font-body tracking-widest text-secondary uppercase">
-                    Stage
-                  </th>
-                  <th className="px-8 py-4 text-[10px] font-body tracking-widest text-secondary uppercase text-right">
-                    Action
-                  </th>
+                  {['Applicant', 'Role', 'Date', 'Stage', ''].map((h) => (
+                    <th key={h} className="px-6 py-4 text-[10px] font-bold uppercase tracking-widest" style={{ color: '#4a6367' }}>
+                      {h}
+                    </th>
+                  ))}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-surface-container">
+              <tbody>
                 {recent.length === 0 ? (
                   <tr>
-                    <td
-                      colSpan={5}
-                      className="px-8 py-16 text-center text-secondary text-sm italic font-body"
-                    >
-                      No applications yet — share your careers page to get started!
+                    <td colSpan={5} className="px-6 py-16 text-center italic text-sm" style={{ color: '#4a6367' }}>
+                      No applications yet.
                     </td>
                   </tr>
                 ) : (
-                  recent.map((app) => (
-                    <tr
-                      key={app.id}
-                      className="hover:bg-surface-container-lowest transition-colors"
-                    >
-                      <td className="px-8 py-5">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary font-bold font-body text-xs flex-shrink-0">
-                            {getInitials(app.name)}
+                  recent.map((app) => {
+                    const sc = STAGE_COLORS[app.stage ?? 'application_received'] ?? { bg: '#e4e2dc', text: '#42413e' }
+                    return (
+                      <tr key={app.id} style={{ borderTop: '1px solid #f0ede8' }}>
+                        <td className="px-6 py-4">
+                          <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+                              style={{ background: '#d0f0f3', color: '#00363b' }}>
+                              {getInitials(app.name)}
+                            </div>
+                            <span className="font-semibold" style={{ color: '#1c1c19' }}>{app.name}</span>
                           </div>
-                          <span className="font-headline text-lg text-on-surface">
-                            {app.name}
+                        </td>
+                        <td className="px-6 py-4 text-sm" style={{ color: '#4a6367' }}>{formatJobTitle(app.job_slug ?? '')}</td>
+                        <td className="px-6 py-4 text-sm" style={{ color: '#4a6367' }}>{formatDate(app.created_at)}</td>
+                        <td className="px-6 py-4">
+                          <span className="text-[10px] font-bold px-3 py-1 rounded-full" style={{ background: sc.bg, color: sc.text }}>
+                            {getStageLabel(app.stage ?? 'application_received').toUpperCase()}
                           </span>
-                        </div>
-                      </td>
-                      <td className="px-8 py-5 text-sm font-body text-secondary">
-                        {formatJobTitle(app.job_slug ?? '')}
-                      </td>
-                      <td className="px-8 py-5 text-sm font-body text-secondary">
-                        {formatDate(app.created_at)}
-                      </td>
-                      <td className="px-8 py-5">
-                        <span
-                          className={`text-[10px] font-bold px-3 py-1 rounded-full ${getStageBadgeClass(
-                            app.stage ?? 'application_received'
-                          )}`}
-                        >
-                          {getStageLabel(app.stage ?? 'application_received').toUpperCase()}
-                        </span>
-                      </td>
-                      <td className="px-8 py-5 text-right">
-                        <Link
-                          href={`/ats/applicants/${app.id}`}
-                          className="text-primary hover:bg-primary/10 p-2 rounded-full transition-colors inline-flex items-center"
-                          title="View profile"
-                        >
-                          <span className="material-symbols-outlined text-[18px]">
-                            arrow_forward
-                          </span>
-                        </Link>
-                      </td>
-                    </tr>
-                  ))
+                        </td>
+                        <td className="px-6 py-4 text-right">
+                          <Link href={`/ats/applicants/${app.id}`}
+                            className="p-2 rounded-full inline-flex transition-colors hover:opacity-70"
+                            style={{ color: '#006d77' }}>
+                            <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                          </Link>
+                        </td>
+                      </tr>
+                    )
+                  })
                 )}
               </tbody>
             </table>
           </div>
-        </div>
-      </section>
 
-      {/* FAB */}
-      <div className="fixed bottom-10 right-10">
-        <Link
-          href="/ats/applicants"
-          className="w-14 h-14 rounded-full flex items-center justify-center shadow-2xl text-white hover:scale-105 active:scale-95 transition-transform"
-          style={{ background: 'linear-gradient(135deg, #00535b 0%, #006d77 100%)' }}
-          title="View applicants"
-        >
-          <span className="material-symbols-outlined text-2xl">group</span>
-        </Link>
+          {/* Mobile cards */}
+          <div className="md:hidden space-y-3">
+            {recent.length === 0 ? (
+              <p className="text-center py-12 italic text-sm" style={{ color: '#4a6367' }}>No applications yet.</p>
+            ) : (
+              recent.map((app) => {
+                const sc = STAGE_COLORS[app.stage ?? 'application_received'] ?? { bg: '#e4e2dc', text: '#42413e' }
+                return (
+                  <Link key={app.id} href={`/ats/applicants/${app.id}`}
+                    className="flex items-center justify-between p-4 rounded-2xl"
+                    style={{ background: '#f6f3ee', border: '1px solid #e4e2dc' }}>
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
+                        style={{ background: '#d0f0f3', color: '#00363b' }}>
+                        {getInitials(app.name)}
+                      </div>
+                      <div className="min-w-0">
+                        <p className="font-semibold truncate" style={{ color: '#1c1c19' }}>{app.name}</p>
+                        <p className="text-xs truncate" style={{ color: '#4a6367' }}>{formatJobTitle(app.job_slug ?? '')}</p>
+                      </div>
+                    </div>
+                    <span className="text-[9px] font-bold px-2 py-1 rounded-full ml-2 flex-shrink-0"
+                      style={{ background: sc.bg, color: sc.text }}>
+                      {app.stage?.replace(/_/g, ' ').toUpperCase() ?? 'RECEIVED'}
+                    </span>
+                  </Link>
+                )
+              })
+            )}
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   )
 }

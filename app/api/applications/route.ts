@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { createClient } from '@/lib/supabase/server'
 import { sendApplicationEmail, sendApplicationConfirmation } from '@/lib/email'
+import { upsertHubSpotApplicant } from '@/lib/hubspot'
 
 const applicationSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -59,6 +60,16 @@ export async function POST(request: NextRequest) {
       console.warn('Failed to send application email:', emailResponse.error)
       // Continue even if email fails - the application is saved
     }
+
+    // Sync applicant to HubSpot CRM (non-blocking)
+    upsertHubSpotApplicant({
+      name: validatedData.name,
+      email: validatedData.email,
+      phone: validatedData.phone,
+      job_slug: validatedData.job_slug,
+      experience: validatedData.experience,
+      location: validatedData.location,
+    }).catch((err) => console.warn('HubSpot sync failed (non-blocking):', err))
 
     // Send confirmation to the applicant
     const confirmResponse = await sendApplicationConfirmation({

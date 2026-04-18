@@ -49,7 +49,11 @@ export async function sendInquiryEmail(data: {
   email: string
   phone?: string | null
   care_type?: string | null
-  message: string
+  relationship_to_patient?: string | null
+  zip_code?: string | null
+  urgency?: string | null
+  hours_per_week?: string | null
+  message?: string | null
 }) {
   const htmlContent = `
     <!DOCTYPE html>
@@ -105,19 +109,49 @@ export async function sendInquiryEmail(data: {
               </tr>
             </table>
 
-            <!-- Service Interest -->
-            ${data.care_type ? `
-            <div style="margin-bottom:40px;padding-top:8px;">
-              <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#8c4e35;font-weight:600;margin-bottom:8px;display:block;">Service Interest</span>
-              <span style="display:inline-block;padding:6px 16px;background-color:rgba(0,109,119,0.05);border:1px solid rgba(0,109,119,0.1);border-radius:999px;font-size:11px;font-weight:600;color:#006D77;text-transform:uppercase;letter-spacing:0.1em;">${escapeHtml(data.care_type)}</span>
-            </div>
-            ` : ''}
+            <!-- Service Interest + Relationship Grid -->
+            <table style="width:100%;border-collapse:collapse;margin-bottom:40px;">
+              <tr>
+                ${data.care_type ? `
+                <td style="width:50%;padding-right:24px;vertical-align:top;">
+                  <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#8c4e35;font-weight:600;margin-bottom:8px;display:block;">Type of Care</span>
+                  <span style="display:inline-block;padding:6px 16px;background-color:rgba(0,109,119,0.05);border:1px solid rgba(0,109,119,0.1);border-radius:999px;font-size:11px;font-weight:600;color:#006D77;text-transform:uppercase;letter-spacing:0.1em;">${escapeHtml(data.care_type)}</span>
+                </td>` : '<td style="width:50%;"></td>'}
+                ${data.relationship_to_patient ? `
+                <td style="width:50%;padding-left:24px;vertical-align:top;">
+                  <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#8c4e35;font-weight:600;margin-bottom:8px;display:block;">Relationship to Patient</span>
+                  <div style="font-size:14px;font-weight:500;color:#1c1c19;">${escapeHtml(data.relationship_to_patient)}</div>
+                </td>` : '<td style="width:50%;"></td>'}
+              </tr>
+            </table>
+
+            <!-- Location + Urgency + Hours Grid -->
+            <table style="width:100%;border-collapse:collapse;margin-bottom:40px;">
+              <tr>
+                ${data.zip_code ? `
+                <td style="width:33%;padding-right:16px;vertical-align:top;">
+                  <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#8c4e35;font-weight:600;margin-bottom:8px;display:block;">Location / ZIP</span>
+                  <div style="font-size:14px;font-weight:500;color:#1c1c19;">${escapeHtml(data.zip_code)}</div>
+                </td>` : '<td style="width:33%;"></td>'}
+                ${data.urgency ? `
+                <td style="width:33%;padding-right:16px;vertical-align:top;">
+                  <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#8c4e35;font-weight:600;margin-bottom:8px;display:block;">Need Care</span>
+                  <div style="font-size:14px;font-weight:500;color:#1c1c19;">${escapeHtml(data.urgency)}</div>
+                </td>` : '<td style="width:33%;"></td>'}
+                ${data.hours_per_week ? `
+                <td style="width:33%;vertical-align:top;">
+                  <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#8c4e35;font-weight:600;margin-bottom:8px;display:block;">Hours / Week</span>
+                  <div style="font-size:14px;font-weight:500;color:#1c1c19;">${escapeHtml(data.hours_per_week)}</div>
+                </td>` : '<td style="width:33%;"></td>'}
+              </tr>
+            </table>
 
             <!-- Message -->
+            ${data.message ? `
             <div style="margin-bottom:40px;padding-top:16px;">
-              <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#8c4e35;font-weight:600;margin-bottom:16px;display:block;">Message Details</span>
+              <span style="font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:#8c4e35;font-weight:600;margin-bottom:16px;display:block;">Additional Context</span>
               <div style="font-family:'Newsreader',Georgia,serif;font-size:18px;line-height:1.7;color:#3e494a;background-color:rgba(255,255,255,0.5);padding:32px;border:1px solid rgba(0,109,119,0.05);font-style:italic;">&ldquo;${escapeHtml(data.message).replace(/\n/g, '<br/>')}&rdquo;</div>
-            </div>
+            </div>` : ''}
 
           </div>
 

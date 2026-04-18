@@ -9,10 +9,20 @@ export const metadata: Metadata = {
 }
 
 export default function Contact() {
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nurturlycare.com' },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://nurturlycare.com/contact' },
+    ],
+  }
+
   return (
     <>
       <Header />
       <main className="pt-32 pb-24">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
         <div className="max-w-screen-2xl mx-auto px-12">
           {/* Hero / Editorial Section */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-24">
@@ -90,11 +100,11 @@ export default function Contact() {
             <div className="order-1 md:order-2 space-y-6">
               <h3 className="text-5xl font-headline text-secondary leading-tight italic">Rooted in our community.</h3>
               <p className="text-lg text-on-surface-variant leading-relaxed">
-                We provide personalized home care across the greater metropolitan area. While our headquarters is a hub of coordination, our heart is in the homes of our clients.
+                We provide personalized home care across the greater Houston, TX metro area. Our heart is in the homes of our clients — and in the communities they call home.
               </p>
               <div className="space-y-2">
-                <p className="font-medium text-on-surface">Main Office</p>
-                <p className="text-on-surface-variant">122 Sanctuary Blvd, Ste 400<br/>Portland, OR 97204</p>
+                <p className="font-medium text-on-surface">Greater Houston Area</p>
+                <p className="text-on-surface-variant">Houston, TX and surrounding communities</p>
               </div>
             </div>
           </section>

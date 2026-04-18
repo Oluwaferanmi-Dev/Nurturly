@@ -1,8 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { createClient } from '@/lib/supabase/client'
 
 const navItems = [
   { href: '/ats', icon: 'dashboard', label: 'Dashboard', exact: true },
@@ -13,7 +14,17 @@ const navItems = [
 
 export default function ATSSidebar() {
   const pathname = usePathname()
+  const router = useRouter()
   const [open, setOpen] = useState(false)
+  const [signingOut, setSigningOut] = useState(false)
+
+  async function handleSignOut() {
+    setSigningOut(true)
+    const supabase = createClient()
+    await supabase.auth.signOut()
+    router.push('/ats/login')
+    router.refresh()
+  }
 
   const sidebar = (
     <div
@@ -82,8 +93,32 @@ export default function ATSSidebar() {
         })}
       </nav>
 
-      {/* CTA */}
-      <div className="mt-auto pt-6">
+      {/* Bottom actions */}
+      <div className="mt-auto pt-6 space-y-3">
+        {/* Sign Out */}
+        <button
+          onClick={handleSignOut}
+          disabled={signingOut}
+          className="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 hover:opacity-80 active:scale-[0.98]"
+          style={{
+            color: '#4a6367',
+            background: 'transparent',
+            border: '1.5px solid #e4e2dc',
+            cursor: signingOut ? 'not-allowed' : 'pointer',
+            fontFamily: 'Manrope, sans-serif',
+            fontSize: '14px',
+          }}
+        >
+          <span
+            className="material-symbols-outlined flex-shrink-0"
+            style={{ fontSize: 20, fontVariationSettings: "'FILL' 0, 'wght' 300" }}
+          >
+            {signingOut ? 'progress_activity' : 'logout'}
+          </span>
+          <span>{signingOut ? 'Signing out…' : 'Sign Out'}</span>
+        </button>
+
+        {/* View Careers Page */}
         <Link
           href="/careers"
           target="_blank"

@@ -81,10 +81,53 @@ export default function Careers() {
     { step: '06', title: 'Final Decision', description: 'We make our decision and welcome you to the Nurturly team.' },
   ]
 
+  const jobPostingSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'JobPosting',
+    title: 'Caregiver',
+    description:
+      'Nurturly is hiring compassionate, reliable caregivers in the Houston, TX area. Provide non-medical home care including companionship, personal care, meal preparation, and mobility support. We prioritize relationships over task-based care.',
+    hiringOrganization: {
+      '@type': 'Organization',
+      name: 'Nurturly',
+      sameAs: 'https://nurturlycare.com',
+    },
+    jobLocation: {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Houston',
+        addressRegion: 'TX',
+        addressCountry: 'US',
+      },
+    },
+    employmentType: ['FULL_TIME', 'PART_TIME'],
+    datePosted: '2026-04-01',
+    validThrough: '2027-04-01',
+    applicantLocationRequirements: {
+      '@type': 'City',
+      name: 'Houston',
+    },
+    jobBenefits: 'Flexible scheduling, meaningful work, supportive team environment',
+    qualifications:
+      'Experience in home care, personal care, or a related field preferred. CNA, HHA certification a plus. Must be patient, reliable, and empathetic.',
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nurturlycare.com' },
+      { '@type': 'ListItem', position: 2, name: 'Careers', item: 'https://nurturlycare.com/careers' },
+    ],
+  }
+
   return (
     <>
       <Header />
       <main className="bg-surface text-on-surface font-body min-h-screen">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
         {/* Hero Section */}
         <section className="relative h-[600px] md:h-[700px] lg:h-[870px] flex items-center overflow-hidden mt-16">

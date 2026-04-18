@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { trackApplicationSubmit } from '@/lib/analytics'
 
 interface FormData {
   name: string
@@ -127,6 +128,7 @@ export default function CareersForm() {
 
       setUploadProgress(100)
       setSuccessMessage('Thank you for your application! We\'ll review it and be in touch soon.')
+      trackApplicationSubmit(formData.experience || undefined)
       setFormData({
         name: '',
         email: '',

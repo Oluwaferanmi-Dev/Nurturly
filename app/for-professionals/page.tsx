@@ -18,10 +18,20 @@ export default function ForProfessionals() {
     'Estate planners and attorneys',
   ]
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nurturlycare.com' },
+      { '@type': 'ListItem', position: 2, name: 'For Professionals', item: 'https://nurturlycare.com/for-professionals' },
+    ],
+  }
+
   return (
     <>
       <Header />
       <main className="bg-surface text-on-surface font-body min-h-screen">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-32">
           <div className="space-y-8">

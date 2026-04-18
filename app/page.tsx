@@ -1,45 +1,9 @@
-import type { Metadata } from 'next'
+'use client'
+
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-
-export const metadata: Metadata = {
-  title: 'Nurturly | Premium Home Care in Houston, TX',
-  description: 'Nurturly provides compassionate, non-medical home care in Houston, Texas. Companionship, personal care, meal prep, mobility support, and more — care that feels personal, consistent, and deeply human.',
-  keywords: [
-    'home care Houston TX',
-    'non-medical home care Houston',
-    'in-home caregiver Houston Texas',
-    'senior care Houston',
-    'elderly home care Houston',
-    'companion care Houston',
-    'personal care assistant Houston',
-    'respite care Houston',
-    'memory care Houston',
-    'post-hospital care Houston',
-  ],
-  alternates: {
-    canonical: 'https://nurturlycare.com',
-  },
-  openGraph: {
-    title: 'Nurturly | Premium Home Care in Houston, TX',
-    description: 'Compassionate, non-medical home care in Houston. Care that feels personal, consistent, and deeply human.',
-    type: 'website',
-    url: 'https://nurturlycare.com',
-    siteName: 'Nurturly Home Care',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Nurturly | Premium Home Care in Houston, TX',
-    description: 'Compassionate, non-medical home care in Houston. Care that feels personal, consistent, and deeply human.',
-  },
-  other: {
-    'geo.region': 'US-TX',
-    'geo.placename': 'Houston',
-    'geo.position': '29.7604;-95.3698',
-    'ICBM': '29.7604, -95.3698',
-  },
-}
+import CTALink from '@/components/CTALink'
 
 export default function Home() {
   const jsonLd = {
@@ -159,12 +123,13 @@ export default function Home() {
                 for your loved ones in the space they love most.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link
+                <CTALink
                   href="/contact"
+                  label="Hero CTA — Start Your Journey"
                   className="signature-gradient text-on-primary px-10 py-4 rounded-xl text-lg font-semibold hover:scale-[1.02] transition-transform text-center"
                 >
                   Start Your Journey
-                </Link>
+                </CTALink>
                 <Link
                   href="/about"
                   className="bg-surface-container-lowest text-primary border border-outline-variant/30 px-10 py-4 rounded-xl text-lg font-semibold hover:bg-surface-container-low transition-colors flex items-center gap-2 justify-center"
@@ -354,12 +319,13 @@ export default function Home() {
               Join the families who have found peace of mind and professional care that feels like family.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
-              <Link
+              <CTALink
                 href="/contact"
+                label="Bottom CTA — Schedule Free Consultation"
                 className="bg-surface-container-lowest text-primary px-12 py-5 rounded-xl text-lg font-bold hover:bg-surface transition-transform hover:scale-105 active:scale-95 text-center"
               >
                 Schedule a Free Consultation
-              </Link>
+              </CTALink>
               <Link
                 href="/contact"
                 className="border border-white/30 text-white px-12 py-5 rounded-xl text-lg font-bold hover:bg-white/10 transition-colors text-center"

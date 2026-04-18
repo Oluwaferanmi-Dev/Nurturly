@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import CTALink from '@/components/CTALink'
 
 export const metadata: Metadata = {
   title: 'Our Services | Nurturly Home Care Houston',
@@ -61,10 +62,20 @@ export default function Services() {
     },
   ]
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nurturlycare.com' },
+      { '@type': 'ListItem', position: 2, name: 'Our Services', item: 'https://nurturlycare.com/services' },
+    ],
+  }
+
   return (
     <>
       <Header />
       <main className="bg-background text-foreground font-body">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
         {/* Hero Section: Editorial */}
         <section className="relative overflow-hidden pt-32 pb-24 md:pb-32 px-6 md:px-12">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -79,12 +90,13 @@ export default function Services() {
               <p className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed mb-10 max-w-xl">
                 We provide non-medical home care and personal assistance across Houston — built around the individual, not a one-size-fits-all package.
               </p>
-              <Link
+              <CTALink
                 href="/contact"
+                label="Services Hero — Request a Personalized Care Plan"
                 className="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:opacity-90 transition-all text-center"
               >
                 Request a Personalized Care Plan
-              </Link>
+              </CTALink>
             </div>
 
             <div className="relative hidden lg:block">

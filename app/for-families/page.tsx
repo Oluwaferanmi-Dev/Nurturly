@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import CTALink from '@/components/CTALink'
 
 export const metadata: Metadata = {
   title: 'For Families | Nurturly Home Care Houston',
@@ -43,10 +44,34 @@ export default function ForFamilies() {
     { num: '03', title: 'We match & begin', body: 'We pair the right caregiver with your loved one and stay closely involved from the first day.' },
   ]
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: concerns.map((c) => ({
+      '@type': 'Question',
+      name: c.title,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: c.answer,
+      },
+    })),
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nurturlycare.com' },
+      { '@type': 'ListItem', position: 2, name: 'For Families', item: 'https://nurturlycare.com/for-families' },
+    ],
+  }
+
   return (
     <>
       <Header />
       <main className="bg-surface text-on-surface font-body min-h-screen">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
         {/* Hero */}
         <section className="max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20">
@@ -63,12 +88,13 @@ export default function ForFamilies() {
                 Deciding to bring home care into your family is a big step. We make it easier by being honest, thorough, and genuinely helpful from the very first conversation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link
+                <CTALink
                   href="/contact"
+                  label="For Families Hero — Start a Conversation"
                   className="signature-gradient text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:scale-[1.02] transition-transform text-center"
                 >
                   Start a Conversation
-                </Link>
+                </CTALink>
                 <Link
                   href="/how-it-works"
                   className="border border-outline-variant/30 text-primary px-8 py-4 rounded-xl font-semibold text-lg hover:bg-surface-container-low transition-colors text-center"

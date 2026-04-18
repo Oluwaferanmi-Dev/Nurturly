@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Newsreader, Manrope } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
+import ScrollDepthTracker from '@/components/ScrollDepthTracker'
 import './globals.css'
 
 const newsreader = Newsreader({
@@ -116,6 +117,7 @@ export default function RootLayout({
       >
         {children}
         <Analytics />
+        <ScrollDepthTracker />
 
         {/* Google Analytics 4 */}
         {GA_ID && (

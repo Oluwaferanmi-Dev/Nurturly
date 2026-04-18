@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import CTALink from '@/components/CTALink'
 
 export const metadata: Metadata = {
   title: 'How It Works | Nurturly Home Care Houston',
@@ -227,12 +228,13 @@ export default function HowItWorks() {
             The hardest part is often just starting. Our team is here to listen — no pressure, no sales pitch, just an honest conversation about what your family needs.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link
+            <CTALink
               href="/contact"
+              label="How It Works Bottom CTA — Start the Conversation"
               className="bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:opacity-90 transition-all text-center"
             >
               Start the Conversation
-            </Link>
+            </CTALink>
             <Link
               href="/services"
               className="bg-background text-foreground border border-border px-10 py-4 rounded-xl font-bold text-lg hover:bg-secondary/5 transition-all text-center"

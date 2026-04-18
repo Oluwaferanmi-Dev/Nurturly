@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import CTALink from '@/components/CTALink'
 
 export const metadata: Metadata = {
   title: 'About Nurturly | Care that feels like home',
@@ -9,10 +10,20 @@ export const metadata: Metadata = {
 }
 
 export default function About() {
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nurturlycare.com' },
+      { '@type': 'ListItem', position: 2, name: 'About Us', item: 'https://nurturlycare.com/about' },
+    ],
+  }
+
   return (
     <>
       <Header />
       <main className="bg-surface text-on-surface font-body">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
         {/* Hero Section: Editorial Asymmetry */}
         <section className="relative px-6 md:px-12 pt-24 pb-32 overflow-hidden">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -27,12 +38,13 @@ export default function About() {
                 Nurturly was created to bring comfort, trust, and human connection back into home care.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link
+                <CTALink
                   href="/contact"
+                  label="About Hero — Schedule a Consultation"
                   className="signature-gradient text-on-primary px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:opacity-95 transition-all text-center"
                 >
                   Schedule a Consultation
-                </Link>
+                </CTALink>
                 <Link
                   href="/contact"
                   className="bg-surface-container-lowest border border-outline-variant/30 text-primary px-8 py-4 rounded-xl font-semibold text-lg hover:bg-surface-container-low transition-all text-center"

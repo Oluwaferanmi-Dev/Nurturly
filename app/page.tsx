@@ -106,9 +106,9 @@ export default function Home() {
       />
       <Header />
 
-      <main className="pt-24">
+      <main>
         {/* Hero Section: Editorial Layout */}
-        <section className="relative min-h-[921px] flex items-center px-6 md:px-12 py-20 overflow-hidden">
+        <section className="relative flex items-start px-6 md:px-12 pt-28 pb-24 overflow-hidden">
           <div className="max-w-screen-2xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Text Content */}
             <div className="lg:col-span-5 z-10">

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { createClient } from '@/lib/supabase/server'
 import { sendInquiryEmail, sendInquiryConfirmation } from '@/lib/email'
-import { upsertHubSpotContact } from '@/lib/hubspot'
+// import { upsertHubSpotContact } from '@/lib/hubspot'
 
 const inquirySchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -61,9 +61,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Sync contact to HubSpot CRM (non-blocking)
-    upsertHubSpotContact(validatedData).catch((err) =>
-      console.warn('HubSpot sync failed (non-blocking):', err),
-    )
+    // upsertHubSpotContact(validatedData).catch((err) =>
+    //   console.warn('HubSpot sync failed (non-blocking):', err),
+    // )
 
     // Send confirmation to the submitter
     const confirmResponse = await sendInquiryConfirmation({

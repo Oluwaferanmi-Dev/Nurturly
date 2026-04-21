@@ -1,6 +1,7 @@
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Avoid top-level crash if env var is missing
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@nurturlycare.com'
 const COMPANY_NAME = 'Nurturly Care'
@@ -178,6 +179,11 @@ export async function sendInquiryEmail(data: {
   `
 
   try {
+    if (!resend) {
+      console.warn('RESEND_API_KEY missing - skipping inquiry email to admin.');
+      return { success: false, error: 'No Resend API Key' };
+    }
+
     const response = await resend.emails.send({
       from: `${COMPANY_NAME} <noreply@nurturlycare.com>`,
       to: ADMIN_EMAIL,
@@ -251,6 +257,11 @@ export async function sendInquiryConfirmation(data: {
   `
 
   try {
+    if (!resend) {
+      console.warn('RESEND_API_KEY missing - skipping inquiry confirmation email.');
+      return { success: false, error: 'No Resend API Key' };
+    }
+
     const response = await resend.emails.send({
       from: `${COMPANY_NAME} <noreply@nurturlycare.com>`,
       to: data.email,
@@ -327,6 +338,11 @@ export async function sendApplicationConfirmation(data: {
   `
 
   try {
+    if (!resend) {
+      console.warn('RESEND_API_KEY missing - skipping application confirmation email.');
+      return { success: false, error: 'No Resend API Key' };
+    }
+
     const response = await resend.emails.send({
       from: `${COMPANY_NAME} <noreply@nurturlycare.com>`,
       to: data.email,
@@ -493,6 +509,11 @@ export async function sendApplicationEmail(data: {
   `
 
   try {
+    if (!resend) {
+      console.warn('RESEND_API_KEY missing - skipping application email to admin.');
+      return { success: false, error: 'No Resend API Key' };
+    }
+
     const response = await resend.emails.send({
       from: `${COMPANY_NAME} <noreply@nurturlycare.com>`,
       to: ADMIN_EMAIL,

@@ -10,26 +10,30 @@ export const metadata: Metadata = {
 
 export default function WhyUs() {
   return (
-    <>
+    <div className="bg-nurturly-bg text-nurturly-deep-indigo font-body min-h-screen">
       <Header />
-      <main className="bg-background text-foreground font-body">
+      
+      <main>
         {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-24 md:pb-32">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <section className="max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-7">
-              <h1 className="font-headline text-6xl md:text-8xl text-primary leading-[1.1] tracking-tight mb-8 font-bold">
-                Why Nurturly
+              <span className="text-nurturly-calm-blue font-bold tracking-widest text-xs uppercase mb-6 block">
+                Our Philosophy
+              </span>
+              <h1 className="font-headline text-5xl md:text-7xl text-nurturly-deep-indigo leading-tight tracking-tight mb-8 font-bold">
+                Why <span className="italic font-light text-nurturly-soft-teal">Nurturly</span>
               </h1>
-              <p className="font-body text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl">
-                There are many home care companies. What makes Nurturly different is how we approach care.
+              <p className="font-light text-xl md:text-2xl text-nurturly-deep-indigo/80 leading-relaxed max-w-2xl text-balance">
+                There are many home care companies. What makes Nurturly different is how we view the people we care for.
               </p>
             </div>
             <div className="lg:col-span-5 hidden lg:block">
-              <div className="rounded-xl overflow-hidden aspect-[4/5] shadow-lg">
+              <div className="rounded-3xl overflow-hidden aspect-[4/5] shadow-lg border border-nurturly-soft-teal/10">
                 <img
-                  alt="Warm interior sanctuary with soft natural light"
+                  alt="A beautifully lit, calm home interior"
                   className="w-full h-full object-cover"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_MBU6Nj-XvM64xRZUNFjIqFQkLWrJ2Qhpuao_bM-1Jy7R1p1nYP-A_rKt7jYVV-6CzE9EC_DA18neUO3q6QUvWiz9MEnGLJeCuBE1kga3bDdBDqXpPNfoFDDcZB3aDV2MT_M9RZn7pdSqFdyi_PkkVvZIO35MNxUS7QqUIRyYWZHEh7Scu9t6zWofuf6CqCX2xSg0rufZBoAn5Xxp7dpbMB8L-EnIoQOqmPB8uC-oQNbhQdePtrZ_rwikUf3ppap-Fmy0y6_STu3y"
+                  src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80"
                 />
               </div>
             </div>
@@ -41,22 +45,22 @@ export default function WhyUs() {
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
               <div className="lg:col-span-5 order-2 lg:order-1">
-                <div className="rounded-xl overflow-hidden aspect-[4/5] shadow-lg">
+                <div className="rounded-3xl overflow-hidden aspect-[4/5] shadow-lg border border-nurturly-soft-teal/10">
                   <img
-                    alt="Dignified elderly man looking out window with soft light"
+                    alt="Dignified senior walking outside"
                     className="w-full h-full object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAK9R_x_mtNKNSWUdoGpNd6lAu6mCN5F7ObNLNQcrqAUbtePhCPp80gk-t7v3wou3EbR5igBCEdL4QnQaZ1ujuitZ0JxfpA597E_jV9OI04HXhxse_Z9iWk9rEiHSaqnmkqFfMNb89b_Exk7amTQkNzhBhDR616BCfU4OG7y3y_3Ds7TOxKvMTLIl0b4vcS3z9KHIQVaVluFdV-9djiQNVvrM5wK_RTgXUHfZuhjwc0Pw7YCA-NiM1IZoS1TPPP4nq4jfGMjqAHGgy"
+                    src="https://images.unsplash.com/photo-1544027993-37db48d23632?auto=format&fit=crop&q=80"
                   />
                 </div>
               </div>
-              <div className="lg:col-span-6 lg:offset-1 order-1 lg:order-2">
-                <span className="text-secondary/60 font-semibold tracking-widest uppercase text-xs mb-4 block">
+              <div className="lg:col-span-6 lg:offset-1 order-1 lg:order-2 space-y-6">
+                <span className="text-nurturly-sage font-bold tracking-widest uppercase text-xs mb-2 block">
                   01 — The Standard
                 </span>
-                <h2 className="font-headline text-5xl text-primary mb-6 font-bold">
+                <h2 className="font-headline text-4xl md:text-5xl text-nurturly-deep-indigo font-bold">
                   Dignity in Every Moment
                 </h2>
-                <p className="text-lg leading-relaxed text-muted-foreground">
+                <p className="text-lg leading-relaxed font-light text-nurturly-deep-indigo/80">
                   We believe care is more than assistance; it is a sacred preservation of self. Every interaction is designed to honor the history, preferences, and personal agency of those we serve, ensuring that aging is met with reverence rather than just routine.
                 </p>
               </div>
@@ -65,77 +69,79 @@ export default function WhyUs() {
         </section>
 
         {/* Differentiators 2 & 3: Reliability & Relationship */}
-        <section className="bg-secondary/5 py-24 md:py-32 mb-32 md:mb-40">
+        <section className="bg-white border-y border-nurturly-soft-teal/10 py-32 mb-32 md:mb-40">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-24">
+              
               {/* Reliability */}
-              <div className="flex flex-col">
-                <span className="text-secondary/60 font-semibold tracking-widest uppercase text-xs mb-4 block">
+              <div className="flex flex-col space-y-6">
+                <span className="text-nurturly-sage font-bold tracking-widest uppercase text-xs mb-2 block">
                   02 — The Promise
                 </span>
-                <h2 className="font-headline text-5xl text-primary mb-6 font-bold">
+                <h2 className="font-headline text-4xl md:text-5xl text-nurturly-deep-indigo font-bold">
                   Reliability Builds Trust
                 </h2>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-10">
+                <p className="text-lg leading-relaxed font-light text-nurturly-deep-indigo/80 mb-6">
                   The foundation of a sanctuary is stability. Our systems are engineered for impeccable consistency, ensuring that our presence is a constant comfort you can count on, day after day, without exception.
                 </p>
-                <div className="rounded-xl overflow-hidden h-80 shadow-lg">
+                <div className="rounded-3xl overflow-hidden h-80 shadow-lg border border-nurturly-soft-teal/10 mt-auto">
                   <img
-                    alt="Two people's hands clasped together showing gentle support"
+                    alt="Comforting hand holding another"
                     className="w-full h-full object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlApuT7vjhc06HZ2kSZnv5zu36ekbaBWUICVp2AnQ8lFl8oZ8ns_R_WMoh2ok_ilE0qX6lriYPcmQGurIN2HXkMuvqMk09X5ziOPpkFsb0sG4u4yqcs-qJrqf9aUiuvryLk82IatmswM1XchUA14cm00RxIt4_bQB0NaF1xoTLvxQBT33apcfOln-_8XeKYcD0wRNoL7z2ugxsx1RB6BPdlDeJIH2iyv4dDC50CAZaYSa9owaXYkMMd2Ncauvckwztn7KDl8i_9a8_"
+                    src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?auto=format&fit=crop&q=80"
                   />
                 </div>
               </div>
 
               {/* Relationship-Centered */}
-              <div className="flex flex-col lg:pt-32">
-                <span className="text-secondary/60 font-semibold tracking-widest uppercase text-xs mb-4 block">
+              <div className="flex flex-col lg:pt-32 space-y-6">
+                <span className="text-nurturly-sage font-bold tracking-widest uppercase text-xs mb-2 block">
                   03 — The Connection
                 </span>
-                <h2 className="font-headline text-5xl text-primary mb-6 font-bold">
-                  Relationship-Centered Care
+                <h2 className="font-headline text-4xl md:text-5xl text-nurturly-deep-indigo font-bold">
+                  Relationship-Centered
                 </h2>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-10">
-                  We don&apos;t just match caregivers to schedules; we match hearts to homes. By prioritizing emotional compatibility and shared interests, we cultivate deep bonds that transform service into genuine companionship.
+                <p className="text-lg leading-relaxed font-light text-nurturly-deep-indigo/80 mb-6">
+                  We don't just match caregivers to schedules; we match hearts to homes. By prioritizing emotional compatibility and shared interests, we cultivate deep bonds that transform service into genuine companionship.
                 </p>
-                <div className="rounded-xl overflow-hidden h-80 shadow-lg">
+                <div className="rounded-3xl overflow-hidden h-80 shadow-lg border border-nurturly-soft-teal/10 mt-auto">
                   <img
-                    alt="Two people sitting together on sofa sharing a book and laughing"
+                    alt="Two people sharing a laugh"
                     className="w-full h-full object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTTb-eXfOtVnwUnkb3vDi8gkuEadPoc5AZ96Xjnctx_e3RsbOY31Maog7JAsm1wbQ-B8R-7x7EL-wfL2rGnLx9xcnZ7AppfLhJMOojxq2WnfG-fgadn3bDWkmtY-s6tG5bCqfU81T52Sy8yLBJB_VH8UPKNjLFjn2Q-fvXGAtJFqiovFT2jaAbI4YLll-_Ta-gVBEpzA5xCTvII_WlDapeB3eG0M0xNOFERspwFS8ngSZEKxv94Ts97vDsHp8dY0SPirR5mN0Ni_je"
+                    src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80"
                   />
                 </div>
               </div>
+
             </div>
           </div>
         </section>
 
         {/* Differentiator 4: Hospitality */}
         <section className="mb-32 md:mb-40 relative">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:flex items-center gap-12">
-            <div className="lg:w-7/12 relative z-10">
-              <div className="bg-card p-12 md:p-16 lg:p-20 shadow-xl rounded-2xl border border-border/20">
-                <span className="text-secondary/60 font-semibold tracking-widest uppercase text-xs mb-4 block">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:flex items-center gap-16">
+            <div className="lg:w-7/12 relative z-10 w-full">
+              <div className="bg-white p-12 md:p-16 lg:p-20 shadow-xl rounded-3xl border border-nurturly-soft-teal/10">
+                <span className="text-nurturly-sage font-bold tracking-widest uppercase text-xs mb-4 block">
                   04 — The Feeling
                 </span>
-                <h2 className="font-headline text-5xl text-primary mb-8 font-bold">
+                <h2 className="font-headline text-4xl md:text-5xl text-nurturly-deep-indigo mb-8 font-bold">
                   The Warmth of Hospitality
                 </h2>
-                <p className="text-xl leading-relaxed text-muted-foreground italic font-headline mb-8">
-                  &quot;Home care should feel like the finest boutique hotel—where needs are anticipated before they are spoken, and every detail is handled with effortless grace.&quot;
+                <p className="text-2xl leading-relaxed text-nurturly-calm-blue italic font-headline mb-8">
+                  "Home care should feel like the finest boutique hotel—where needs are anticipated before they are spoken, and every detail is handled with effortless grace."
                 </p>
-                <p className="text-lg leading-relaxed text-muted-foreground">
+                <p className="text-lg leading-relaxed font-light text-nurturly-deep-indigo/80">
                   We bring the elevated standards of high-end hospitality into the home environment, creating a curated experience that focuses on comfort, aesthetic peace, and the small touches that make life delightful.
                 </p>
               </div>
             </div>
-            <div className="lg:w-6/12 -ml-0 lg:-ml-24 mt-8 lg:mt-0">
-              <div className="rounded-xl overflow-hidden aspect-video shadow-xl">
+            <div className="lg:w-6/12 mt-12 lg:mt-0 lg:-ml-24 relative z-0 hidden md:block">
+              <div className="rounded-3xl overflow-hidden aspect-video shadow-xl border border-nurturly-soft-teal/10">
                 <img
-                  alt="Beautifully set tea tray with flowers and morning sunlight"
+                  alt="A beautiful cup of tea prepared thoughtfully"
                   className="w-full h-full object-cover"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDisQ_R36uE5t13xlq8lFZk31dc6gse9TxggqaIoIhWEIM7Q5Mv_I0J_1xbOb4Q55mBkelWseASf9E_IAn04sQuKxtCtTMSm3bTBY1f2SM7CUeO4QrTH-QTTuduLtcV2td2Vbf4WAQdmVULN60a6ifQ4f_XVeVuhYbQOzpP5PGcLPHaGWCEsvKW7MsnshnEHu9iGSHr09XbpkC_H5_TEXtQ_ezwJaA5IbGuAj5Zh0pWVYUSOpeS7xSW-MFZg0Nzgza0las3WaXxCtsv"
+                  src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80"
                 />
               </div>
             </div>
@@ -143,46 +149,31 @@ export default function WhyUs() {
         </section>
 
         {/* Differentiator 5: Innovation */}
-        <section className="mb-32 md:mb-40">
+        <section className="mb-32 md:mb-40 py-32 bg-nurturly-bg">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-              <div className="lg:col-span-6">
-                <span className="text-secondary/60 font-semibold tracking-widest uppercase text-xs mb-4 block">
+              <div className="lg:col-span-6 space-y-6">
+                <span className="text-nurturly-sage font-bold tracking-widest uppercase text-xs mb-2 block">
                   05 — The Future
                 </span>
-                <h2 className="font-headline text-5xl text-primary mb-6 font-bold">
+                <h2 className="font-headline text-4xl md:text-5xl text-nurturly-deep-indigo font-bold">
                   Innovation with Purpose
                 </h2>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-10">
+                <p className="text-lg leading-relaxed font-light text-nurturly-deep-indigo/80 mb-6">
                   Technology should be felt, not seen. We utilize discreet, state-of-the-art innovations to enhance safety and communication without disrupting the tranquility of the home. Our tools serve the human connection, never replace it.
                 </p>
                 <div className="flex gap-6">
-                  <span
-                    className="material-symbols-outlined text-primary text-4xl"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                  >
-                    devices
-                  </span>
-                  <span
-                    className="material-symbols-outlined text-primary text-4xl"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                  >
-                    health_metrics
-                  </span>
-                  <span
-                    className="material-symbols-outlined text-primary text-4xl"
-                    style={{ fontVariationSettings: "'FILL' 1" }}
-                  >
-                    shield_with_heart
-                  </span>
+                  <span className="material-symbols-outlined text-nurturly-calm-blue text-4xl">devices</span>
+                  <span className="material-symbols-outlined text-nurturly-soft-teal text-4xl">health_metrics</span>
+                  <span className="material-symbols-outlined text-nurturly-sage text-4xl">shield_with_heart</span>
                 </div>
               </div>
               <div className="lg:col-span-5 lg:col-start-8">
-                <div className="rounded-xl overflow-hidden aspect-square shadow-lg">
+                <div className="rounded-3xl overflow-hidden aspect-square shadow-lg border border-nurturly-soft-teal/10">
                   <img
-                    alt="Modern digital tablet showing healthcare dashboard on marble surface"
+                    alt="Digital healthcare communication"
                     className="w-full h-full object-cover"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJyH3gu3qwAwqecQ7o5e9ZWbuNWU0ENkr-C3VtdOfUGPXRg-QOYAwsRdwfsEm1mlvbDKTOfvVDjLHkTUFevrmuaT6nb8Tb1yNBV0QumGcb1nGeR_XPQgd6dz6e0EPFWDEVqBpasGO3kUjyZTRRqVagWB65Grh4FJZilrDg3xr2UcCTy5gKHWPTYOyy6yEE5B-AYyRlu1DWn8OONqHk8WcAxWSrWsfPlCFDRvfTiyoqG8k-B9pYJHnDikOt_Fs9p_qpJjBH_JUX2CSb"
+                    src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&q=80"
                   />
                 </div>
               </div>
@@ -191,21 +182,22 @@ export default function WhyUs() {
         </section>
 
         {/* CTA Section */}
-        <section className="max-w-4xl mx-auto px-6 md:px-12 mb-32">
-          <div className="bg-primary text-primary-foreground rounded-3xl p-12 md:p-16 text-center shadow-xl">
-            <h2 className="font-headline text-4xl md:text-5xl mb-8 font-bold">
-              Ready to experience a different kind of care?
+        <section className="max-w-5xl mx-auto px-6 md:px-12 mb-32">
+          <div className="bg-white rounded-3xl p-12 md:p-20 text-center shadow-xl border border-nurturly-warm-yellow/30 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-nurturly-bg rounded-bl-full pointer-events-none -mr-12 -mt-12 opacity-50"></div>
+            <h2 className="font-headline text-4xl md:text-5xl text-nurturly-deep-indigo mb-10 font-bold relative z-10">
+              Ready to experience Nurturly?
             </h2>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
               <Link
                 href="/contact"
-                className="bg-primary-foreground text-primary px-10 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-all text-center"
+                className="bg-nurturly-soft-teal text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-nurturly-deep-indigo transition-all text-center shadow-md"
               >
                 Book a Consultation
               </Link>
               <Link
                 href="/contact"
-                className="border-2 border-primary-foreground/30 text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all text-center"
+                className="border border-nurturly-soft-teal/20 bg-nurturly-bg text-nurturly-deep-indigo px-10 py-5 rounded-xl font-bold text-lg hover:bg-white transition-all text-center"
               >
                 Get in Touch
               </Link>
@@ -215,6 +207,6 @@ export default function WhyUs() {
       </main>
 
       <Footer />
-    </>
+    </div>
   )
 }

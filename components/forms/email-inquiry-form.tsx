@@ -57,7 +57,7 @@ export function EmailInquiryForm() {
           <button
             type="submit"
             disabled={isLoading}
-            className="signature-gradient text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+            className="bg-nurturly-soft-teal shadow-md text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
           >
             {isLoading ? 'Sending...' : 'Notify Me'}
           </button>

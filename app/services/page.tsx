@@ -72,39 +72,39 @@ export default function Services() {
   }
 
   return (
-    <>
+    <div className="bg-nurturly-bg text-nurturly-deep-indigo font-body">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
-      <main className="bg-background text-foreground font-body">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <main>
         {/* Hero Section: Editorial */}
-        <section className="relative overflow-hidden pt-32 pb-24 md:pb-32 px-6 md:px-12">
+        <section className="relative overflow-hidden pt-32 pb-24 md:pb-32 px-6 md:px-12 bg-white border-b border-nurturly-soft-teal/10">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="z-10">
-              <span className="text-secondary/60 font-semibold tracking-widest text-xs uppercase mb-6 block">
+              <span className="text-nurturly-calm-blue font-bold tracking-widest text-xs uppercase mb-6 block">
                 Non-Medical Home Care · Houston, TX
               </span>
-              <h1 className="font-headline text-6xl md:text-7xl font-bold text-primary leading-tight mb-8">
+              <h1 className="font-headline text-5xl md:text-7xl font-bold text-nurturly-deep-indigo leading-[1.1] mb-8">
                 Care That Feels
-                <em className="block not-italic text-secondary">Personal</em>
+                <em className="block not-italic text-nurturly-soft-teal font-light">Personal</em>
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed mb-10 max-w-xl">
+              <p className="text-xl md:text-2xl text-nurturly-deep-indigo/80 font-light leading-relaxed mb-10 max-w-xl">
                 We provide non-medical home care and personal assistance across Houston — built around the individual, not a one-size-fits-all package.
               </p>
               <CTALink
                 href="/contact"
                 label="Services Hero — Request a Personalized Care Plan"
-                className="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:opacity-90 transition-all text-center"
+                className="bg-nurturly-soft-teal text-white px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-nurturly-deep-indigo transition-all text-center inline-block"
               >
                 Request a Personalized Care Plan
               </CTALink>
             </div>
 
             <div className="relative hidden lg:block">
-              <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative z-10 transform -rotate-2">
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative z-10 transform -rotate-2">
                 <img
                   alt="A gentle caregiver holding the hand of an elderly woman"
                   className="w-full h-full object-cover"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVbmnMCi6vytQLWtyHzq74NZ31akP82omyaliWGGJ6ntaIdrfwbGbRBy7ifFMRbf8YBKaE8G1HgQ5S7vOo7er47Y0ubRnBUVnUj2s76T4JAyxuFwtAnc6wV_PYTUBGozTJh4j16_4jKWpf6XJzbJHfIbUC5gu6idZJiQbekwIzzbgylakGbgzITPUFW3XeQ8eJ9uqupJwkydjlg5st88NrXEQYJ0FV2nUReoc4umcMEB_zT3C6rkVfqNTqm5oJW9OGEtOiUnZGMHAv"
+                  src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80"
                 />
               </div>
             </div>
@@ -112,11 +112,13 @@ export default function Services() {
         </section>
 
         {/* Bento Grid Services */}
-        <section className="bg-secondary/5 py-24 md:py-32 px-6 md:px-12">
+        <section className="bg-nurturly-bg py-32 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-20">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold text-foreground mb-4">What We Offer</h2>
-              <p className="text-muted-foreground text-lg">Every care plan is built around the individual — their routines, preferences, and health needs — so your loved one receives consistent, attentive support right where they are most comfortable: home.</p>
+              <h2 className="font-headline text-4xl md:text-5xl font-bold text-nurturly-deep-indigo mb-6">What We Offer</h2>
+              <p className="text-nurturly-deep-indigo/80 text-lg font-light leading-relaxed">
+                Every care plan is built around the individual — their routines, preferences, and health needs — so your loved one receives consistent, attentive support right where they are most comfortable: home.
+              </p>
             </div>
 
             {/* Main Services Grid */}
@@ -124,20 +126,15 @@ export default function Services() {
               {mainServices.map((service, index) => (
                 <div
                   key={index}
-                  className="bg-card p-8 rounded-2xl shadow-sm hover:shadow-md transition-all border border-border/20 group"
+                  className="bg-white p-8 rounded-2xl shadow-sm border border-nurturly-soft-teal/10 group hover:shadow-md transition-shadow"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      {service.icon}
-                    </span>
+                  <div className="w-14 h-14 rounded-full bg-nurturly-bg flex items-center justify-center text-nurturly-calm-blue mb-6 group-hover:scale-110 transition-transform">
+                    <span className="material-symbols-outlined text-2xl">{service.icon}</span>
                   </div>
-                  <h3 className="font-headline text-xl md:text-2xl font-bold mb-3 text-foreground">
+                  <h3 className="font-headline text-xl md:text-2xl font-bold mb-3 text-nurturly-deep-indigo">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground font-light leading-relaxed">
+                  <p className="text-nurturly-deep-indigo/70 font-light leading-relaxed text-sm">
                     {service.description}
                   </p>
                 </div>
@@ -149,20 +146,15 @@ export default function Services() {
               {additionalServices.map((service, index) => (
                 <div
                   key={index}
-                  className="bg-card p-8 rounded-2xl shadow-sm hover:shadow-md transition-all border border-border/20 group"
+                  className="bg-white p-8 rounded-2xl shadow-sm border border-nurturly-soft-teal/10 group hover:shadow-md transition-shadow"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary mb-6 group-hover:scale-110 transition-transform">
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      {service.icon}
-                    </span>
+                  <div className="w-12 h-12 rounded-full bg-nurturly-bg flex items-center justify-center text-nurturly-sage mb-6 group-hover:scale-110 transition-transform">
+                    <span className="material-symbols-outlined text-xl">{service.icon}</span>
                   </div>
-                  <h3 className="font-headline text-lg font-bold mb-3 text-foreground">
+                  <h3 className="font-headline text-lg font-bold mb-3 text-nurturly-deep-indigo">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm font-light leading-relaxed">
+                  <p className="text-nurturly-deep-indigo/70 text-sm font-light leading-relaxed">
                     {service.description}
                   </p>
                 </div>
@@ -170,62 +162,50 @@ export default function Services() {
             </div>
 
             {/* Transitional Care Callout */}
-            <div className="mt-12 bg-primary text-primary-foreground p-12 rounded-3xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="mt-16 bg-white border border-nurturly-warm-yellow/40 p-12 rounded-3xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-sm">
               <div className="z-10 max-w-xl">
-                <h3 className="font-headline text-3xl font-bold mb-4">Post-Hospital Transitional Care</h3>
-                <p className="text-primary-foreground/90 text-lg leading-relaxed">
+                <span className="material-symbols-outlined text-nurturly-warm-yellow text-4xl mb-4 block">medical_services</span>
+                <h3 className="font-headline text-3xl font-bold mb-4 text-nurturly-deep-indigo">Post-Hospital Transitional Care</h3>
+                <p className="text-nurturly-deep-indigo/80 text-lg leading-relaxed font-light">
                   Coming home after a hospital stay is a vulnerable moment. Our team steps in during those critical first days — managing routines, monitoring comfort, and giving families peace of mind when it matters most.
                 </p>
               </div>
               <div className="z-10">
                 <Link
-                href="/contact"
-                className="bg-card text-primary px-8 py-4 rounded-xl font-bold hover:bg-primary-foreground transition-colors flex items-center gap-2 whitespace-nowrap"
-              >
-                Request Care Now
-                <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>arrow_forward</span>
-              </Link>
-              </div>
-              <div className="absolute right-0 top-0 w-96 h-96 opacity-10 pointer-events-none hidden md:block">
-                <span
-                  className="material-symbols-outlined text-[20rem]"
-                  style={{ fontVariationSettings: "'FILL' 1" }}
+                  href="/contact"
+                  className="bg-nurturly-soft-teal text-white px-8 py-4 rounded-xl font-bold hover:bg-nurturly-deep-indigo transition-colors flex items-center gap-2 whitespace-nowrap shadow-md"
                 >
-                  shield_with_heart
-                </span>
+                  Request Care Now
+                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                </Link>
               </div>
             </div>
           </div>
         </section>
 
         {/* Final CTA Section */}
-        <section className="py-32 px-6 md:px-12 bg-background">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-bold mb-8">
-              <span
-                className="material-symbols-outlined text-base"
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                verified_user
-              </span>
-              LICENSED &amp; COMPASSIONATE CARE
+        <section className="py-32 px-6 md:px-12 bg-white">
+          <div className="max-w-4xl mx-auto text-center border border-nurturly-soft-teal/20 rounded-3xl p-16 shadow-lg bg-nurturly-bg">
+            <div className="inline-flex items-center gap-3 px-6 py-2 bg-nurturly-sage/10 text-nurturly-sage rounded-full text-sm font-bold mb-8">
+              <span className="material-symbols-outlined text-base">verified_user</span>
+              LICENSED & COMPASSIONATE CARE
             </div>
-            <h2 className="font-headline text-5xl font-bold text-primary mb-8">
+            <h2 className="font-headline text-4xl md:text-5xl font-bold text-nurturly-deep-indigo mb-6">
               Ready to get started?
             </h2>
-            <p className="text-xl text-muted-foreground mb-12 font-light italic">
-              &quot;Our mission is to bring peace of mind back to families. We aren&apos;t just caregivers — we are an extension of your home.&quot;
+            <p className="text-xl text-nurturly-deep-indigo/70 mb-12 font-light italic max-w-2xl mx-auto">
+              "Our mission is to bring peace of mind back to families. We aren't just caregivers — we are an extension of your home."
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 href="/contact"
-                className="bg-primary text-primary-foreground px-10 py-5 rounded-xl font-bold text-lg shadow-xl hover:opacity-90 transition-all w-full sm:w-auto text-center"
+                className="bg-nurturly-deep-indigo text-white px-10 py-5 rounded-xl font-bold text-lg shadow-xl hover:bg-nurturly-soft-teal transition-all w-full sm:w-auto text-center"
               >
                 Request a Personalized Care Plan
               </Link>
               <Link
                 href="/contact"
-                className="bg-card border border-border text-foreground px-10 py-5 rounded-xl font-bold text-lg hover:bg-secondary/5 transition-all w-full sm:w-auto text-center"
+                className="bg-white border border-nurturly-soft-teal/20 text-nurturly-deep-indigo px-10 py-5 rounded-xl font-bold text-lg hover:bg-nurturly-bg transition-all w-full sm:w-auto text-center shadow-sm"
               >
                 Speak With Our Team
               </Link>
@@ -235,6 +215,6 @@ export default function Services() {
       </main>
 
       <Footer />
-    </>
+    </div>
   )
 }

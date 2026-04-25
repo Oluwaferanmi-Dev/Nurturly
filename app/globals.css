@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
@@ -7,11 +8,28 @@
   }
 
   body {
-    font-family: var(--font-body, system-ui, sans-serif);
+    font-family: 'Roboto', system-ui, sans-serif;
+    font-weight: 400;
   }
 
-  h1, h2, h3, h4, h5, h6, .serif {
-    font-family: var(--font-headline, ui-sans-serif, system-ui, sans-serif);
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', system-ui, sans-serif;
+    font-weight: 700;
+  }
+
+  .subheading {
+    font-family: 'Roboto', system-ui, sans-serif;
+    font-weight: 300;
+  }
+
+  .callout {
+    font-family: 'Roboto', system-ui, sans-serif;
+    font-weight: 300;
+  }
+
+  button {
+    font-family: 'Roboto', system-ui, sans-serif;
+    font-weight: 700;
   }
 
   .material-symbols-outlined {
@@ -22,26 +40,26 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Core Brand Colors */
-  --nurturly-soft-teal: #00788E;
-  --nurturly-calm-blue: #00A5B6;
-  --nurturly-deep-indigo: #093859;
-  --nurturly-sage: #68BEB0;
-  --nurturly-warm-yellow: #FFDCAA;
-  
-  --nurturly-bg: #FCF9F4;
-  --nurturly-text: #1C1C19;
-  --nurturly-surface: #FFFFFF;
+  /* Official Nurturly Brand Colors */
+  --color-soft-teal: #00788E;
+  --color-calm-blue: #00A5B6;
+  --color-deep-indigo: #093859;
+  --color-sage: #68BEB0;
+  --color-warm-yellow: #FFDCAA;
+  --color-cream: #FAF6F0;
+  --color-white: #FFFFFF;
+  --color-dark-text: #093859;
+  --color-muted-text: #4a6367;
 
   /* Theme Mapping */
-  --background: #FCF9F4;
+  --background: #FAF6F0;
   --foreground: #093859;
   
   --card: #FFFFFF;
   --card-foreground: #093859;
   
   --popover: #FFFFFF;
-  --popover-foreground: #1C1C19;
+  --popover-foreground: #093859;
   
   --primary: #093859;
   --primary-foreground: #FFFFFF;
@@ -49,8 +67,8 @@
   --secondary: #00788E;
   --secondary-foreground: #FFFFFF;
   
-  --muted: #EFEFEF;
-  --muted-foreground: #5B5B5B;
+  --muted: #E8E2DB;
+  --muted-foreground: #4a6367;
   
   --accent: #00A5B6;
   --accent-foreground: #FFFFFF;
@@ -61,27 +79,27 @@
   --destructive: #E74C3C;
   --destructive-foreground: #FFFFFF;
   
-  --border: #E0DFDB;
-  --input: #E0DFDB;
+  --border: #E8E2DB;
+  --input: #E8E2DB;
   --ring: #00788E;
   
   --radius: 0.75rem;
 
   --surface: #FFFFFF;
   --on-surface: #093859;
-  --surface-container: #FCF9F4;
+  --surface-container: #FAF6F0;
   --surface-container-low: #F5EFEB;
   --surface-container-lowest: #FFFFFF;
   --surface-container-high: #EBE6E1;
   --surface-container-highest: #E6E0DB;
   
-  --on-surface-variant: #4A5568;
-  --outline-variant: #CBD5E0;
+  --on-surface-variant: #4a6367;
+  --outline-variant: #D4CCBE;
 }
 
 @theme inline {
-  --font-sans: var(--font-body), system-ui;
-  --font-serif: var(--font-headline), system-ui;
+  --font-sans: 'Roboto', system-ui, sans-serif;
+  --font-serif: 'Roboto', system-ui, sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -120,11 +138,15 @@
   --color-on-surface-variant: var(--on-surface-variant);
   --color-outline-variant: var(--outline-variant);
 
-  --color-nurturly-soft-teal: #00788E;
-  --color-nurturly-calm-blue: #00A5B6;
-  --color-nurturly-deep-indigo: #093859;
-  --color-nurturly-sage: #68BEB0;
-  --color-nurturly-warm-yellow: #FFDCAA;
+  --color-soft-teal: var(--color-soft-teal);
+  --color-calm-blue: var(--color-calm-blue);
+  --color-deep-indigo: var(--color-deep-indigo);
+  --color-sage: var(--color-sage);
+  --color-warm-yellow: var(--color-warm-yellow);
+  --color-cream: var(--color-cream);
+  --color-white: var(--color-white);
+  --color-dark-text: var(--color-dark-text);
+  --color-muted-text: var(--color-muted-text);
 }
 
 @layer base {

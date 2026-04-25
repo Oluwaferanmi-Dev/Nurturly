@@ -51,9 +51,9 @@ export default function About() {
 
             <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-square">
               <img
-                alt="Caregiver holding senior's hand over a cup of warm tea"
+                alt="Caregiver and senior sharing a warm moment"
                 className="w-full h-full object-cover"
-                src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80"
+                src="https://images.unsplash.com/photo-6tEGyMpJPXs?auto=format&fit=crop&q=80&w=1200"
               />
             </div>
           </div>
@@ -125,9 +125,9 @@ export default function About() {
             <div className="lg:w-1/2 space-y-12">
               <div className="rounded-2xl overflow-hidden shadow-xl aspect-video">
                 <img
-                  alt="Senior laughing with a companion outside"
+                  alt="Older adult enjoying leisure time outdoors"
                   className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-y02jEqpRZO0?auto=format&fit=crop&q=80&w=1200"
                 />
               </div>
 

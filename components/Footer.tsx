@@ -4,7 +4,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-nurturly-deep-indigo text-white w-full border-t border-nurturly-soft-teal/10">
+    <footer className="bg-deep-indigo text-white w-full border-t border-soft-teal/10">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-10">
 
         {/* Main Grid */}
@@ -26,14 +26,14 @@ export default function Footer() {
             <div className="flex gap-4">
               <a
                 href="mailto:hello@nurturlycare.com"
-                className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:bg-nurturly-soft-teal hover:border-nurturly-soft-teal hover:text-white transition-all shadow-sm"
+                className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:bg-soft-teal hover:border-soft-teal hover:text-white transition-all shadow-sm"
                 aria-label="Email us"
               >
                 <span className="material-symbols-outlined text-[20px]">mail</span>
               </a>
               <a
                 href="tel:+18008687883"
-                className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:bg-nurturly-soft-teal hover:border-nurturly-soft-teal hover:text-white transition-all shadow-sm"
+                className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:bg-soft-teal hover:border-soft-teal hover:text-white transition-all shadow-sm"
                 aria-label="Call us"
               >
                 <span className="material-symbols-outlined text-[20px]">call</span>
@@ -43,7 +43,7 @@ export default function Footer() {
 
           {/* Services */}
           <div className="space-y-6">
-            <h4 className="font-bold text-xs uppercase tracking-widest text-nurturly-soft-teal">Services</h4>
+            <h4 className="font-bold text-xs uppercase tracking-widest text-soft-teal">Services</h4>
             <ul className="space-y-4">
               <li><Link href="/services" className="text-sm font-light text-white/70 hover:text-white transition-colors">Home Care</Link></li>
               <li><Link href="/services" className="text-sm font-light text-white/70 hover:text-white transition-colors">Memory Care</Link></li>
@@ -54,7 +54,7 @@ export default function Footer() {
 
           {/* Company */}
           <div className="space-y-6">
-            <h4 className="font-bold text-xs uppercase tracking-widest text-nurturly-soft-teal">Company</h4>
+            <h4 className="font-bold text-xs uppercase tracking-widest text-soft-teal">Company</h4>
             <ul className="space-y-4">
               <li><Link href="/about" className="text-sm font-light text-white/70 hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="/how-it-works" className="text-sm font-light text-white/70 hover:text-white transition-colors">How It Works</Link></li>
@@ -66,7 +66,7 @@ export default function Footer() {
 
           {/* Contact & Legal */}
           <div className="space-y-6">
-            <h4 className="font-bold text-xs uppercase tracking-widest text-nurturly-soft-teal">Contact</h4>
+            <h4 className="font-bold text-xs uppercase tracking-widest text-soft-teal">Contact</h4>
             <ul className="space-y-4">
               <li><Link href="/contact" className="text-sm font-light text-white/70 hover:text-white transition-colors">Get in Touch</Link></li>
               <li><Link href="/service-areas" className="text-sm font-light text-white/70 hover:text-white transition-colors">Service Areas</Link></li>
@@ -74,7 +74,7 @@ export default function Footer() {
               <li><Link href="/for-professionals" className="text-sm font-light text-white/70 hover:text-white transition-colors">For Professionals</Link></li>
             </ul>
             <div className="pt-6 mt-6 border-t border-white/10 space-y-6">
-              <h4 className="font-bold text-xs uppercase tracking-widest text-nurturly-soft-teal">Legal</h4>
+              <h4 className="font-bold text-xs uppercase tracking-widest text-soft-teal">Legal</h4>
               <ul className="space-y-4">
                 <li><Link href="/privacy" className="text-sm font-light text-white/70 hover:text-white transition-colors">Privacy Policy</Link></li>
                 <li><Link href="/accessibility" className="text-sm font-light text-white/70 hover:text-white transition-colors">Accessibility</Link></li>
@@ -91,7 +91,7 @@ export default function Footer() {
           </p>
           <Link
             href="/contact"
-            className="text-xs font-bold tracking-widest uppercase text-white hover:text-nurturly-soft-teal transition-colors flex items-center gap-2"
+            className="text-xs font-bold tracking-widest uppercase text-white hover:text-soft-teal transition-colors flex items-center gap-2"
           >
             Book a Consultation
              <span className="material-symbols-outlined text-sm">arrow_forward</span>

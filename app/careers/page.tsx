@@ -156,9 +156,9 @@ export default function Careers() {
             
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-[4/5]">
               <img
-                alt="Nurturly caregiver at work, sharing a smile"
+                alt="Caregiver in a natural, welcoming setting"
                 className="w-full h-full object-cover"
-                src="https://images.unsplash.com/photo-1581579186913-431dd83a891e?auto=format&fit=crop&q=80"
+                src="https://images.unsplash.com/photo-mEZ3PoFGs6o?auto=format&fit=crop&q=80&w=1200"
               />
             </div>
           </div>
@@ -183,14 +183,14 @@ export default function Careers() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <img
-                alt="Caregiver thoughtfully pouring tea"
+                alt="Caregiver providing attentive care"
                 className="rounded-2xl w-full h-64 sm:h-80 object-cover shadow-sm"
-                src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80"
+                src="https://images.unsplash.com/photo-4tANJ3dEZc0?auto=format&fit=crop&q=80&w=1200"
               />
               <img
-                alt="Comfortable home environment"
+                alt="Caregiver in warm interaction with client"
                 className="rounded-2xl w-full h-64 sm:h-80 object-cover shadow-sm sm:mt-16"
-                src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?auto=format&fit=crop&q=80"
+                src="https://images.unsplash.com/photo-6tEGyMpJPXs?auto=format&fit=crop&q=80&w=1200"
               />
             </div>
           </div>

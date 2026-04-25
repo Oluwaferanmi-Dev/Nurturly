@@ -130,8 +130,8 @@ export default function Home() {
           {/* Background Image */}
           <img
             className="absolute inset-0 w-full h-full object-cover"
-            alt="Caregiver holding an elderly person's hand warmly in a home setting"
-            src="https://images.unsplash.com/photo-1544027993-37db48d23632?auto=format&fit=crop&q=80"
+            alt="Caregiver holding an elderly person's hand warmly"
+            src="https://images.unsplash.com/photo-4tANJ3dEZc0?auto=format&fit=crop&q=80&w=1200"
           />
           
           {/* Dark overlay for text readability */}
@@ -213,8 +213,8 @@ export default function Home() {
                 <div className="aspect-[4/3] overflow-hidden bg-gray-200">
                   <img
                     className="w-full h-full object-cover"
-                    alt="Personal care assistance"
-                    src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80"
+                    alt="Caregiver assisting with daily activities"
+                    src="https://images.unsplash.com/photo-1571115764105-b51806bda158?auto=format&fit=crop&q=80&w=1200"
                   />
                 </div>
                 <div className="p-8">
@@ -236,8 +236,8 @@ export default function Home() {
                 <div className="aspect-[4/3] overflow-hidden bg-gray-200">
                   <img
                     className="w-full h-full object-cover"
-                    alt="Companionship and connection"
-                    src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?auto=format&fit=crop&q=80"
+                    alt="Senior and caregiver enjoying time together"
+                    src="https://images.unsplash.com/photo-mEZ3PoFGs6o?auto=format&fit=crop&q=80&w=1200"
                   />
                 </div>
                 <div className="p-8">
@@ -259,8 +259,8 @@ export default function Home() {
                 <div className="aspect-[4/3] overflow-hidden bg-gray-200">
                   <img
                     className="w-full h-full object-cover"
-                    alt="Memory care support"
-                    src="https://images.unsplash.com/photo-1576091160399-7021be575f0f?auto=format&fit=crop&q=80"
+                    alt="Caregiver providing compassionate care"
+                    src="https://images.unsplash.com/photo-M4rQkHxYL0g?auto=format&fit=crop&q=80&w=1200"
                   />
                 </div>
                 <div className="p-8">

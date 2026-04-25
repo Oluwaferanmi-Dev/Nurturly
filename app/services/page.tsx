@@ -102,9 +102,9 @@ export default function Services() {
             <div className="relative hidden lg:block">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative z-10 transform -rotate-2">
                 <img
-                  alt="A gentle caregiver holding the hand of an elderly woman"
+                  alt="Caregiver and client in moment of care"
                   className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-4tANJ3dEZc0?auto=format&fit=crop&q=80&w=1200"
                 />
               </div>
             </div>

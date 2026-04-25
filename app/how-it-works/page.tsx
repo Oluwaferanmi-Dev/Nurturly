@@ -44,9 +44,9 @@ export default function HowItWorks() {
             <div className="relative hidden lg:block">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  alt="Soft morning light filtering through a window as a caregiver and senior woman share a warm conversation"
+                  alt="Caregiver and senior sharing a warm conversation"
                   className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1544027993-37db48d23632?auto=format&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-6tEGyMpJPXs?auto=format&fit=crop&q=80&w=1200"
                 />
               </div>
               <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-xl shadow-lg max-w-xs border border-nurturly-soft-teal/10">
@@ -85,9 +85,9 @@ export default function HowItWorks() {
             <div className="w-full md:w-1/2 order-1 md:order-2">
               <div className="aspect-video rounded-3xl overflow-hidden shadow-lg border border-nurturly-soft-teal/10">
                 <img
-                  alt="Hands gently resting on each other during a supportive conversation"
+                  alt="Caregiver having a conversation with client"
                   className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?auto=format&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-4tANJ3dEZc0?auto=format&fit=crop&q=80&w=1200"
                 />
               </div>
             </div>
@@ -98,9 +98,9 @@ export default function HowItWorks() {
             <div className="w-full md:w-1/2">
               <div className="aspect-video rounded-3xl overflow-hidden shadow-lg border border-nurturly-soft-teal/10 bg-nurturly-bg">
                 <img
-                  alt="Professional care coordinator looking at documents and smiling warmly"
+                  alt="Care assessment and planning process"
                   className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1571115764105-b51806bda158?auto=format&fit=crop&q=80&w=1200"
                 />
               </div>
             </div>
@@ -147,16 +147,16 @@ export default function HowItWorks() {
               <div className="w-full lg:w-1/2 grid grid-cols-2 gap-6 relative">
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-lg transform -rotate-3 z-10 hover:rotate-0 transition-transform duration-500">
                   <img
-                    alt="Portrait of a kind caregiver smiling warmly"
+                    alt="Portrait of a compassionate caregiver"
                     className="w-full h-full object-cover"
-                    src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80"
+                    src="https://images.unsplash.com/photo-mEZ3PoFGs6o?auto=format&fit=crop&q=80&w=1200"
                   />
                 </div>
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-lg transform rotate-3 mt-12 z-0 hover:rotate-0 transition-transform duration-500">
                   <img
-                    alt="Portrait of another dedicated caregiver"
+                    alt="Another compassionate caregiver"
                     className="w-full h-full object-cover"
-                    src="https://images.unsplash.com/photo-1581579186913-431dd83a891e?auto=format&fit=crop&q=80"
+                    src="https://images.unsplash.com/photo-M4rQkHxYL0g?auto=format&fit=crop&q=80&w=1200"
                   />
                 </div>
               </div>
@@ -186,9 +186,9 @@ export default function HowItWorks() {
             <div className="w-full md:w-1/2 order-1 md:order-2">
               <div className="aspect-video rounded-3xl overflow-hidden shadow-lg border border-nurturly-soft-teal/10">
                 <img
-                  alt="Caregiver helping senior in daily tasks"
+                  alt="Caregiver assisting with daily living activities"
                   className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1571115764105-b51806bda158?auto=format&fit=crop&q=80&w=1200"
                 />
               </div>
             </div>
@@ -199,9 +199,9 @@ export default function HowItWorks() {
             <div className="w-full md:w-1/2">
               <div className="aspect-video rounded-3xl overflow-hidden shadow-lg border border-nurturly-soft-teal/10">
                 <img
-                  alt="Family member looking at care updates"
+                  alt="Ongoing care support and check-ins"
                   className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-y02jEqpRZO0?auto=format&fit=crop&q=80&w=1200"
                 />
               </div>
             </div>

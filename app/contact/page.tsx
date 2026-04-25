@@ -72,11 +72,11 @@ export default function Contact() {
             <div className="relative">
               {/* Image */}
               <div className="relative z-10 w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
-                <img
-                  alt="A caregiver and a senior woman sitting comfortably on a couch having a warm conversation"
-                  className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1544027993-37db48d23632?auto=format&fit=crop&q=80"
-                />
+              <img
+                alt="Warm conversation between caregiver and senior"
+                className="w-full h-full object-cover"
+                src="https://images.unsplash.com/photo-7QXyc8b4Mxc?auto=format&fit=crop&q=80&w=1200"
+              />
               </div>
               {/* Decorative Element */}
               <div className="absolute -bottom-8 -left-8 w-64 h-80 bg-nurturly-warm-yellow/20 rounded-2xl -z-0"></div>

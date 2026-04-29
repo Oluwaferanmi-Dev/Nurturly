@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { createClient } from '@/lib/supabase/server'
-import { sendApplicationEmail } from '@/lib/email'
+import { sendApplicationEmail, sendApplicationConfirmation } from '@/lib/email'
+// import { upsertHubSpotApplicant } from '@/lib/hubspot'
 
 const applicationSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -20,15 +21,12 @@ type ApplicationData = z.infer<typeof applicationSchema>
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    console.log('[v0] Application request received:', { name: body.name, email: body.email, job_slug: body.job_slug })
 
     // Validate the application data
     const validatedData = applicationSchema.parse(body)
-    console.log('[v0] Application validation passed')
 
     // Initialize Supabase server client
     const supabase = await createClient()
-    console.log('[v0] Supabase client initialized')
 
     // Insert application into database
     const { data, error } = await supabase
@@ -49,20 +47,38 @@ export async function POST(request: NextRequest) {
       .select()
 
     if (error) {
-      console.error('[v0] Supabase insert error:', error)
+      console.error('Supabase insert error:', error)
       return NextResponse.json(
-        { error: `Database error: ${error.message}` },
+        { error: 'Failed to save your application. Please try again.', details: error },
         { status: 500 }
       )
     }
 
-    console.log('[v0] Application inserted successfully')
-
     // Send email notification to admin
     const emailResponse = await sendApplicationEmail(validatedData)
     if (!emailResponse.success) {
-      console.warn('[v0] Failed to send application email:', emailResponse.error)
+      console.warn('Failed to send application email:', emailResponse.error)
       // Continue even if email fails - the application is saved
+    }
+
+    // Sync applicant to HubSpot CRM (non-blocking)
+    // upsertHubSpotApplicant({
+    //   name: validatedData.name,
+    //   email: validatedData.email,
+    //   phone: validatedData.phone,
+    //   job_slug: validatedData.job_slug,
+    //   experience: validatedData.experience,
+    //   location: validatedData.location,
+    // }).catch((err) => console.warn('HubSpot sync failed (non-blocking):', err))
+
+    // Send confirmation to the applicant
+    const confirmResponse = await sendApplicationConfirmation({
+      name: validatedData.name,
+      email: validatedData.email,
+      job_slug: validatedData.job_slug,
+    })
+    if (!confirmResponse.success) {
+      console.warn('Failed to send application confirmation:', confirmResponse.error)
     }
 
     return NextResponse.json(
@@ -74,13 +90,12 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     )
   } catch (error) {
-    console.error('[v0] API error:', error)
+    console.error('API error:', error)
 
     // Handle validation errors
     if (error instanceof z.ZodError) {
-      console.error('[v0] Validation errors:', error.errors)
       return NextResponse.json(
-        { error: error.errors[0]?.message || 'Validation failed' },
+        { error: error.errors[0]?.message || 'Please check your input and try again.' },
         { status: 400 }
       )
     }

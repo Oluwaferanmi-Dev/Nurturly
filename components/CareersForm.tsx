@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { trackApplicationSubmit } from '@/lib/analytics'
 
 interface FormData {
   name: string
@@ -127,6 +128,7 @@ export default function CareersForm() {
 
       setUploadProgress(100)
       setSuccessMessage('Thank you for your application! We\'ll review it and be in touch soon.')
+      trackApplicationSubmit(formData.experience || undefined)
       setFormData({
         name: '',
         email: '',
@@ -275,7 +277,7 @@ export default function CareersForm() {
       {uploadProgress > 0 && uploadProgress < 100 && (
         <div className="w-full bg-surface-container-high rounded-full h-2">
           <div
-            className="signature-gradient h-2 rounded-full transition-all duration-300"
+            className="bg-nurturly-soft-teal shadow-md h-2 rounded-full transition-all duration-300"
             style={{ width: `${uploadProgress}%` }}
           ></div>
         </div>
@@ -295,7 +297,7 @@ export default function CareersForm() {
 
       <div className="pt-4 flex justify-end">
         <button
-          className="signature-gradient text-on-primary px-12 py-4 rounded-full text-lg font-medium hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-nurturly-soft-teal shadow-md text-white px-12 py-4 rounded-full text-lg font-medium hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
           type="submit"
           disabled={isLoading}
         >

@@ -37,6 +37,44 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* ── Nurturly ATS Design Tokens (Material / Stitch palette) ─────────── */
+
+  /* Brand primaries */
+  --ats-primary:              #006d77;
+  --ats-on-primary:           #ffffff;
+  --ats-primary-container:    #d0f0f3;
+  --ats-on-primary-container: #00363b;
+
+  /* Secondary / neutral */
+  --ats-secondary:            #4a6367;
+  --ats-on-secondary:         #ffffff;
+  --ats-secondary-container:  #cde8ec;
+  --ats-on-secondary-container: #051f23;
+
+  /* Tertiary / gold */
+  --ats-tertiary:             #c9a84c;
+  --ats-on-tertiary:          #ffffff;
+  --ats-tertiary-container:   #f5e0a9;
+  --ats-on-tertiary-container:#2d1f00;
+
+  /* Surface stack  (lightest → dark) */
+  --ats-surface:              #fcf9f4;
+  --ats-on-surface:           #1c1c19;
+  --ats-on-surface-variant:   #42413e;
+  --ats-surface-container-lowest:  #ffffff;
+  --ats-surface-container-low:     #f6f3ee;
+  --ats-surface-container:         #f0ede8;
+  --ats-surface-container-high:    #eae7e2;
+  --ats-surface-container-highest: #e4e2dc;
+
+  /* Outline */
+  --ats-outline:              #72706b;
+  --ats-outline-variant:      #c4c2bc;
+
+  /* Error */
+  --ats-error:                #ba1a1a;
+  --ats-on-error:             #ffffff;
 }
 
 .dark {

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Accessibility | Nurturly',
@@ -8,41 +9,46 @@ export const metadata: Metadata = {
 
 export default function Accessibility() {
   return (
-    <>
+    <div className="bg-nurturly-bg text-nurturly-deep-indigo font-body min-h-screen">
       <Header />
-      <main className="bg-surface text-on-surface font-body min-h-screen">
+      
+      <main className="pt-32 pb-32">
         {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-32">
-          <div className="space-y-8">
-            <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl leading-tight">
-              Accessibility
-            </h1>
-          </div>
+        <section className="max-w-4xl mx-auto px-6 lg:px-12 mb-16">
+          <h1 className="font-headline font-bold text-5xl md:text-6xl text-nurturly-deep-indigo mb-6">
+            Accessibility
+          </h1>
+          <div className="w-24 h-1 bg-nurturly-soft-teal rounded-full mb-8"></div>
+          <p className="text-xl md:text-2xl text-nurturly-deep-indigo/80 font-light leading-relaxed">
+            We are committed to making our services and digital platforms accessible to all people, including those with disabilities.
+          </p>
         </section>
 
         {/* Content Section */}
-        <section className="bg-surface-container-lowest py-16 md:py-24">
-          <div className="max-w-4xl mx-auto px-6 lg:px-12">
-            <div className="prose prose-sm max-w-none text-on-surface">
-              <p className="text-lg leading-relaxed mb-8">
-                We are committed to making our services and digital platforms accessible to all people, including those with disabilities.
+        <section className="max-w-4xl mx-auto px-6 lg:px-12">
+          <div className="bg-white p-10 md:p-16 rounded-[2rem] shadow-sm border border-nurturly-soft-teal/10">
+            <h2 className="font-headline text-2xl font-bold text-nurturly-deep-indigo mb-6">Our Commitment</h2>
+            <div className="prose prose-lg max-w-none text-nurturly-deep-indigo/80 font-light leading-relaxed">
+              <p className="mb-6">
+                Nurturly strives to ensure that its services are accessible to people with disabilities. We have invested a significant amount of resources to help ensure that our website is made easier to use and more accessible for people with disabilities, with the strong belief that every person has the right to live with dignity, equality, comfort and independence.
               </p>
-              <p className="text-base text-on-surface-variant leading-relaxed">
-                For questions about accessibility or to discuss accommodations, please contact us at care@nurturlycare.com.
+              <h3 className="font-headline text-xl font-bold text-nurturly-deep-indigo mt-8 mb-4">Accessibility on Nurturlycare.com</h3>
+              <p className="mb-6">
+                Our site makes available tools that allow the site to improve its compliance with the Web Content Accessibility Guidelines (WCAG 2.1).
+              </p>
+              <h3 className="font-headline text-xl font-bold text-nurturly-deep-indigo mt-8 mb-4">Contact Us</h3>
+              <p>
+                If you wish to report an accessibility issue, have any questions or need assistance, please contact Nurturly Customer Support as follows:
+              </p>
+              <p className="mt-4 font-medium text-nurturly-calm-blue">
+                Email: care@nurturlycare.com
               </p>
             </div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-on-surface text-surface-container py-16 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <p className="font-body text-sm tracking-wide text-center md:text-left">
-            © 2026 Nurturly. Redefining Care, Redefining Time.
-          </p>
-        </div>
-      </footer>
-    </>
+      <Footer />
+    </div>
   )
 }

@@ -1,14 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { createClient } from '@/lib/supabase/server'
-import { sendInquiryEmail } from '@/lib/email'
+import { sendInquiryEmail, sendInquiryConfirmation } from '@/lib/email'
+// import { upsertHubSpotContact } from '@/lib/hubspot'
 
 const inquirySchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
   phone: z.string().optional().nullable(),
   care_type: z.string().optional().nullable(),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+  relationship_to_patient: z.string().optional().nullable(),
+  zip_code: z.string().optional().nullable(),
+  urgency: z.string().optional().nullable(),
+  hours_per_week: z.string().optional().nullable(),
+  message: z.string().optional().nullable(),
 })
 
 type InquiryData = z.infer<typeof inquirySchema>
@@ -16,15 +21,12 @@ type InquiryData = z.infer<typeof inquirySchema>
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    console.log('[v0] Inquiry request received:', { name: body.name, email: body.email })
 
     // Validate the form data
     const validatedData = inquirySchema.parse(body)
-    console.log('[v0] Inquiry validation passed')
 
     // Initialize Supabase server client
     const supabase = await createClient()
-    console.log('[v0] Supabase client initialized')
 
     // Insert inquiry into database
     const { data, error } = await supabase
@@ -35,51 +37,64 @@ export async function POST(request: NextRequest) {
           email: validatedData.email,
           phone: validatedData.phone || null,
           care_type: validatedData.care_type || null,
-          message: validatedData.message,
+          relationship_to_patient: validatedData.relationship_to_patient || null,
+          zip_code: validatedData.zip_code || null,
+          urgency: validatedData.urgency || null,
+          hours_per_week: validatedData.hours_per_week || null,
+          message: validatedData.message || null,
         },
       ])
       .select()
 
     if (error) {
-      console.error('[v0] Supabase insert error:', error)
+      console.error('Supabase insert error:', error)
       return NextResponse.json(
-        { error: `Database error: ${error.message}` },
-        { status: 500 }
+        { error: 'Failed to save your inquiry. Please try again.', details: error },
+        { status: 500 },
       )
     }
-
-    console.log('[v0] Inquiry inserted successfully')
 
     // Send email notification to admin
     const emailResponse = await sendInquiryEmail(validatedData)
     if (!emailResponse.success) {
-      console.warn('[v0] Failed to send inquiry email:', emailResponse.error)
-      // Continue even if email fails - the inquiry is saved
+      console.warn('Failed to send inquiry email:', emailResponse.error)
+    }
+
+    // Sync contact to HubSpot CRM (non-blocking)
+    // upsertHubSpotContact(validatedData).catch((err) =>
+    //   console.warn('HubSpot sync failed (non-blocking):', err),
+    // )
+
+    // Send confirmation to the submitter
+    const confirmResponse = await sendInquiryConfirmation({
+      name: validatedData.name,
+      email: validatedData.email,
+    })
+    if (!confirmResponse.success) {
+      console.warn('Failed to send inquiry confirmation:', confirmResponse.error)
     }
 
     return NextResponse.json(
       {
         success: true,
-        message: 'Thank you for your inquiry! We\'ll be in touch soon.',
+        message: "Thank you for your inquiry! We'll be in touch soon.",
         data: data,
       },
-      { status: 201 }
+      { status: 201 },
     )
   } catch (error) {
-    console.error('[v0] API error:', error)
+    console.error('API error:', error)
 
-    // Handle validation errors
     if (error instanceof z.ZodError) {
-      console.error('[v0] Validation errors:', error.errors)
       return NextResponse.json(
-        { error: error.errors[0]?.message || 'Validation failed' },
-        { status: 400 }
+        { error: error.errors[0]?.message || 'Please check your input and try again.' },
+        { status: 400 },
       )
     }
 
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Something went wrong. Please try again.' },
-      { status: 500 }
+      { status: 500 },
     )
   }
 }

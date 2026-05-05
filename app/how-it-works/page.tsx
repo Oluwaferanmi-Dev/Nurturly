@@ -46,7 +46,7 @@ export default function HowItWorks() {
                 <img
                   alt="Caregiver and senior sharing a warm conversation"
                   className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-6tEGyMpJPXs?auto=format&fit=crop&q=80&w=1200"
+                  src="https://images.unsplash.com/photo-1758691462477-976f771224d8?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 />
               </div>
               <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-xl shadow-lg max-w-xs border border-nurturly-soft-teal/10">
@@ -87,7 +87,7 @@ export default function HowItWorks() {
                 <img
                   alt="Caregiver having a conversation with client"
                   className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-4tANJ3dEZc0?auto=format&fit=crop&q=80&w=1200"
+                  src="https://images.unsplash.com/photo-1553775282-20af80779df7?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 />
               </div>
             </div>
@@ -100,7 +100,7 @@ export default function HowItWorks() {
                 <img
                   alt="Care assessment and planning process"
                   className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1571115764105-b51806bda158?auto=format&fit=crop&q=80&w=1200"
+                  src="https://plus.unsplash.com/premium_photo-1723161629235-0d2d01c3cfc3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 />
               </div>
             </div>
@@ -149,14 +149,14 @@ export default function HowItWorks() {
                   <img
                     alt="Portrait of a compassionate caregiver"
                     className="w-full h-full object-cover"
-                    src="https://images.unsplash.com/photo-mEZ3PoFGs6o?auto=format&fit=crop&q=80&w=1200"
+                    src="https://images.unsplash.com/photo-1765896387398-1e1ae8d2eb85?q=80&w=1421&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   />
                 </div>
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-lg transform rotate-3 mt-12 z-0 hover:rotate-0 transition-transform duration-500">
                   <img
                     alt="Another compassionate caregiver"
                     className="w-full h-full object-cover"
-                    src="https://images.unsplash.com/photo-M4rQkHxYL0g?auto=format&fit=crop&q=80&w=1200"
+                    src="https://images.unsplash.com/photo-1765896387387-0538bc9f997e?q=80&w=821&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   />
                 </div>
               </div>
@@ -188,7 +188,7 @@ export default function HowItWorks() {
                 <img
                   alt="Caregiver assisting with daily living activities"
                   className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1571115764105-b51806bda158?auto=format&fit=crop&q=80&w=1200"
+                  src="https://plus.unsplash.com/premium_photo-1663091795078-99ab67a5d1e6?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 />
               </div>
             </div>
@@ -201,7 +201,7 @@ export default function HowItWorks() {
                 <img
                   alt="Ongoing care support and check-ins"
                   className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-y02jEqpRZO0?auto=format&fit=crop&q=80&w=1200"
+                  src="https://images.unsplash.com/photo-1553775282-20af80779df7?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 />
               </div>
             </div>
@@ -236,7 +236,7 @@ export default function HowItWorks() {
               <CTALink
                 href="/contact"
                 label="How It Works Bottom CTA — Start the Conversation"
-                className="bg-nurturly-soft-teal text-white px-10 py-5 rounded-xl font-bold text-lg shadow-lg hover:bg-nurturly-deep-indigo transition-all text-center"
+                className="bg-white text-soft-teal px-10 py-4 rounded-full font-bold text-lg hover:bg-cream transition-colors shadow-lg text-center"
               >
                 Start the Conversation
               </CTALink>

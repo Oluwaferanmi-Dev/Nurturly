@@ -49,7 +49,7 @@ export default function WhyUs() {
                   <img
                     alt="Dignified senior walking outside"
                     className="w-full h-full object-cover"
-                    src="https://images.unsplash.com/photo-1544027993-37db48d23632?auto=format&fit=crop&q=80"
+                    src="https://plus.unsplash.com/premium_photo-1691003660951-a817c28e1007?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   />
                 </div>
               </div>
@@ -88,7 +88,7 @@ export default function WhyUs() {
                   <img
                     alt="Comforting hand holding another"
                     className="w-full h-full object-cover"
-                    src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?auto=format&fit=crop&q=80"
+                    src="https://plus.unsplash.com/premium_photo-1658506620365-925c827c6fdc?q=80&w=738&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   />
                 </div>
               </div>
@@ -191,7 +191,7 @@ export default function WhyUs() {
             <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
               <Link
                 href="/contact"
-                className="bg-nurturly-soft-teal text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-nurturly-deep-indigo transition-all text-center shadow-md"
+                className="bg-white text-soft-teal px-10 py-4 rounded-full font-bold text-lg hover:bg-cream transition-colors shadow-lg text-center"
               >
                 Book a Consultation
               </Link>

@@ -42,7 +42,7 @@ export default function About() {
                 <CTALink
                   href="/contact"
                   label="About Hero — Schedule a Consultation"
-                  className="bg-nurturly-soft-teal text-white px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-nurturly-deep-indigo transition-all text-center"
+                  className="bg-white text-soft-teal px-10 py-4 rounded-full font-bold text-lg hover:bg-cream transition-colors shadow-lg"
                 >
                   Schedule a Consultation
                 </CTALink>
@@ -53,7 +53,7 @@ export default function About() {
               <img
                 alt="Caregiver and senior sharing a warm moment"
                 className="w-full h-full object-cover"
-                src="https://images.unsplash.com/photo-6tEGyMpJPXs?auto=format&fit=crop&q=80&w=1200"
+                src="https://plus.unsplash.com/premium_photo-1661549534902-df85d8d1b943?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function About() {
                 <img
                   alt="Older adult enjoying leisure time outdoors"
                   className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-y02jEqpRZO0?auto=format&fit=crop&q=80&w=1200"
+                  src="https://plus.unsplash.com/premium_photo-1675368982196-277a07fa3b0f?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 />
               </div>
 

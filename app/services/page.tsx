@@ -93,7 +93,7 @@ export default function Services() {
               <CTALink
                 href="/contact"
                 label="Services Hero — Request a Personalized Care Plan"
-                className="bg-nurturly-soft-teal text-white px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-nurturly-deep-indigo transition-all text-center inline-block"
+                className="bg-white text-soft-teal px-10 py-4 rounded-full font-bold text-lg hover:bg-cream transition-colors shadow-lg"
               >
                 Request a Personalized Care Plan
               </CTALink>
@@ -103,8 +103,8 @@ export default function Services() {
               <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative z-10 transform -rotate-2">
                 <img
                   alt="Caregiver and client in moment of care"
-                  className="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-4tANJ3dEZc0?auto=format&fit=crop&q=80&w=1200"
+                  className="w-full h-full object-cover object-center"
+                  src="https://plus.unsplash.com/premium_photo-1664475811964-75af7d90ee4b?q=80&w=870&auto=format&fit=crop"
                 />
               </div>
             </div>
@@ -173,7 +173,7 @@ export default function Services() {
               <div className="z-10">
                 <Link
                   href="/contact"
-                  className="bg-nurturly-soft-teal text-white px-8 py-4 rounded-xl font-bold hover:bg-nurturly-deep-indigo transition-colors flex items-center gap-2 whitespace-nowrap shadow-md"
+                  className="bg-white text-soft-teal px-10 py-4 rounded-full font-bold text-lg hover:bg-cream transition-colors flex items-center gap-2 whitespace-nowrap shadow-lg"
                 >
                   Request Care Now
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -199,13 +199,13 @@ export default function Services() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
                 href="/contact"
-                className="bg-nurturly-deep-indigo text-white px-10 py-5 rounded-xl font-bold text-lg shadow-xl hover:bg-nurturly-soft-teal transition-all w-full sm:w-auto text-center"
+                className="bg-white text-soft-teal px-10 py-4 rounded-full font-bold text-lg hover:bg-cream transition-colors shadow-lg w-full sm:w-auto text-center"
               >
                 Request a Personalized Care Plan
               </Link>
               <Link
                 href="/contact"
-                className="bg-white border border-nurturly-soft-teal/20 text-nurturly-deep-indigo px-10 py-5 rounded-xl font-bold text-lg hover:bg-nurturly-bg transition-all w-full sm:w-auto text-center shadow-sm"
+                className="bg-white border border-soft-teal/20 text-soft-teal px-10 py-4 rounded-full font-bold text-lg hover:bg-cream transition-all w-full sm:w-auto text-center shadow-lg"
               >
                 Speak With Our Team
               </Link>

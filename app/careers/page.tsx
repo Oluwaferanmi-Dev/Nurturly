@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import CareersForm from '@/components/CareersForm'
 import Footer from '@/components/Footer'
+import { client } from '@/sanity/lib/client'
 
 export const metadata: Metadata = {
   title: 'Careers | Nurturly Home Care Houston',
@@ -9,7 +10,37 @@ export const metadata: Metadata = {
     'Join the Nurturly team in Houston, TX. We provide thoughtful, relationship-based home care. Meaningful work for people who care deeply.',
 }
 
-export default function Careers() {
+export const revalidate = 60
+
+interface JobListing {
+  _id: string
+  title: string
+  slug: { current: string }
+  location: string
+  type: string
+  shortDescription: string
+}
+
+async function getJobListings(): Promise<JobListing[]> {
+  try {
+    return await client.fetch(`
+      *[_type == "jobListing" && isActive == true] | order(publishedAt desc) {
+        _id,
+        title,
+        slug,
+        location,
+        type,
+        shortDescription
+      }
+    `)
+  } catch (error) {
+    console.error('Failed to fetch job listings:', error)
+    return []
+  }
+}
+
+export default async function Careers() {
+  const jobListings = await getJobListings()
   const responsibilities = [
     {
       icon: 'calendar_today',
@@ -147,7 +178,7 @@ export default function Careers() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="#apply-form"
-                  className="px-10 py-4 bg-nurturly-soft-teal shadow-lg text-white font-bold rounded-xl hover:bg-nurturly-deep-indigo transition-all text-center"
+                  className="bg-white text-soft-teal px-10 py-4 rounded-full font-bold text-lg hover:bg-cream transition-colors shadow-lg text-center"
                 >
                   View Open Roles & Apply
                 </a>
@@ -158,7 +189,7 @@ export default function Careers() {
               <img
                 alt="Caregiver in a natural, welcoming setting"
                 className="w-full h-full object-cover"
-                src="https://images.unsplash.com/photo-mEZ3PoFGs6o?auto=format&fit=crop&q=80&w=1200"
+                src="https://images.unsplash.com/photo-1641723345378-a701b30b2d36?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
             </div>
           </div>
@@ -185,12 +216,12 @@ export default function Careers() {
               <img
                 alt="Caregiver providing attentive care"
                 className="rounded-2xl w-full h-64 sm:h-80 object-cover shadow-sm"
-                src="https://images.unsplash.com/photo-4tANJ3dEZc0?auto=format&fit=crop&q=80&w=1200"
+                src="https://plus.unsplash.com/premium_photo-1661549534902-df85d8d1b943?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
               <img
                 alt="Caregiver in warm interaction with client"
                 className="rounded-2xl w-full h-64 sm:h-80 object-cover shadow-sm sm:mt-16"
-                src="https://images.unsplash.com/photo-6tEGyMpJPXs?auto=format&fit=crop&q=80&w=1200"
+                src="https://plus.unsplash.com/premium_photo-1665203568927-bf0e58ee3d20?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
             </div>
           </div>
@@ -277,6 +308,62 @@ export default function Careers() {
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Open Roles */}
+        <section className="py-32 bg-white border-t border-nurturly-soft-teal/10">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="mb-16 text-center">
+              <span className="text-nurturly-calm-blue font-bold tracking-widest text-xs uppercase mb-4 block">
+                Currently Hiring
+              </span>
+              <h2 className="font-headline font-bold text-4xl md:text-5xl text-nurturly-deep-indigo mb-6">
+                Open Roles
+              </h2>
+              <p className="text-nurturly-deep-indigo/80 text-lg font-light max-w-2xl mx-auto">
+                Explore the opportunities available at Nurturly right now.
+              </p>
+            </div>
+
+            {jobListings.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {jobListings.map((job) => (
+                  <div
+                    key={job._id}
+                    className="bg-nurturly-bg border border-nurturly-soft-teal/10 rounded-2xl p-8 shadow-sm hover:shadow-md hover:border-nurturly-soft-teal/30 transition-all"
+                  >
+                    <div className="mb-6 flex flex-wrap gap-2">
+                      <span className="inline-block bg-soft-teal/10 text-soft-teal text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                        {job.location}
+                      </span>
+                      <span className="inline-block bg-deep-indigo/10 text-deep-indigo text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                        {job.type}
+                      </span>
+                    </div>
+                    <h3 className="font-bold text-xl text-nurturly-deep-indigo mb-3 leading-tight">
+                      {job.title}
+                    </h3>
+                    <p className="text-nurturly-deep-indigo/70 font-light text-sm leading-relaxed mb-8">
+                      {job.shortDescription}
+                    </p>
+                    <a
+                      href="#apply-form"
+                      className="bg-white text-soft-teal px-10 py-4 rounded-full font-bold text-lg hover:bg-cream transition-colors shadow-lg inline-block"
+                    >
+                      Apply Now
+                    </a>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="bg-cream rounded-2xl p-12 text-center border border-nurturly-soft-teal/10">
+                <span className="material-symbols-outlined text-5xl text-muted-text/30 block mb-4">briefcase</span>
+                <p className="text-nurturly-deep-indigo/70 text-lg font-light">
+                  No open roles right now — check back soon, or send a general inquiry via the form below.
+                </p>
+              </div>
+            )}
           </div>
         </section>
 

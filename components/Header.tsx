@@ -51,7 +51,7 @@ export default function Header() {
           {/* CTA Button - Desktop */}
           <Link
             href="/contact"
-            className="hidden lg:inline-block px-8 py-3 bg-soft-teal text-white rounded-full text-sm font-bold shadow-md hover:bg-calm-blue transition-colors duration-200"
+            className="hidden lg:inline-block bg-white text-soft-teal px-10 py-4 rounded-full font-bold text-lg hover:bg-cream transition-colors shadow-lg"
           >
             Book a Consultation
           </Link>

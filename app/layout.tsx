@@ -1,20 +1,20 @@
 import type { Metadata, Viewport } from 'next'
-import { Newsreader, Manrope } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import ScrollDepthTracker from '@/components/ScrollDepthTracker'
 import './globals.css'
 
-const newsreader = Newsreader({
+const robotoHeadline = Roboto({
   subsets: ['latin'],
   variable: '--font-headline',
-  weight: ['200', '300', '400', '500', '600', '700', '800'],
+  weight: ['300', '400', '700'],
 })
 
-const manrope = Manrope({
+const robotoBody = Roboto({
   subsets: ['latin'],
   variable: '--font-body',
-  weight: ['200', '300', '400', '500', '600', '700', '800'],
+  weight: ['300', '400', '700'],
 })
 
 export const viewport: Viewport = {
@@ -103,17 +103,14 @@ export default function RootLayout({
           .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
           }
-          .signature-gradient {
-            background: linear-gradient(135deg, #00535b 0%, #006d77 100%);
-          }
           .glass-nav {
-            background: rgba(252, 249, 244, 0.8);
+            background: rgba(252, 249, 244, 0.85);
             backdrop-filter: blur(20px);
           }
         `}</style>
       </head>
       <body
-        className={`${newsreader.variable} ${manrope.variable} bg-[#fcf9f4] text-[#1c1c19] antialiased selection:bg-[#006d77] selection:text-white`}
+        className={`${robotoHeadline.variable} ${robotoBody.variable} bg-nurturly-bg text-nurturly-deep-indigo antialiased selection:bg-nurturly-soft-teal selection:text-white`}
       >
         {children}
         <Analytics />

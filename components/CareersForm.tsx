@@ -4,29 +4,31 @@ import { useState } from 'react'
 import { trackApplicationSubmit } from '@/lib/analytics'
 
 interface FormData {
-  name: string
+  fullName: string
   email: string
   phone: string
-  location: string
   experience: string
-  certifications: string
-  message: string
+  whyNurturly: string
   resume: File | null
+  roleTitle?: string
+}
+
+interface CareersFormProps {
+  roleTitle?: string
 }
 
 const ALLOWED_FILE_TYPES = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']
 const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5MB
 
-export default function CareersForm() {
+export default function CareersForm({ roleTitle }: CareersFormProps) {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
+    fullName: '',
     email: '',
     phone: '',
-    location: '',
     experience: '',
-    certifications: '',
-    message: '',
+    whyNurturly: '',
     resume: null,
+    roleTitle,
   })
   const [fileName, setFileName] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -62,12 +64,12 @@ export default function CareersForm() {
 
   const uploadResume = async (file: File): Promise<string | null> => {
     try {
-      const formData = new FormData()
-      formData.append('file', file)
+      const formDataToUpload = new FormData()
+      formDataToUpload.append('file', file)
 
       const response = await fetch('/api/upload', {
         method: 'POST',
-        body: formData,
+        body: formDataToUpload,
       })
 
       const data = await response.json()
@@ -101,22 +103,20 @@ export default function CareersForm() {
 
       setUploadProgress(75)
 
-      // Submit application
-      const response = await fetch('/api/applications', {
+      // Submit application to new Sanity API route
+      const response = await fetch('/api/careers/apply', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: formData.name,
+          fullName: formData.fullName,
           email: formData.email,
           phone: formData.phone,
-          location: formData.location,
+          roleTitle: formData.roleTitle || null,
           experience: formData.experience,
-          certifications: formData.certifications,
-          message: formData.message,
-          resume_url: resumeUrl,
-          job_slug: 'caregiver-general',
+          whyNurturly: formData.whyNurturly,
+          resumeUrl: resumeUrl,
         }),
       })
 
@@ -127,17 +127,16 @@ export default function CareersForm() {
       }
 
       setUploadProgress(100)
-      setSuccessMessage('Thank you for your application! We\'ll review it and be in touch soon.')
+      setSuccessMessage('Thanks for applying — we\'ll be in touch soon.')
       trackApplicationSubmit(formData.experience || undefined)
       setFormData({
-        name: '',
+        fullName: '',
         email: '',
         phone: '',
-        location: '',
         experience: '',
-        certifications: '',
-        message: '',
+        whyNurturly: '',
         resume: null,
+        roleTitle,
       })
       setFileName('')
     } catch (error) {
@@ -150,6 +149,9 @@ export default function CareersForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
+      {/* Hidden input for roleTitle */}
+      <input type="hidden" name="roleTitle" value={formData.roleTitle || ''} />
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="group relative">
           <label className="block text-sm font-label text-on-surface-variant mb-2">Full Name</label>
@@ -157,8 +159,8 @@ export default function CareersForm() {
             className="w-full bg-surface-container-high border-0 border-b border-outline-variant/30 px-4 py-4 rounded-t-lg focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all duration-300"
             placeholder="Your full name"
             type="text"
-            name="name"
-            value={formData.name}
+            name="fullName"
+            value={formData.fullName}
             onChange={handleChange}
             required
           />
@@ -191,20 +193,6 @@ export default function CareersForm() {
           />
         </div>
         <div className="group relative">
-          <label className="block text-sm font-label text-on-surface-variant mb-2">Preferred Location</label>
-          <input
-            className="w-full bg-surface-container-high border-0 border-b border-outline-variant/30 px-4 py-4 rounded-t-lg focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all duration-300"
-            placeholder="City or region"
-            type="text"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-          />
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="group relative">
           <label className="block text-sm font-label text-on-surface-variant mb-2">Years of Experience</label>
           <select
             className="w-full bg-surface-container-high border-0 border-b border-outline-variant/30 px-4 py-4 rounded-t-lg focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all duration-300"
@@ -214,21 +202,10 @@ export default function CareersForm() {
             required
           >
             <option value="">Select experience level</option>
-            <option value="entry">Entry Level (0-2 years)</option>
-            <option value="intermediate">Intermediate (2-5 years)</option>
-            <option value="experienced">Experienced (5+ years)</option>
+            <option value="Entry Level (0-2 years)">Entry Level (0-2 years)</option>
+            <option value="Intermediate (2-5 years)">Intermediate (2-5 years)</option>
+            <option value="Experienced (5+ years)">Experienced (5+ years)</option>
           </select>
-        </div>
-        <div className="group relative">
-          <label className="block text-sm font-label text-on-surface-variant mb-2">Certifications</label>
-          <input
-            className="w-full bg-surface-container-high border-0 border-b border-outline-variant/30 px-4 py-4 rounded-t-lg focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all duration-300"
-            placeholder="e.g., CNA, RN, etc."
-            type="text"
-            name="certifications"
-            value={formData.certifications}
-            onChange={handleChange}
-          />
         </div>
       </div>
 
@@ -268,8 +245,8 @@ export default function CareersForm() {
           className="w-full bg-surface-container-high border-0 border-b border-outline-variant/30 px-4 py-4 rounded-t-lg focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all duration-300 resize-none"
           placeholder="Share your passion for care and what draws you to Nurturly..."
           rows={5}
-          name="message"
-          value={formData.message}
+          name="whyNurturly"
+          value={formData.whyNurturly}
           onChange={handleChange}
         ></textarea>
       </div>
@@ -277,7 +254,7 @@ export default function CareersForm() {
       {uploadProgress > 0 && uploadProgress < 100 && (
         <div className="w-full bg-surface-container-high rounded-full h-2">
           <div
-            className="signature-gradient h-2 rounded-full transition-all duration-300"
+            className="bg-nurturly-soft-teal shadow-md h-2 rounded-full transition-all duration-300"
             style={{ width: `${uploadProgress}%` }}
           ></div>
         </div>
@@ -297,7 +274,7 @@ export default function CareersForm() {
 
       <div className="pt-4 flex justify-end">
         <button
-          className="signature-gradient text-on-primary px-12 py-4 rounded-full text-lg font-medium hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-nurturly-soft-teal shadow-md text-white px-12 py-4 rounded-full text-lg font-medium hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
           type="submit"
           disabled={isLoading}
         >

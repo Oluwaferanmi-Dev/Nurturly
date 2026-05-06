@@ -126,17 +126,20 @@ export default function Home() {
 
       <main>
         {/* SECTION 1: HERO */}
-        <section className="relative w-full h-screen min-h-[500px] flex items-center justify-center overflow-hidden">
-          {/* Background Image */}
-          <img
-            className="absolute inset-0 w-full h-full object-cover"
-            alt="Caregiver holding an elderly person's hand warmly"
-            src="https://images.unsplash.com/photo-4tANJ3dEZc0?auto=format&fit=crop&q=80&w=1200"
-          />
-          
+        <section
+          className="relative w-full h-screen min-h-[500px] flex items-center justify-center overflow-hidden"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1666887360680-9dc27a1d2753?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+          }}
+        >
+
+
+
           {/* Dark overlay for text readability */}
           <div className="absolute inset-0 bg-black/30" />
-          
+
           {/* Content */}
           <div className="relative z-10 text-center px-6 md:px-12">
             <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl text-white mb-8 leading-tight max-w-4xl mx-auto">
@@ -145,7 +148,7 @@ export default function Home() {
             <CTALink
               href="/how-it-works"
               label="Hero CTA — Learn More"
-              className="inline-block bg-soft-teal text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-calm-blue transition-colors shadow-lg"
+              className="bg-white text-soft-teal px-10 py-4 rounded-full font-bold text-lg hover:bg-cream transition-colors shadow-lg"
             >
               Learn More
             </CTALink>
@@ -214,7 +217,7 @@ export default function Home() {
                   <img
                     className="w-full h-full object-cover"
                     alt="Caregiver assisting with daily activities"
-                    src="https://images.unsplash.com/photo-1571115764105-b51806bda158?auto=format&fit=crop&q=80&w=1200"
+                    src="https://plus.unsplash.com/premium_photo-1681996629585-88965b0d5c83?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   />
                 </div>
                 <div className="p-8">
@@ -237,7 +240,7 @@ export default function Home() {
                   <img
                     className="w-full h-full object-cover"
                     alt="Senior and caregiver enjoying time together"
-                    src="https://images.unsplash.com/photo-mEZ3PoFGs6o?auto=format&fit=crop&q=80&w=1200"
+                    src="https://plus.unsplash.com/premium_photo-1681883918271-22c54d47b44b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   />
                 </div>
                 <div className="p-8">
@@ -260,7 +263,7 @@ export default function Home() {
                   <img
                     className="w-full h-full object-cover"
                     alt="Caregiver providing compassionate care"
-                    src="https://images.unsplash.com/photo-M4rQkHxYL0g?auto=format&fit=crop&q=80&w=1200"
+                    src="https://plus.unsplash.com/premium_photo-1663036890782-4c00a3bb3832?q=80&w=813&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   />
                 </div>
                 <div className="p-8">
@@ -327,7 +330,7 @@ export default function Home() {
             <div className="text-center">
               <Link
                 href="/how-it-works"
-                className="inline-block bg-warm-yellow text-deep-indigo px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-colors"
+                className="bg-white text-soft-teal px-10 py-4 rounded-full font-bold text-lg hover:bg-cream transition-colors shadow-lg"
               >
                 See the Full Process
               </Link>

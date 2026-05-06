@@ -49,7 +49,7 @@ export default function ForProfessionals() {
               </p>
               <Link
                 href="/contact"
-                className="bg-nurturly-soft-teal shadow-lg text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-nurturly-deep-indigo transition-all inline-block"
+                className="bg-white text-soft-teal px-10 py-4 rounded-full font-bold text-lg hover:bg-cream transition-colors shadow-lg inline-block"
               >
                 Discuss a Referral
               </Link>
@@ -112,7 +112,7 @@ export default function ForProfessionals() {
               </p>
               <Link
                 href="/contact"
-                className="bg-nurturly-soft-teal text-white px-10 py-5 rounded-xl font-bold text-lg hover:opacity-90 shadow-lg transition-all inline-block relative z-10"
+                className="bg-white text-soft-teal px-10 py-4 rounded-full font-bold text-lg hover:bg-cream transition-colors shadow-lg inline-block relative z-10"
               >
                 Get in Touch
               </Link>

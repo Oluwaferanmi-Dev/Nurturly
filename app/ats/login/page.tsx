@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { Suspense, useState } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 
-export default function ATSLoginPage() {
+function ATSLoginForm() {
   const router = useRouter()
+  const searchParams = useSearchParams()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
@@ -28,7 +29,8 @@ export default function ATSLoginPage() {
       return
     }
 
-    router.push('/ats')
+    const next = searchParams.get('next') ?? '/ats'
+    router.push(next)
     router.refresh()
   }
 
@@ -290,5 +292,13 @@ export default function ATSLoginPage() {
         }
       `}</style>
     </div>
+  )
+}
+
+export default function ATSLoginPage() {
+  return (
+    <Suspense fallback={null}>
+      <ATSLoginForm />
+    </Suspense>
   )
 }

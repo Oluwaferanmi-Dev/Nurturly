@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useTransition } from 'react'
 import { moveToNextStage } from '@/lib/ats/actions'
 import { getNextStage } from '@/lib/ats/constants'
@@ -29,11 +30,15 @@ function urgencyColor(days: number) {
 
 function KanbanCard({ card, stageId }: { card: Card; stageId: string }) {
   const [isPending, startTransition] = useTransition()
+  const router = useRouter()
   const nextStage = getNextStage(stageId)
 
   const handleMove = () => {
     if (!nextStage) return
-    startTransition(() => moveToNextStage(card.id, nextStage))
+    startTransition(async () => {
+      await moveToNextStage(card.id, nextStage)
+      router.refresh()
+    })
   }
 
   return (

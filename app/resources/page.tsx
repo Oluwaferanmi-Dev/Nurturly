@@ -71,22 +71,22 @@ const categoryColor: Record<string, string> = {
 
 export default function Resources() {
   return (
-    <div className="bg-nurturly-bg text-nurturly-deep-indigo font-body min-h-screen">
+    <div className="bg-background text-deep-indigo font-body min-h-screen">
       <Header />
       
       <main>
         {/* Hero */}
-        <section className="bg-white border-b border-nurturly-soft-teal/10 pt-32 pb-24">
+        <section className="bg-white border-b border-soft-teal/10 pt-32 pb-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="max-w-3xl">
-              <span className="text-nurturly-calm-blue font-bold tracking-widest text-xs uppercase mb-6 block">
+              <span className="text-calm-blue font-bold tracking-widest text-xs uppercase mb-6 block">
                 Resources &amp; Insights
               </span>
-              <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl leading-tight text-nurturly-deep-indigo mb-6 font-bold">
+              <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl leading-tight text-deep-indigo mb-6 font-bold">
                 Guides for families{' '}
-                <span className="italic font-light text-nurturly-soft-teal">navigating care.</span>
+                <span className="italic font-light text-soft-teal">navigating care.</span>
               </h1>
-              <p className="text-xl md:text-2xl font-light text-nurturly-deep-indigo/80 leading-relaxed max-w-2xl">
+              <p className="text-xl md:text-2xl font-light text-deep-indigo/80 leading-relaxed max-w-2xl">
                 Practical, honest information to help Houston families make confident decisions about home care — without the overwhelm.
               </p>
             </div>
@@ -94,7 +94,7 @@ export default function Resources() {
         </section>
 
         {/* Category Pills */}
-        <section className="sticky top-0 z-20 bg-nurturly-bg/95 backdrop-blur-md border-b border-nurturly-soft-teal/10">
+        <section className="sticky top-0 z-20 bg-background/95 backdrop-blur-md border-b border-soft-teal/10">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="flex items-center gap-3 py-4 overflow-x-auto scrollbar-hide">
               {categories.map((cat) => (
@@ -120,7 +120,7 @@ export default function Resources() {
             {articles.map((article, i) => (
               <article
                 key={i}
-                className="bg-white rounded-3xl border border-nurturly-soft-teal/10 overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all duration-300 flex flex-col group cursor-pointer"
+                className="bg-white rounded-3xl border border-soft-teal/10 overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all duration-300 flex flex-col group cursor-pointer"
               >
                 {/* Category bar */}
                 <div
@@ -140,16 +140,16 @@ export default function Resources() {
                     >
                       {article.category}
                     </span>
-                    <span className="text-xs font-medium text-nurturly-deep-indigo/60">{article.readTime}</span>
+                    <span className="text-xs font-medium text-deep-indigo/60">{article.readTime}</span>
                   </div>
 
                   {/* Title */}
-                  <h2 className="font-headline text-2xl font-bold text-nurturly-deep-indigo mb-4 leading-tight group-hover:text-nurturly-soft-teal transition-colors">
+                  <h2 className="font-headline text-2xl font-bold text-deep-indigo mb-4 leading-tight group-hover:text-soft-teal transition-colors">
                     {article.title}
                   </h2>
 
                   {/* Excerpt */}
-                  <p className="text-nurturly-deep-indigo/80 font-light text-base leading-relaxed flex-1 mb-8">
+                  <p className="text-deep-indigo/80 font-light text-base leading-relaxed flex-1 mb-8">
                     {article.excerpt}
                   </p>
 
@@ -158,7 +158,7 @@ export default function Resources() {
                     {article.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs px-4 py-1.5 rounded-full bg-nurturly-bg border border-nurturly-soft-teal/10 text-nurturly-deep-indigo/70 font-medium"
+                        className="text-xs px-4 py-1.5 rounded-full bg-background border border-soft-teal/10 text-deep-indigo/70 font-medium"
                       >
                         {tag}
                       </span>
@@ -166,7 +166,7 @@ export default function Resources() {
                   </div>
 
                   {/* Read more — coming soon state */}
-                  <div className="flex items-center gap-2 text-sm font-bold text-nurturly-calm-blue mt-auto">
+                  <div className="flex items-center gap-2 text-sm font-bold text-calm-blue mt-auto">
                     <span className="material-symbols-outlined text-xl">article</span>
                     Full article coming soon
                   </div>
@@ -177,21 +177,21 @@ export default function Resources() {
         </section>
 
         {/* Newsletter / Contact CTA */}
-        <section className="bg-white border-y border-nurturly-soft-teal/10 py-32 px-6 lg:px-12 text-center">
+        <section className="bg-white border-y border-soft-teal/10 py-32 px-6 lg:px-12 text-center">
           <div className="max-w-3xl mx-auto">
-            <div className="w-20 h-20 bg-nurturly-bg rounded-full flex items-center justify-center mx-auto mb-8 shadow-sm border border-nurturly-soft-teal/10">
-              <span className="material-symbols-outlined text-nurturly-soft-teal text-4xl">mail</span>
+            <div className="w-20 h-20 bg-background rounded-full flex items-center justify-center mx-auto mb-8 shadow-sm border border-soft-teal/10">
+              <span className="material-symbols-outlined text-soft-teal text-4xl">mail</span>
             </div>
-            <h2 className="font-headline text-4xl md:text-5xl font-bold text-nurturly-deep-indigo mb-6">
+            <h2 className="font-headline text-4xl md:text-5xl font-bold text-deep-indigo mb-6">
               Have a question we haven't answered?
             </h2>
-            <p className="text-nurturly-deep-indigo/80 text-xl font-light mb-12 leading-relaxed">
+            <p className="text-deep-indigo/80 text-xl font-light mb-12 leading-relaxed">
               Our care coordinators are happy to talk through any aspect of home care — no obligation, just an honest conversation.
             </p>
             <CTALink
               href="/contact"
               label="Resources Bottom CTA — Talk to a Care Coordinator"
-              className="bg-nurturly-soft-teal text-white px-10 py-5 rounded-xl font-bold text-lg shadow-lg hover:bg-nurturly-deep-indigo transition-all inline-block"
+              className="bg-soft-teal text-white px-10 py-5 rounded-xl font-bold text-lg shadow-lg hover:bg-deep-indigo transition-all inline-block"
             >
               Talk to a Care Coordinator
             </CTALink>

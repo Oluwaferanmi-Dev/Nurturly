@@ -72,22 +72,22 @@ export default function Services() {
   }
 
   return (
-    <div className="bg-nurturly-bg text-nurturly-deep-indigo font-body">
+    <div className="bg-background text-deep-indigo font-body">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
       <main>
         {/* Hero Section: Editorial */}
-        <section className="relative overflow-hidden pt-32 pb-24 md:pb-32 px-6 md:px-12 bg-white border-b border-nurturly-soft-teal/10">
+        <section className="relative overflow-hidden pt-32 pb-24 md:pb-32 px-6 md:px-12 bg-white border-b border-soft-teal/10">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="z-10">
-              <span className="text-nurturly-calm-blue font-bold tracking-widest text-xs uppercase mb-6 block">
+              <span className="text-calm-blue font-bold tracking-widest text-xs uppercase mb-6 block">
                 Non-Medical Home Care · Houston, TX
               </span>
-              <h1 className="font-headline text-5xl md:text-7xl font-bold text-nurturly-deep-indigo leading-[1.1] mb-8">
+              <h1 className="font-headline text-5xl md:text-7xl font-bold text-deep-indigo leading-[1.1] mb-8">
                 Care That Feels
-                <em className="block not-italic text-nurturly-soft-teal font-light">Personal</em>
+                <em className="block not-italic text-soft-teal font-light">Personal</em>
               </h1>
-              <p className="text-xl md:text-2xl text-nurturly-deep-indigo/80 font-light leading-relaxed mb-10 max-w-xl">
+              <p className="text-xl md:text-2xl text-deep-indigo/80 font-light leading-relaxed mb-10 max-w-xl">
                 We provide non-medical home care and personal assistance across Houston — built around the individual, not a one-size-fits-all package.
               </p>
               <CTALink
@@ -112,11 +112,11 @@ export default function Services() {
         </section>
 
         {/* Bento Grid Services */}
-        <section className="bg-nurturly-bg py-32 px-6 md:px-12">
+        <section className="bg-background py-32 px-6 md:px-12">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-2xl mb-20">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold text-nurturly-deep-indigo mb-6">What We Offer</h2>
-              <p className="text-nurturly-deep-indigo/80 text-lg font-light leading-relaxed">
+              <h2 className="font-headline text-4xl md:text-5xl font-bold text-deep-indigo mb-6">What We Offer</h2>
+              <p className="text-deep-indigo/80 text-lg font-light leading-relaxed">
                 Every care plan is built around the individual — their routines, preferences, and health needs — so your loved one receives consistent, attentive support right where they are most comfortable: home.
               </p>
             </div>
@@ -126,15 +126,15 @@ export default function Services() {
               {mainServices.map((service, index) => (
                 <div
                   key={index}
-                  className="bg-white p-8 rounded-2xl shadow-sm border border-nurturly-soft-teal/10 group hover:shadow-md transition-shadow"
+                  className="bg-white p-8 rounded-2xl shadow-sm border border-soft-teal/10 group hover:shadow-md transition-shadow"
                 >
-                  <div className="w-14 h-14 rounded-full bg-nurturly-bg flex items-center justify-center text-nurturly-calm-blue mb-6 group-hover:scale-110 transition-transform">
+                  <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center text-calm-blue mb-6 group-hover:scale-110 transition-transform">
                     <span className="material-symbols-outlined text-2xl">{service.icon}</span>
                   </div>
-                  <h3 className="font-headline text-xl md:text-2xl font-bold mb-3 text-nurturly-deep-indigo">
+                  <h3 className="font-headline text-xl md:text-2xl font-bold mb-3 text-deep-indigo">
                     {service.title}
                   </h3>
-                  <p className="text-nurturly-deep-indigo/70 font-light leading-relaxed text-sm">
+                  <p className="text-deep-indigo/70 font-light leading-relaxed text-sm">
                     {service.description}
                   </p>
                 </div>
@@ -146,15 +146,15 @@ export default function Services() {
               {additionalServices.map((service, index) => (
                 <div
                   key={index}
-                  className="bg-white p-8 rounded-2xl shadow-sm border border-nurturly-soft-teal/10 group hover:shadow-md transition-shadow"
+                  className="bg-white p-8 rounded-2xl shadow-sm border border-soft-teal/10 group hover:shadow-md transition-shadow"
                 >
-                  <div className="w-12 h-12 rounded-full bg-nurturly-bg flex items-center justify-center text-nurturly-sage mb-6 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-full bg-background flex items-center justify-center text-sage mb-6 group-hover:scale-110 transition-transform">
                     <span className="material-symbols-outlined text-xl">{service.icon}</span>
                   </div>
-                  <h3 className="font-headline text-lg font-bold mb-3 text-nurturly-deep-indigo">
+                  <h3 className="font-headline text-lg font-bold mb-3 text-deep-indigo">
                     {service.title}
                   </h3>
-                  <p className="text-nurturly-deep-indigo/70 text-sm font-light leading-relaxed">
+                  <p className="text-deep-indigo/70 text-sm font-light leading-relaxed">
                     {service.description}
                   </p>
                 </div>
@@ -162,11 +162,11 @@ export default function Services() {
             </div>
 
             {/* Transitional Care Callout */}
-            <div className="mt-16 bg-white border border-nurturly-warm-yellow/40 p-12 rounded-3xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-sm">
+            <div className="mt-16 bg-white border border-warm-yellow/40 p-12 rounded-3xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-sm">
               <div className="z-10 max-w-xl">
-                <span className="material-symbols-outlined text-nurturly-warm-yellow text-4xl mb-4 block">medical_services</span>
-                <h3 className="font-headline text-3xl font-bold mb-4 text-nurturly-deep-indigo">Post-Hospital Transitional Care</h3>
-                <p className="text-nurturly-deep-indigo/80 text-lg leading-relaxed font-light">
+                <span className="material-symbols-outlined text-warm-yellow text-4xl mb-4 block">medical_services</span>
+                <h3 className="font-headline text-3xl font-bold mb-4 text-deep-indigo">Post-Hospital Transitional Care</h3>
+                <p className="text-deep-indigo/80 text-lg leading-relaxed font-light">
                   Coming home after a hospital stay is a vulnerable moment. Our team steps in during those critical first days — managing routines, monitoring comfort, and giving families peace of mind when it matters most.
                 </p>
               </div>
@@ -185,15 +185,15 @@ export default function Services() {
 
         {/* Final CTA Section */}
         <section className="py-32 px-6 md:px-12 bg-white">
-          <div className="max-w-4xl mx-auto text-center border border-nurturly-soft-teal/20 rounded-3xl p-16 shadow-lg bg-nurturly-bg">
-            <div className="inline-flex items-center gap-3 px-6 py-2 bg-nurturly-sage/10 text-nurturly-sage rounded-full text-sm font-bold mb-8">
+          <div className="max-w-4xl mx-auto text-center border border-soft-teal/20 rounded-3xl p-16 shadow-lg bg-background">
+            <div className="inline-flex items-center gap-3 px-6 py-2 bg-sage/10 text-sage rounded-full text-sm font-bold mb-8">
               <span className="material-symbols-outlined text-base">verified_user</span>
               LICENSED & COMPASSIONATE CARE
             </div>
-            <h2 className="font-headline text-4xl md:text-5xl font-bold text-nurturly-deep-indigo mb-6">
+            <h2 className="font-headline text-4xl md:text-5xl font-bold text-deep-indigo mb-6">
               Ready to get started?
             </h2>
-            <p className="text-xl text-nurturly-deep-indigo/70 mb-12 font-light italic max-w-2xl mx-auto">
+            <p className="text-xl text-deep-indigo/70 mb-12 font-light italic max-w-2xl mx-auto">
               "Our mission is to bring peace of mind back to families. We aren't just caregivers — we are an extension of your home."
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">

@@ -67,7 +67,7 @@ export default function ForFamilies() {
   }
 
   return (
-    <div className="bg-nurturly-bg text-nurturly-deep-indigo font-body min-h-screen">
+    <div className="bg-background text-deep-indigo font-body min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -75,18 +75,18 @@ export default function ForFamilies() {
 
       <main>
         {/* Hero */}
-        <section className="bg-white border-b border-nurturly-soft-teal/10 pt-32 pb-32">
+        <section className="bg-white border-b border-soft-teal/10 pt-32 pb-32">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <span className="text-nurturly-calm-blue font-bold tracking-widest text-xs uppercase mb-6 block">
+                <span className="text-calm-blue font-bold tracking-widest text-xs uppercase mb-6 block">
                   For Families
                 </span>
-                <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl leading-tight text-nurturly-deep-indigo mb-8 font-bold">
+                <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl leading-tight text-deep-indigo mb-8 font-bold">
                   You shouldn't have<br />
-                  <span className="italic font-light text-nurturly-soft-teal">to figure this out alone.</span>
+                  <span className="italic font-light text-soft-teal">to figure this out alone.</span>
                 </h1>
-                <p className="text-xl md:text-2xl font-light text-nurturly-deep-indigo/80 leading-relaxed mb-10 max-w-lg">
+                <p className="text-xl md:text-2xl font-light text-deep-indigo/80 leading-relaxed mb-10 max-w-lg">
                   Deciding to bring home care into your family is a big step. We make it easier by being honest, thorough, and genuinely helpful from the very first conversation.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -99,14 +99,14 @@ export default function ForFamilies() {
                   </CTALink>
                   <Link
                     href="/how-it-works"
-                    className="bg-nurturly-bg text-nurturly-deep-indigo border border-nurturly-soft-teal/20 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white transition-all text-center"
+                    className="bg-background text-deep-indigo border border-soft-teal/20 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white transition-all text-center"
                   >
                     See How It Works
                   </Link>
                 </div>
               </div>
               <div className="relative hidden lg:block">
-                <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-nurturly-soft-teal/10">
+                <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-soft-teal/10">
                   <img
                     src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80"
                     alt="Family and caregiver sharing a warm moment"
@@ -119,13 +119,13 @@ export default function ForFamilies() {
         </section>
 
         {/* Common Family Concerns */}
-        <section className="py-32 bg-nurturly-bg">
+        <section className="py-32 bg-background">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="text-center mb-20">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold text-nurturly-deep-indigo mb-6">
+              <h2 className="font-headline text-4xl md:text-5xl font-bold text-deep-indigo mb-6">
                 Questions families ask us
               </h2>
-              <p className="text-nurturly-deep-indigo/80 font-light text-xl max-w-2xl mx-auto">
+              <p className="text-deep-indigo/80 font-light text-xl max-w-2xl mx-auto">
                 These are the things families worry about most. We take every question seriously.
               </p>
             </div>
@@ -133,15 +133,15 @@ export default function ForFamilies() {
               {concerns.map((item, i) => (
                 <div
                   key={i}
-                  className="bg-white p-10 md:p-12 rounded-3xl border border-nurturly-soft-teal/10 shadow-sm"
+                  className="bg-white p-10 md:p-12 rounded-3xl border border-soft-teal/10 shadow-sm"
                 >
-                  <div className="w-14 h-14 bg-nurturly-soft-teal/10 rounded-2xl flex items-center justify-center mb-8">
-                    <span className="material-symbols-outlined text-nurturly-soft-teal text-3xl">
+                  <div className="w-14 h-14 bg-soft-teal/10 rounded-2xl flex items-center justify-center mb-8">
+                    <span className="material-symbols-outlined text-soft-teal text-3xl">
                       {item.icon}
                     </span>
                   </div>
-                  <h3 className="font-headline text-2xl font-bold text-nurturly-deep-indigo mb-4">{item.title}</h3>
-                  <p className="text-nurturly-deep-indigo/80 font-light leading-relaxed">{item.answer}</p>
+                  <h3 className="font-headline text-2xl font-bold text-deep-indigo mb-4">{item.title}</h3>
+                  <p className="text-deep-indigo/80 font-light leading-relaxed">{item.answer}</p>
                 </div>
               ))}
             </div>
@@ -149,24 +149,24 @@ export default function ForFamilies() {
         </section>
 
         {/* How It Starts */}
-        <section className="py-32 bg-white border-y border-nurturly-soft-teal/10">
+        <section className="py-32 bg-white border-y border-soft-teal/10">
           <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center mb-20">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold text-nurturly-deep-indigo mb-6">
+            <h2 className="font-headline text-4xl md:text-5xl font-bold text-deep-indigo mb-6">
               How it starts
             </h2>
-            <p className="text-nurturly-deep-indigo/80 font-light text-xl">
+            <p className="text-deep-indigo/80 font-light text-xl">
               Simple, honest, and at your pace.
             </p>
           </div>
           <div className="max-w-3xl mx-auto space-y-10 px-6">
             {steps.map((step, i) => (
-              <div key={i} className="flex gap-8 items-start bg-nurturly-bg p-8 md:p-10 rounded-3xl border border-nurturly-soft-teal/10">
-                <div className="w-16 h-16 rounded-full bg-nurturly-deep-indigo shadow-md text-white flex items-center justify-center font-headline font-bold text-xl flex-shrink-0">
+              <div key={i} className="flex gap-8 items-start bg-background p-8 md:p-10 rounded-3xl border border-soft-teal/10">
+                <div className="w-16 h-16 rounded-full bg-deep-indigo shadow-md text-white flex items-center justify-center font-headline font-bold text-xl flex-shrink-0">
                   {step.num}
                 </div>
                 <div className="pt-2">
-                  <h3 className="font-headline text-2xl font-bold text-nurturly-deep-indigo mb-3">{step.title}</h3>
-                  <p className="text-nurturly-deep-indigo/80 font-light text-lg leading-relaxed">{step.body}</p>
+                  <h3 className="font-headline text-2xl font-bold text-deep-indigo mb-3">{step.title}</h3>
+                  <p className="text-deep-indigo/80 font-light text-lg leading-relaxed">{step.body}</p>
                 </div>
               </div>
             ))}
@@ -175,7 +175,7 @@ export default function ForFamilies() {
 
         {/* CTA */}
         <section className="py-32 px-6 lg:px-12 text-center">
-          <div className="max-w-4xl mx-auto bg-nurturly-deep-indigo rounded-[2rem] p-16 md:p-24 shadow-2xl relative overflow-hidden">
+          <div className="max-w-4xl mx-auto bg-deep-indigo rounded-[2rem] p-16 md:p-24 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-br-full pointer-events-none"></div>
             <h2 className="font-headline text-4xl md:text-5xl font-bold text-white mb-8 relative z-10">
               We're here so you can breathe a little easier.

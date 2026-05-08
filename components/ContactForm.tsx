@@ -247,7 +247,7 @@ export default function ContactForm() {
 
       <div className="pt-4 flex justify-end">
         <button
-          className="bg-nurturly-soft-teal shadow-md text-white px-12 py-4 rounded-full text-lg font-medium hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-soft-teal shadow-md text-white px-12 py-4 rounded-full text-lg font-medium hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
           type="submit"
           disabled={isLoading}
         >

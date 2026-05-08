@@ -110,7 +110,7 @@ export default function RootLayout({
         `}</style>
       </head>
       <body
-        className={`${robotoHeadline.variable} ${robotoBody.variable} bg-nurturly-bg text-nurturly-deep-indigo antialiased selection:bg-nurturly-soft-teal selection:text-white`}
+        className={`${robotoHeadline.variable} ${robotoBody.variable} bg-background text-deep-indigo antialiased selection:bg-soft-teal selection:text-white`}
       >
         {children}
         <Analytics />

@@ -77,7 +77,7 @@ export async function sendCandidateEmail({
   message: string
 }) {
   const { error } = await resend.emails.send({
-    from: `Nurturly Care Team <noreply@nurturlycare.com>`,
+    from: `Nurturly Care Team <hello@nurturlycare.com>`,
     to: [toEmail],
     subject,
     html: `

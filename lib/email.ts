@@ -186,7 +186,7 @@ export async function sendInquiryEmail(data: {
     }
 
     const response = await resend.emails.send({
-      from: `${COMPANY_NAME} <noreply@nurturlycare.com>`,
+      from: `${COMPANY_NAME} <hello@nurturlycare.com>`,
       to: ADMIN_EMAIL,
       subject: `New Inquiry from ${data.name}`,
       html: htmlContent,
@@ -265,7 +265,7 @@ export async function sendInquiryConfirmation(data: {
     }
 
     const response = await resend.emails.send({
-      from: `${COMPANY_NAME} <noreply@nurturlycare.com>`,
+      from: `${COMPANY_NAME} <hello@nurturlycare.com>`,
       to: data.email,
       subject: `We received your inquiry, ${data.name}`,
       html: htmlContent,
@@ -347,7 +347,7 @@ export async function sendApplicationConfirmation(data: {
     }
 
     const response = await resend.emails.send({
-      from: `${COMPANY_NAME} <noreply@nurturlycare.com>`,
+      from: `${COMPANY_NAME} <hello@nurturlycare.com>`,
       to: data.email,
       subject: `Your application to Nurturly — ${formatJobTitle(data.job_slug)}`,
       html: htmlContent,
@@ -519,7 +519,7 @@ export async function sendApplicationEmail(data: {
     }
 
     const response = await resend.emails.send({
-      from: `${COMPANY_NAME} <noreply@nurturlycare.com>`,
+      from: `${COMPANY_NAME} <hello@nurturlycare.com>`,
       to: ADMIN_EMAIL,
       subject: `New Application from ${data.name} - ${formatJobTitle(data.job_slug)}`,
       html: htmlContent,

@@ -46,7 +46,9 @@ export async function proxy(request: NextRequest) {
 
   // If user is NOT authenticated and trying to access any /ats route (except /ats/login)
   if (!user && pathname.startsWith('/ats') && pathname !== '/ats/login') {
-    return NextResponse.redirect(new URL('/ats/login', request.url))
+    const loginUrl = new URL('/ats/login', request.url)
+    loginUrl.searchParams.set('next', pathname)
+    return NextResponse.redirect(loginUrl)
   }
 
   return response

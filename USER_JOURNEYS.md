@@ -30,7 +30,7 @@ The goal of this flow is to convert a visitor seeking care into a qualified lead
 
 ### Phase 4: Internal Admin Action
 1. **Review:** A Nurturly Admin receives the email or views the Supabase `inquiries` dashboard.
-2. **Follow-Up:** The admin reaches out to the family via phone or email (`hello@nurturlycare.com`) to schedule the initial consultation.
+2. **Follow-Up:** The admin reaches out to the family via phone or email (`hello@nurturlycare.com`) to schedule the initial consultation
 
 ---
 

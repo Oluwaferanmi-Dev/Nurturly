@@ -142,9 +142,12 @@ export default function Home() {
 
           {/* Content */}
           <div className="relative z-10 text-center px-6 md:px-12">
-            <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl text-white mb-8 leading-tight max-w-4xl mx-auto">
-              Personal care that feels like home.
+            <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl text-white mb-4 leading-tight max-w-4xl mx-auto">
+              Care That Feels Like Home.
             </h1>
+            <p className="text-white/80 text-xl md:text-2xl font-light mb-10 tracking-wide">
+              Redefining Care. Redefining Time.
+            </p>
             <CTALink
               href="/how-it-works"
               label="Hero CTA — Learn More"

@@ -86,9 +86,14 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-10 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <p className="text-xs font-light text-white/50 tracking-wide">
-            © {year} Nurturly Care. Redefining Care, Redefining Time.
-          </p>
+          <div className="flex flex-col items-start gap-1">
+              <p className="text-xs font-light text-white/30 tracking-wide">
+                © {year} Nurturly Care. All rights reserved.
+              </p>
+              <p className="text-xs font-light text-white/50 tracking-wide italic">
+                Redefining Care. Redefining Time.
+              </p>
+            </div>
           <Link
             href="/contact"
             className="text-xs font-bold tracking-widest uppercase text-white hover:text-soft-teal transition-colors flex items-center gap-2"

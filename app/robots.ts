@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    sitemap: 'https://nurturlycare.com/sitemap.xml',
-    host: 'https://nurturlycare.com',
+    sitemap: 'https://yourcaredomain.com/sitemap.xml',
+    host: 'https://yourcaredomain.com',
   }
 }

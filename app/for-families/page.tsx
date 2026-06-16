@@ -5,9 +5,8 @@ import Footer from '@/components/Footer'
 import CTALink from '@/components/CTALink'
 
 export const metadata: Metadata = {
-  title: 'For Families | Nurturly Home Care Houston',
-  description:
-    'We help families in Houston navigate home care with confidence. Discover how Nurturly supports your loved one at home with dignity, consistency, and warmth.',
+  title: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+  description: '[YOUR_META_DESCRIPTION]',
 }
 
 export default function ForFamilies() {
@@ -16,7 +15,7 @@ export default function ForFamilies() {
       icon: 'security',
       title: 'Is my loved one safe?',
       answer:
-        'All Nurturly caregivers are carefully screened, background-checked, and trained to provide safe, attentive support in the home environment.',
+        'All CareBase caregivers are carefully screened, background-checked, and trained to provide safe, attentive support in the home environment.',
     },
     {
       icon: 'people',
@@ -61,8 +60,8 @@ export default function ForFamilies() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nurturlycare.com' },
-      { '@type': 'ListItem', position: 2, name: 'For Families', item: 'https://nurturlycare.com/for-families' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://yourcaredomain.com' },
+      { '@type': 'ListItem', position: 2, name: 'For Families', item: 'https://yourcaredomain.com/for-families' },
     ],
   }
 
@@ -107,7 +106,8 @@ export default function ForFamilies() {
               </div>
               <div className="relative hidden lg:block">
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-soft-teal/10">
-                  <img
+                  {/* TODO: Replace with your own images */}
+                <img
                     src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80"
                     alt="Family and caregiver sharing a warm moment"
                     className="w-full h-full object-cover"

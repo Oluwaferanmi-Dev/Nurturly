@@ -38,10 +38,10 @@ export default defineType({
       description: 'Years and type of relevant experience',
     }),
     defineField({
-      name: 'whyNurturly',
-      title: 'Why Nurturly',
+      name: 'whyCareBase',
+      title: 'Why CareBase',
       type: 'text',
-      description: 'Why they want to work at Nurturly (cover letter)',
+      description: 'Why they want to work at CareBase (cover letter)',
     }),
     defineField({
       name: 'resumeUrl',
@@ -75,7 +75,7 @@ export default defineType({
       title: 'Internal Notes',
       type: 'text',
       rows: 4,
-      description: 'Private notes visible only to Nurturly staff',
+      description: 'Private notes visible only to CareBase staff',
     }),
   ],
   preview: {

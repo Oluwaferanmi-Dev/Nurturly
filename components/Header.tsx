@@ -24,9 +24,9 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <Link href="/" className="flex items-center">
             <img
-              alt="Nurturly Logo"
+              alt="CareBase Logo"
               className="h-12 w-auto object-contain transition-transform hover:scale-105"
-              src="/nurturly-logo.png"
+              src="/carebase-logo.png"
             />
           </Link>
         </div>

@@ -7,21 +7,7 @@ import CTALink from '@/components/CTALink'
 
 export default function Home() {
   const testimonials = [
-    {
-      quote: "The care provided has been transformative. Our mother feels secure and loved every single day.",
-      name: "Margaret Chen",
-      location: "Houston, TX"
-    },
-    {
-      quote: "It's rare to find caregivers who genuinely treat your loved one like family. Nurturly does exactly that.",
-      name: "James Rodriguez",
-      location: "Sugar Land, TX"
-    },
-    {
-      quote: "From the first conversation to the match with our father's caregiver, everything felt intentional and thoughtful.",
-      name: "Susan Mitchell",
-      location: "The Woodlands, TX"
-    }
+    {/* TODO: Add your own testimonials here */}
   ]
 
   const jsonLd = {
@@ -29,36 +15,28 @@ export default function Home() {
     '@graph': [
       {
         '@type': ['LocalBusiness', 'HomeHealthCare'],
-        '@id': 'https://nurturlycare.com/#business',
-        name: 'Nurturly Home Care',
-        alternateName: 'Nurturly',
-        description:
-          'Nurturly provides compassionate, non-medical home care in Houston, Texas. We offer companionship, personal care, meal preparation, mobility support, respite care, memory care, and post-hospital transitional care.',
-        url: 'https://nurturlycare.com',
-        telephone: '+1-832-000-0000',
-        email: 'hello@nurturlycare.com',
+        '@id': 'https://yourcaredomain.com/#business',
+        name: '[YOUR_AGENCY_NAME]',
+        alternateName: '[YOUR_AGENCY_NAME]',
+        description: '[YOUR_META_DESCRIPTION]',
+        url: 'https://yourcaredomain.com',
+        telephone: '[YOUR_PHONE_NUMBER]',
+        email: 'hello@yourcaredomain.com',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Houston',
-          addressLocality: 'Houston',
-          addressRegion: 'TX',
-          postalCode: '77002',
+          streetAddress: '[YOUR_ADDRESS]',
+          addressLocality: '[YOUR_CITY]',
+          addressRegion: '[YOUR_STATE]',
+          postalCode: '[YOUR_ZIP]',
           addressCountry: 'US',
         },
         geo: {
           '@type': 'GeoCoordinates',
-          latitude: 29.7604,
-          longitude: -95.3698,
+          latitude: '[YOUR_LATITUDE]',
+          longitude: '[YOUR_LONGITUDE]',
         },
         areaServed: [
-          { '@type': 'City', name: 'Houston', sameAs: 'https://en.wikipedia.org/wiki/Houston' },
-          { '@type': 'City', name: 'Sugar Land' },
-          { '@type': 'City', name: 'Pearland' },
-          { '@type': 'City', name: 'Katy' },
-          { '@type': 'City', name: 'The Woodlands' },
-          { '@type': 'City', name: 'Spring' },
-          { '@type': 'City', name: 'Missouri City' },
-          { '@type': 'State', name: 'Texas', sameAs: 'https://en.wikipedia.org/wiki/Texas' },
+          '[YOUR_SERVICE_AREAS]'
         ],
         serviceType: [
           'Companion Care',
@@ -84,33 +62,33 @@ export default function Home() {
         currenciesAccepted: 'USD',
         paymentAccepted: 'Cash, Credit Card, Check',
         sameAs: [
-          'https://www.facebook.com/nurturlycare',
-          'https://www.instagram.com/nurturlycare',
-          'https://www.linkedin.com/company/nurturly',
+          'https://www.[YOUR_FACEBOOK_URL]',
+          'https://www.[YOUR_INSTAGRAM_URL]',
+          'https://www.linkedin.com/company/carebase',
         ],
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://nurturlycare.com/#website',
-        url: 'https://nurturlycare.com',
-        name: 'Nurturly Home Care',
-        description: 'Compassionate non-medical home care in Houston, TX',
-        publisher: { '@id': 'https://nurturlycare.com/#business' },
+        '@id': 'https://yourcaredomain.com/#website',
+        url: 'https://yourcaredomain.com',
+        name: '[YOUR_AGENCY_NAME]',
+        description: '[YOUR_META_DESCRIPTION]',
+        publisher: { '@id': 'https://yourcaredomain.com/#business' },
         potentialAction: {
           '@type': 'SearchAction',
-          target: 'https://nurturlycare.com/?s={search_term_string}',
+          target: 'https://yourcaredomain.com/?s={search_term_string}',
           'query-input': 'required name=search_term_string',
         },
       },
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nurturlycare.com' },
-          { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://nurturlycare.com/services' },
-          { '@type': 'ListItem', position: 3, name: 'How It Works', item: 'https://nurturlycare.com/how-it-works' },
-          { '@type': 'ListItem', position: 4, name: 'About', item: 'https://nurturlycare.com/about' },
-          { '@type': 'ListItem', position: 5, name: 'Careers', item: 'https://nurturlycare.com/careers' },
-          { '@type': 'ListItem', position: 6, name: 'Contact', item: 'https://nurturlycare.com/contact' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://yourcaredomain.com' },
+          { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://yourcaredomain.com/services' },
+          { '@type': 'ListItem', position: 3, name: 'How It Works', item: 'https://yourcaredomain.com/how-it-works' },
+          { '@type': 'ListItem', position: 4, name: 'About', item: 'https://yourcaredomain.com/about' },
+          { '@type': 'ListItem', position: 5, name: 'Careers', item: 'https://yourcaredomain.com/careers' },
+          { '@type': 'ListItem', position: 6, name: 'Contact', item: 'https://yourcaredomain.com/contact' },
         ],
       },
     ],
@@ -126,6 +104,7 @@ export default function Home() {
 
       <main>
         {/* SECTION 1: HERO */}
+        {/* TODO: Replace with your own images */}
         <section
           className="relative w-full h-screen min-h-[500px] flex items-center justify-center overflow-hidden"
           style={{
@@ -143,7 +122,7 @@ export default function Home() {
           {/* Content */}
           <div className="relative z-10 text-center px-6 md:px-12">
             <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl text-white mb-4 leading-tight max-w-4xl mx-auto">
-              Care That Feels Like Home.
+              [YOUR_HEADLINE]
             </h1>
             <p className="text-white/80 text-xl md:text-2xl font-light mb-10 tracking-wide">
               Redefining Care. Redefining Time.
@@ -175,7 +154,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-bold text-2xl text-deep-indigo mb-4">Rigorous Vetting</h3>
                 <p className="text-muted-text font-light leading-relaxed">
-                  Only the top 5% of applicants join Nurturly
+                  Only the top 5% of applicants join CareBase
                 </p>
               </div>
 
@@ -217,7 +196,8 @@ export default function Home() {
               {/* Personal Care Card */}
               <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
                 <div className="aspect-[4/3] overflow-hidden bg-gray-200">
-                  <img
+                  {/* TODO: Replace with your own images */}
+                <img
                     className="w-full h-full object-cover"
                     alt="Caregiver assisting with daily activities"
                     src="https://plus.unsplash.com/premium_photo-1681996629585-88965b0d5c83?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -240,7 +220,8 @@ export default function Home() {
               {/* Companionship Card */}
               <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
                 <div className="aspect-[4/3] overflow-hidden bg-gray-200">
-                  <img
+                  {/* TODO: Replace with your own images */}
+                <img
                     className="w-full h-full object-cover"
                     alt="Senior and caregiver enjoying time together"
                     src="https://plus.unsplash.com/premium_photo-1681883918271-22c54d47b44b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -263,7 +244,8 @@ export default function Home() {
               {/* Memory Care Support Card */}
               <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
                 <div className="aspect-[4/3] overflow-hidden bg-gray-200">
-                  <img
+                  {/* TODO: Replace with your own images */}
+                <img
                     className="w-full h-full object-cover"
                     alt="Caregiver providing compassionate care"
                     src="https://plus.unsplash.com/premium_photo-1663036890782-4c00a3bb3832?q=80&w=813&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -351,17 +333,7 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow">
-                  <p className="text-muted-text font-light leading-relaxed mb-6 italic">
-                    {`"${testimonial.quote}"`}
-                  </p>
-                  <div className="border-t border-border pt-6">
-                    <p className="font-bold text-deep-indigo">{testimonial.name}</p>
-                    <p className="text-muted-text text-sm">{testimonial.location}</p>
-                  </div>
-                </div>
-              ))}
+              {/* TODO: Add your own testimonials here */}
             </div>
           </div>
         </section>

@@ -3,9 +3,9 @@ import { Resend } from 'resend'
 // Create Resend lazily per-request to ensure env variables are loaded
 const getResend = () => process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@nurturlycare.com'
-const COMPANY_NAME = 'Nurturly Care'
-const LOGO_URL = 'https://nurturlycare.com/nurturly-logo.png'
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@yourcaredomain.com'
+const COMPANY_NAME = 'CareBase Care'
+const LOGO_URL = 'https://yourcaredomain.com/carebase-logo.png'
 
 // ─── Helper functions ────────────────────────────────────────────────────────
 
@@ -70,7 +70,7 @@ export async function sendInquiryEmail(data: {
 
         <!-- Logo Header -->
         <div style="padding:48px 48px 32px 48px;text-align:center;border-bottom:1px solid rgba(0,109,119,0.05);">
-          <img alt="Nurturly Care" src="${LOGO_URL}" style="height:48px;width:auto;object-fit:contain;" />
+          <img alt="CareBase Care" src="${LOGO_URL}" style="height:48px;width:auto;object-fit:contain;" />
         </div>
 
         <!-- Main Content -->
@@ -186,7 +186,7 @@ export async function sendInquiryEmail(data: {
     }
 
     const response = await resend.emails.send({
-      from: `${COMPANY_NAME} <hello@nurturlycare.com>`,
+      from: `${COMPANY_NAME} <hello@yourcaredomain.com>`,
       to: ADMIN_EMAIL,
       subject: `New Inquiry from ${data.name}`,
       html: htmlContent,
@@ -220,7 +220,7 @@ export async function sendInquiryConfirmation(data: {
 
         <!-- Logo -->
         <div style="padding:40px 48px;text-align:center;border-bottom:1px solid rgba(0,109,119,0.05);">
-          <img alt="Nurturly Care" src="${LOGO_URL}" style="height:44px;width:auto;object-fit:contain;" />
+          <img alt="CareBase Care" src="${LOGO_URL}" style="height:44px;width:auto;object-fit:contain;" />
         </div>
 
         <!-- Content -->
@@ -239,7 +239,7 @@ export async function sendInquiryConfirmation(data: {
           </div>
 
           <p style="font-size:14px;color:#3e494a;margin:0 0 8px 0;">In the meantime, feel free to reach us directly:</p>
-          <p style="font-size:15px;margin:0;"><a href="mailto:hello@nurturlycare.com" style="color:#006D77;text-decoration:none;font-weight:500;">hello@nurturlycare.com</a></p>
+          <p style="font-size:15px;margin:0;"><a href="mailto:hello@yourcaredomain.com" style="color:#006D77;text-decoration:none;font-weight:500;">hello@yourcaredomain.com</a></p>
 
         </div>
 
@@ -248,7 +248,7 @@ export async function sendInquiryConfirmation(data: {
           <p style="font-size:10px;text-transform:uppercase;letter-spacing:0.3em;color:#8c4e35;font-weight:700;margin:0 0 12px 0;">${COMPANY_NAME}</p>
           <p style="font-size:11px;color:rgba(62,73,74,0.7);line-height:1.7;font-weight:300;margin:0;">
             &copy; ${new Date().getFullYear()} ${COMPANY_NAME}. All rights reserved.<br/>
-            You&rsquo;re receiving this because you submitted a form on nurturlycare.com.
+            You&rsquo;re receiving this because you submitted a form on yourcaredomain.com.
           </p>
         </div>
 
@@ -265,7 +265,7 @@ export async function sendInquiryConfirmation(data: {
     }
 
     const response = await resend.emails.send({
-      from: `${COMPANY_NAME} <hello@nurturlycare.com>`,
+      from: `${COMPANY_NAME} <hello@yourcaredomain.com>`,
       to: data.email,
       subject: `We received your inquiry, ${data.name}`,
       html: htmlContent,
@@ -298,7 +298,7 @@ export async function sendApplicationConfirmation(data: {
 
         <!-- Logo -->
         <div style="padding:40px 48px;text-align:center;border-bottom:1px solid rgba(0,109,119,0.05);">
-          <img alt="Nurturly Care" src="${LOGO_URL}" style="height:44px;width:auto;object-fit:contain;" />
+          <img alt="CareBase Care" src="${LOGO_URL}" style="height:44px;width:auto;object-fit:contain;" />
         </div>
 
         <!-- Content -->
@@ -321,7 +321,7 @@ export async function sendApplicationConfirmation(data: {
           </div>
 
           <p style="font-size:14px;color:#3e494a;margin:0 0 8px 0;">Our team typically responds within 48 hours. Questions in the meantime?</p>
-          <p style="font-size:15px;margin:0;"><a href="mailto:hello@nurturlycare.com" style="color:#006D77;text-decoration:none;font-weight:500;">hello@nurturlycare.com</a></p>
+          <p style="font-size:15px;margin:0;"><a href="mailto:hello@yourcaredomain.com" style="color:#006D77;text-decoration:none;font-weight:500;">hello@yourcaredomain.com</a></p>
 
         </div>
 
@@ -330,7 +330,7 @@ export async function sendApplicationConfirmation(data: {
           <p style="font-size:10px;text-transform:uppercase;letter-spacing:0.3em;color:#8c4e35;font-weight:700;margin:0 0 12px 0;">${COMPANY_NAME}</p>
           <p style="font-size:11px;color:rgba(62,73,74,0.7);line-height:1.7;font-weight:300;margin:0;">
             &copy; ${new Date().getFullYear()} ${COMPANY_NAME}. All rights reserved.<br/>
-            You&rsquo;re receiving this because you applied for a role at nurturlycare.com.
+            You&rsquo;re receiving this because you applied for a role at yourcaredomain.com.
           </p>
         </div>
 
@@ -347,9 +347,9 @@ export async function sendApplicationConfirmation(data: {
     }
 
     const response = await resend.emails.send({
-      from: `${COMPANY_NAME} <hello@nurturlycare.com>`,
+      from: `${COMPANY_NAME} <hello@yourcaredomain.com>`,
       to: data.email,
-      subject: `Your application to Nurturly — ${formatJobTitle(data.job_slug)}`,
+      subject: `Your application to CareBase — ${formatJobTitle(data.job_slug)}`,
       html: htmlContent,
     })
     return { success: true, messageId: response.data?.id }
@@ -397,7 +397,7 @@ export async function sendApplicationEmail(data: {
 
         <!-- Header -->
         <div style="padding:48px;text-align:center;background-color:#ffffff;border-bottom:1px solid #fcf9f4;">
-          <img alt="Nurturly Care" src="${LOGO_URL}" style="height:64px;margin:0 auto 32px auto;object-fit:contain;display:block;" />
+          <img alt="CareBase Care" src="${LOGO_URL}" style="height:64px;margin:0 auto 32px auto;object-fit:contain;display:block;" />
           <div style="max-width:300px;margin:0 auto 32px auto;height:1px;background-color:rgba(0,109,119,0.1);"></div>
           <h1 style="font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:36px;color:#006D77;margin:0 0 12px 0;font-weight:500;">New Career Application</h1>
           <p style="color:rgba(28,28,25,0.6);font-weight:300;font-size:11px;text-transform:uppercase;letter-spacing:0.2em;margin:0;">Application Receipt &bull; ${escapeHtml(formatJobTitle(data.job_slug))}</p>
@@ -519,7 +519,7 @@ export async function sendApplicationEmail(data: {
     }
 
     const response = await resend.emails.send({
-      from: `${COMPANY_NAME} <hello@nurturlycare.com>`,
+      from: `${COMPANY_NAME} <hello@yourcaredomain.com>`,
       to: ADMIN_EMAIL,
       subject: `New Application from ${data.name} - ${formatJobTitle(data.job_slug)}`,
       html: htmlContent,

@@ -3,8 +3,8 @@ import ATSSidebar from '@/components/ats/ATSSidebar'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Nurturly ATS',
-    template: '%s | Nurturly ATS',
+    default: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+    template: '%s | [YOUR_AGENCY_NAME]',
   },
   robots: { index: false, follow: false },
 }

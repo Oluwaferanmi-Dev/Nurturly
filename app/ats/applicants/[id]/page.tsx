@@ -105,7 +105,7 @@ export default async function ApplicantProfile({ params }: PageProps) {
           {[
             { icon: 'mail', label: 'Email', value: app.email },
             { icon: 'phone', label: 'Phone', value: app.phone || '—' },
-            { icon: 'location_on', label: 'Location', value: app.location || 'Houston, TX' },
+            { icon: 'location_on', label: 'Location', value: app.location || '[YOUR_CITY], [YOUR_STATE]' },
           ].map((item) => (
             <div key={item.label} className="flex items-center gap-4 p-5 rounded-2xl" style={{ background: '#f6f3ee' }}>
               <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"

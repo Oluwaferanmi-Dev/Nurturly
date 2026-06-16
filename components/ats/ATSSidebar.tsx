@@ -9,7 +9,6 @@ const navItems = [
   { href: '/ats', icon: 'dashboard', label: 'Dashboard', exact: true },
   { href: '/ats/applicants', icon: 'group', label: 'Applicants', exact: false },
   { href: '/ats/pipeline', icon: 'view_kanban', label: 'Pipeline Board', exact: false },
-  { href: '/ats/settings', icon: 'settings', label: 'Settings', exact: false },
 ]
 
 export default function ATSSidebar() {
@@ -38,7 +37,7 @@ export default function ATSSidebar() {
             className="text-2xl font-bold tracking-tight"
             style={{ color: '#006d77', fontFamily: 'Georgia, serif' }}
           >
-            Nurturly
+            CareBase
           </h1>
           <p
             className="text-[10px] uppercase tracking-[0.2em] mt-1"
@@ -143,7 +142,7 @@ export default function ATSSidebar() {
           className="text-lg font-bold"
           style={{ color: '#006d77', fontFamily: 'Georgia, serif' }}
         >
-          Nurturly ATS
+          CareBase ATS
         </h1>
         <button
           onClick={() => setOpen(true)}

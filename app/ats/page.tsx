@@ -121,32 +121,53 @@ export default async function ATSDashboard() {
           <h3 className="font-bold text-lg mb-6" style={{ color: '#1c1c19', fontFamily: 'Georgia, serif' }}>
             Recruitment Funnel
           </h3>
-          <div className="flex items-center w-full gap-1 overflow-x-auto">
+          <div className="flex items-end gap-2 w-full" style={{ height: 160 }}>
             {stageCounts.map((stage, i) => {
-              const flex = Math.max(0.12, stage.count / maxCount)
-              const opacity = 1 - i * 0.11
-              const isLast = i === stageCounts.length - 1
+              const pct = maxCount === 0 ? 0 : (stage.count / maxCount) * 100
+              const heightPct = Math.max(pct, stage.count === 0 ? 6 : 10)
               const isGold = i >= 4
+              const bg = isGold
+                ? i === 4 ? 'rgba(201,168,76,0.5)' : '#c9a84c'
+                : `rgba(0, 83, 91, ${1 - i * 0.13})`
               return (
                 <div
                   key={stage.id}
+                  className="flex flex-col items-center justify-end flex-1 min-w-0 h-full"
                   title={`${stage.label}: ${stage.count}`}
-                  className="h-12 flex items-center justify-center flex-shrink-0 transition-all"
-                  style={{
-                    flex,
-                    minWidth: 40,
-                    background: isGold
-                      ? i === 4 ? 'rgba(201,168,76,0.4)' : '#c9a84c'
-                      : `rgba(0, 83, 91, ${opacity})`,
-                    borderRadius: i === 0 ? '999px 0 0 999px' : isLast ? '0 999px 999px 0' : 0,
-                  }}
                 >
-                  <span className="text-[9px] font-bold whitespace-nowrap px-2 leading-none" style={{ color: isGold && i < 5 ? '#2d1f00' : '#fff' }}>
-                    {stage.short} ({stage.count})
+                  {/* Count label above bar */}
+                  <span
+                    className="text-xs font-bold mb-1"
+                    style={{ color: '#1c1c19' }}
+                  >
+                    {stage.count}
                   </span>
+                  {/* Bar */}
+                  <div
+                    className="w-full rounded-t-lg transition-all"
+                    style={{
+                      height: `${heightPct}%`,
+                      background: bg,
+                      opacity: stage.count === 0 ? 0.25 : 1,
+                    }}
+                  />
                 </div>
               )
             })}
+          </div>
+          {/* Stage labels below */}
+          <div className="flex gap-2 w-full mt-2">
+            {stageCounts.map((stage) => (
+              <div key={stage.id} className="flex-1 min-w-0 text-center">
+                <span
+                  className="text-[9px] font-bold uppercase tracking-wide leading-tight block truncate"
+                  style={{ color: '#4a6367' }}
+                  title={stage.label}
+                >
+                  {stage.short}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -197,7 +218,7 @@ export default async function ATSDashboard() {
                         <td className="px-6 py-4 text-sm" style={{ color: '#4a6367' }}>{formatJobTitle(app.job_slug ?? '')}</td>
                         <td className="px-6 py-4 text-sm" style={{ color: '#4a6367' }}>{formatDate(app.created_at)}</td>
                         <td className="px-6 py-4">
-                          <span className="text-[10px] font-bold px-3 py-1 rounded-full" style={{ background: sc.bg, color: sc.text }}>
+                          <span className="text-[10px] font-bold px-3 py-1 rounded-full whitespace-nowrap inline-block" style={{ background: sc.bg, color: sc.text }}>
                             {getStageLabel(app.stage ?? 'application_received').toUpperCase()}
                           </span>
                         </td>

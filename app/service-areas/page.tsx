@@ -4,22 +4,13 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Service Areas | Nurturly Houston Home Care',
-  description: 'Learn about the areas where Nurturly provides premium home care services in the Greater Houston region.',
+  title: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+  description: '[YOUR_META_DESCRIPTION]',
 }
 
 export default function ServiceAreas() {
   const areas = [
-    'Downtown Houston',
-    'The Heights',
-    'River Oaks',
-    'West University Place',
-    'Bellaire',
-    'Memorial',
-    'Tanglewood',
-    'Montrose',
-    'Museum District',
-    'Medical Center Area',
+    '[YOUR_SERVICE_AREAS]'
   ]
 
   return (
@@ -38,7 +29,7 @@ export default function ServiceAreas() {
                 Where We <span className="italic font-light text-soft-teal">Provide Care</span>
               </h1>
               <p className="text-xl md:text-2xl font-light text-deep-indigo/80 leading-relaxed max-w-lg mb-10">
-                Nurturly proudly provides elevated, relationship-centered home care services throughout the Greater Houston area.
+                CareBase proudly provides elevated, relationship-centered home care services throughout the Greater [YOUR_CITY], [YOUR_STATE] area.
               </p>
               <div className="flex gap-4">
                 <Link
@@ -53,13 +44,14 @@ export default function ServiceAreas() {
             <div className="relative hidden lg:block">
                <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-soft-teal/10 relative">
                 <div className="absolute inset-0 bg-gradient-to-t from-deep-indigo/80 to-transparent z-10"></div>
+                {/* TODO: Replace with your own images */}
                 <img
-                  alt="Houston skyline"
+                  alt="[YOUR_CITY], [YOUR_STATE] skyline"
                   className="w-full h-full object-cover"
                   src="https://images.unsplash.com/photo-1543872084-c7bd3822856f?auto=format&fit=crop&q=80"
                 />
                 <div className="absolute bottom-10 left-10 z-20">
-                  <p className="text-white font-headline text-3xl font-bold">Houston, Texas</p>
+                  <p className="text-white font-headline text-3xl font-bold">[YOUR_CITY], [YOUR_STATE]</p>
                   <p className="text-background font-light text-xl mt-2">Our Foundation.</p>
                 </div>
               </div>

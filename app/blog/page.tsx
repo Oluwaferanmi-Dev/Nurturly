@@ -7,9 +7,11 @@ import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 
 export const revalidate = 60
+export const dynamic = 'force-dynamic'
 
 async function getPosts() {
-    return client.fetch(`
+  try {
+    return await client.fetch(`
     *[_type == "post"] | order(publishedAt desc) {
       _id,
       title,
@@ -21,6 +23,10 @@ async function getPosts() {
       "estimatedReadingTime": round(length(pt::text(body)) / 5 / 180)
     }
   `)
+  } catch (error) {
+    console.error('Failed to fetch blog posts:', error)
+    return []
+  }
 }
 
 export default async function BlogPage() {
@@ -37,7 +43,7 @@ export default async function BlogPage() {
                 <section className="py-24 px-6 md:px-12 bg-deep-indigo">
                     <div className="max-w-7xl mx-auto text-center">
                         <span className="text-calm-blue font-bold tracking-widest text-xs uppercase mb-6 block">
-                            Nurturly Journal
+                            CareBase Journal
                         </span>
                         <h1 className="font-bold text-5xl md:text-6xl text-white leading-tight mb-6">
                             Insights on care,<br />

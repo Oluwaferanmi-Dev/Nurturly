@@ -82,7 +82,7 @@ function ATSLoginForm() {
               margin: '0 0 4px',
             }}
           >
-            Nurturly
+            CareBase
           </h1>
           <p
             style={{
@@ -123,7 +123,7 @@ function ATSLoginForm() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@nurturlycare.com"
+                placeholder="admin@yourcaredomain.com"
                 style={{
                   width: '100%',
                   padding: '12px 16px',
@@ -281,7 +281,7 @@ function ATSLoginForm() {
           fontFamily: 'Manrope, sans-serif',
         }}
       >
-        Internal use only · Nurturly ATS
+        Internal use only · CareBase ATS
       </p>
 
       {/* Spin animation */}

@@ -26,26 +26,25 @@ export const viewport: Viewport = {
 const GA_ID = process.env.NEXT_PUBLIC_GA4_ID
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nurturlycare.com'),
+  metadataBase: new URL('https://yourcaredomain.com'),
   title: {
-    default: 'Nurturly | Premier Home Care Services in Houston, TX',
-    template: '%s | Nurturly Home Care',
+    default: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+    template: '%s | [YOUR_AGENCY_NAME]',
   },
-  description:
-    'Nurturly provides premium non-medical home care services in Houston, Texas. Companionship, personal care, meal prep, and more — delivered with dignity, warmth, and consistency.',
+  description: '[YOUR_META_DESCRIPTION]',
   keywords: [
-    'home care Houston',
-    'non-medical home care Houston TX',
-    'senior care Houston',
-    'companion care Houston',
-    'personal care services Houston',
-    'respite care Houston',
-    'elderly care Houston Texas',
-    'Nurturly',
+    'home care [YOUR_CITY], [YOUR_STATE]',
+    'non-medical home care [YOUR_CITY], [YOUR_STATE] TX',
+    'senior care [YOUR_CITY], [YOUR_STATE]',
+    'companion care [YOUR_CITY], [YOUR_STATE]',
+    'personal care services [YOUR_CITY], [YOUR_STATE]',
+    'respite care [YOUR_CITY], [YOUR_STATE]',
+    'elderly care [YOUR_CITY], [YOUR_STATE] Texas',
+    'CareBase',
   ],
-  authors: [{ name: 'Nurturly Care', url: 'https://nurturlycare.com' }],
-  creator: 'Nurturly Care',
-  publisher: 'Nurturly Care',
+  authors: [{ name: 'CareBase Care', url: 'https://yourcaredomain.com' }],
+  creator: 'CareBase Care',
+  publisher: 'CareBase Care',
   robots: {
     index: true,
     follow: true,
@@ -60,29 +59,27 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://nurturlycare.com',
-    siteName: 'Nurturly Home Care',
-    title: 'Nurturly | Premier Home Care Services in Houston, TX',
-    description:
-      'Premium non-medical home care in Houston, TX. Delivered with dignity, warmth, and consistency. Schedule a free consultation today.',
+    url: 'https://yourcaredomain.com',
+    siteName: 'CareBase Home Care',
+    title: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+    description: '[YOUR_META_DESCRIPTION]',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Nurturly Home Care — Premier care in Houston, TX',
+        alt: 'CareBase Home Care — Premier care in [YOUR_CITY], [YOUR_STATE]',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nurturly | Premier Home Care Services in Houston, TX',
-    description:
-      'Premium non-medical home care in Houston, TX. Delivered with dignity, warmth, and consistency.',
+    title: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+    description: '[YOUR_META_DESCRIPTION]',
     images: ['/og-image.png'],
   },
   alternates: {
-    canonical: 'https://nurturlycare.com',
+    canonical: 'https://yourcaredomain.com',
   },
 }
 

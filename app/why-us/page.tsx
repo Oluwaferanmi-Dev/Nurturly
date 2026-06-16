@@ -4,8 +4,8 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Why Nurturly | Premium Home Care Philosophy',
-  description: 'Discover what makes Nurturly different. Our approach to dignity, reliability, relationship-centered care, hospitality, and innovation in home care.',
+  title: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+  description: '[YOUR_META_DESCRIPTION]',
 }
 
 export default function WhyUs() {
@@ -22,14 +22,15 @@ export default function WhyUs() {
                 Our Philosophy
               </span>
               <h1 className="font-headline text-5xl md:text-7xl text-deep-indigo leading-tight tracking-tight mb-8 font-bold">
-                Why <span className="italic font-light text-soft-teal">Nurturly</span>
+                Why <span className="italic font-light text-soft-teal">CareBase</span>
               </h1>
               <p className="font-light text-xl md:text-2xl text-deep-indigo/80 leading-relaxed max-w-2xl text-balance">
-                There are many home care companies. What makes Nurturly different is how we view the people we care for.
+                There are many home care companies. What makes CareBase different is how we view the people we care for.
               </p>
             </div>
             <div className="lg:col-span-5 hidden lg:block">
               <div className="rounded-3xl overflow-hidden aspect-[4/5] shadow-lg border border-soft-teal/10">
+                {/* TODO: Replace with your own images */}
                 <img
                   alt="A beautifully lit, calm home interior"
                   className="w-full h-full object-cover"
@@ -46,7 +47,8 @@ export default function WhyUs() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
               <div className="lg:col-span-5 order-2 lg:order-1">
                 <div className="rounded-3xl overflow-hidden aspect-[4/5] shadow-lg border border-soft-teal/10">
-                  <img
+                  {/* TODO: Replace with your own images */}
+                <img
                     alt="Dignified senior walking outside"
                     className="w-full h-full object-cover"
                     src="https://plus.unsplash.com/premium_photo-1691003660951-a817c28e1007?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -85,7 +87,8 @@ export default function WhyUs() {
                   The foundation of a sanctuary is stability. Our systems are engineered for impeccable consistency, ensuring that our presence is a constant comfort you can count on, day after day, without exception.
                 </p>
                 <div className="rounded-3xl overflow-hidden h-80 shadow-lg border border-soft-teal/10 mt-auto">
-                  <img
+                  {/* TODO: Replace with your own images */}
+                <img
                     alt="Comforting hand holding another"
                     className="w-full h-full object-cover"
                     src="https://plus.unsplash.com/premium_photo-1658506620365-925c827c6fdc?q=80&w=738&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -105,7 +108,8 @@ export default function WhyUs() {
                   We don't just match caregivers to schedules; we match hearts to homes. By prioritizing emotional compatibility and shared interests, we cultivate deep bonds that transform service into genuine companionship.
                 </p>
                 <div className="rounded-3xl overflow-hidden h-80 shadow-lg border border-soft-teal/10 mt-auto">
-                  <img
+                  {/* TODO: Replace with your own images */}
+                <img
                     alt="Two people sharing a laugh"
                     className="w-full h-full object-cover"
                     src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80"
@@ -138,6 +142,7 @@ export default function WhyUs() {
             </div>
             <div className="lg:w-6/12 mt-12 lg:mt-0 lg:-ml-24 relative z-0 hidden md:block">
               <div className="rounded-3xl overflow-hidden aspect-video shadow-xl border border-soft-teal/10">
+                {/* TODO: Replace with your own images */}
                 <img
                   alt="A beautiful cup of tea prepared thoughtfully"
                   className="w-full h-full object-cover"
@@ -170,7 +175,8 @@ export default function WhyUs() {
               </div>
               <div className="lg:col-span-5 lg:col-start-8">
                 <div className="rounded-3xl overflow-hidden aspect-square shadow-lg border border-soft-teal/10">
-                  <img
+                  {/* TODO: Replace with your own images */}
+                <img
                     alt="Digital healthcare communication"
                     className="w-full h-full object-cover"
                     src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&q=80"
@@ -186,7 +192,7 @@ export default function WhyUs() {
           <div className="bg-white rounded-3xl p-12 md:p-20 text-center shadow-xl border border-warm-yellow/30 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-background rounded-bl-full pointer-events-none -mr-12 -mt-12 opacity-50"></div>
             <h2 className="font-headline text-4xl md:text-5xl text-deep-indigo mb-10 font-bold relative z-10">
-              Ready to experience Nurturly?
+              Ready to experience CareBase?
             </h2>
             <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
               <Link

@@ -4,8 +4,8 @@ import Footer from '@/components/Footer'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Nurturly',
-  description: 'Nurturly\'s commitment to transparency, data protection, and privacy. Learn how we safeguard your information.',
+  title: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+  description: '[YOUR_META_DESCRIPTION]',
 }
 
 export default function PrivacyPolicy() {
@@ -45,7 +45,7 @@ export default function PrivacyPolicy() {
               <div className="pt-6 border-t border-soft-teal/10 mt-6">
                 <p className="text-sm font-bold text-deep-indigo mb-2">Need Assistance?</p>
                 <p className="text-xs font-light text-deep-indigo/70 mb-4">Our legal team is here to help.</p>
-                <a href="mailto:privacy@nurturlycare.com" className="text-sm font-bold text-soft-teal hover:underline transition-all">
+                <a href="mailto:privacy@yourcaredomain.com" className="text-sm font-bold text-soft-teal hover:underline transition-all">
                   Contact Privacy Officer
                 </a>
               </div>
@@ -57,7 +57,7 @@ export default function PrivacyPolicy() {
             <section id="privacy" className="mb-16">
               <h2 className="font-headline text-3xl font-bold text-deep-indigo mb-6">Privacy Policy</h2>
               <p className="text-lg font-light text-deep-indigo/80 leading-relaxed mb-6">
-                <strong>Last updated: December 2024.</strong> Your trust is our most valued asset. At Nurturly, we curate a digital environment that reflects the safety of the homes we care for.
+                <strong>Last updated: December 2024.</strong> Your trust is our most valued asset. At CareBase, we curate a digital environment that reflects the safety of the homes we care for.
               </p>
             </section>
 
@@ -92,7 +92,7 @@ export default function PrivacyPolicy() {
                 <h3 className="font-headline text-2xl font-bold text-deep-indigo">Information Sharing</h3>
               </div>
               <p className="text-lg font-light text-deep-indigo/80 leading-relaxed">
-                Nurturly only shares data with authorized caregivers and medical professionals designated by you. We strictly adhere to HIPAA and GDPR standards to ensure a global standard of care and protection.
+                CareBase only shares data with authorized caregivers and medical professionals designated by you. We strictly adhere to HIPAA and GDPR standards to ensure a global standard of care and protection.
               </p>
             </section>
 

@@ -1,142 +1,36 @@
-# Nurturly Care
+# CareBase — Home Care Agency Starter
 
-A modern, full-stack marketing and recruitment website for **Nurturly Care** — a professional home care services company. Built with Next.js 16, Supabase, and Resend.
+A production-ready Next.js website + ATS template built for home care agencies. Includes a public marketing site, lead capture, caregiver application system, and a full internal Applicant Tracking System (ATS).
 
-🌐 **Live site:** [nurturlycare.com](https://nurturlycare.com)
+## What’s Included
 
----
+*   13-page public website (fully responsive)
+*   Contact form → Supabase + email notification via Resend
+*   Caregiver application form with resume upload
+*   Full ATS portal at `/ats` (dashboard, pipeline board, applicant profiles, email modal)
+*   Technical SEO (sitemap, robots, JSON-LD schema, Open Graph)
+*   Google Analytics 4 ready
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | [Next.js 16](https://nextjs.org) (App Router) |
-| Language | TypeScript |
-| Styling | Tailwind CSS v4 |
-| UI Components | [shadcn/ui](https://ui.shadcn.com) + Radix UI |
-| Database | [Supabase](https://supabase.com) (PostgreSQL) |
-| Storage | Supabase Storage (resume uploads) |
-| Email | [Resend](https://resend.com) |
-| Deployment | [Vercel](https://vercel.com) |
-| Analytics | Vercel Analytics |
+Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui · Supabase · Resend · Vercel
 
----
+## Quick Start
 
-## Getting Started
-
-### 1. Install dependencies
-
-```bash
-pnpm install
-```
-
-### 2. Set up environment variables
-
-Create a `.env` file in the project root:
-
-```env
-NEXT_PUBLIC_SUPABASE_URL="https://your-project.supabase.co"
-NEXT_PUBLIC_SUPABASE_ANON_KEY="your-anon-key"
-RESEND_API_KEY="re_your_api_key"
-ADMIN_EMAIL="your@email.com"
-```
-
-### 3. Run the development server
-
-```bash
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) to view the site.
-
----
-
-## Project Structure
-
-```
-nurturly/
-├── app/
-│   ├── api/
-│   │   ├── inquiries/        # Contact form submissions
-│   │   ├── applications/     # Job application submissions
-│   │   └── upload/           # Resume file uploads (Supabase Storage)
-│   ├── about/
-│   ├── careers/
-│   ├── contact/
-│   ├── for-families/
-│   ├── for-professionals/
-│   ├── how-it-works/
-│   ├── resources/
-│   ├── service-areas/
-│   ├── services/
-│   ├── why-us/
-│   ├── accessibility/
-│   ├── privacy/
-│   ├── layout.tsx
-│   └── page.tsx              # Homepage
-├── components/               # Reusable UI components (shadcn/ui)
-├── lib/
-│   ├── email.ts              # Resend email templates (inquiry + application)
-│   ├── supabase/
-│   │   └── server.ts         # Supabase server client (SSR)
-│   └── utils.ts
-├── hooks/
-├── public/                   # Static assets & logo
-├── styles/
-└── .env                      # Local environment variables (never commit)
-```
-
----
-
-## API Routes
-
-| Route | Method | Description |
-|---|---|---|
-| `/api/inquiries` | `POST` | Saves a contact form inquiry to Supabase and emails admin |
-| `/api/applications` | `POST` | Saves a job application to Supabase and emails admin |
-| `/api/upload` | `POST` | Uploads resume PDF/DOCX to Supabase Storage (`resumes` bucket) |
-
----
-
-## Database (Supabase)
-
-Two tables with Row Level Security (RLS) enabled:
-
-- **`inquiries`** — stores contact form submissions (`name`, `email`, `phone`, `care_type`, `message`)
-- **`applications`** — stores job applications (`name`, `email`, `phone`, `job_slug`, `location`, `experience`, `certifications`, `resume_url`, `message`)
-
-Storage bucket: **`resumes`** (public, accepts PDF and Word documents up to 5MB)
-
----
-
-## Email Notifications
-
-Admin email notifications are sent via **Resend** using branded HTML templates for:
-- 📬 **New Inquiry** — triggered by the Contact Us form
-- 📋 **New Application** — triggered by the job application form
-
-Emails are sent from `noreply@nurturlycare.com` and sent to the `ADMIN_EMAIL` env variable.
-
----
+1.  Clone the repo
+2.  Copy `.env.example` to `.env` and fill in your values
+3.  Run `pnpm install`
+4.  Run `pnpm dev`
+5.  Search for `[YOUR_` across the codebase and replace all placeholders with your real content
 
 ## Deployment
 
-The site is deployed on **Vercel**. When deploying, make sure all environment variables are added in the Vercel dashboard under **Settings → Environment Variables**:
+Deploy to Vercel. Add all env vars from `.env.example` to your Vercel project settings.
 
-- `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-- `RESEND_API_KEY`
-- `ADMIN_EMAIL`
+## Customization Guide
 
-> ⚠️ Vercel does **not** read `.env` files automatically — variables must be set manually in the dashboard.
-
----
-
-## Scripts
-
-```bash
-pnpm dev        # Start local dev server
-pnpm build      # Build for production
-pnpm start      # Start production server
-pnpm lint       # Run ESLint
-```
+*   Brand colors: `styles/globals.css` → update CSS custom properties
+*   Fonts: `app/layout.tsx` → swap Google Font imports
+*   Logo: Replace files in `public/`
+*   Email templates: `lib/email.ts`
+*   ATS stages: `lib/ats/constants.ts`

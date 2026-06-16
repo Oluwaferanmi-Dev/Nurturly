@@ -8,7 +8,7 @@ interface FormData {
   email: string
   phone: string
   experience: string
-  whyNurturly: string
+  whyCareBase: string
   resume: File | null
   roleTitle?: string
 }
@@ -26,7 +26,7 @@ export default function CareersForm({ roleTitle }: CareersFormProps) {
     email: '',
     phone: '',
     experience: '',
-    whyNurturly: '',
+    whyCareBase: '',
     resume: null,
     roleTitle,
   })
@@ -115,7 +115,7 @@ export default function CareersForm({ roleTitle }: CareersFormProps) {
           phone: formData.phone,
           roleTitle: formData.roleTitle || null,
           experience: formData.experience,
-          whyNurturly: formData.whyNurturly,
+          whyCareBase: formData.whyCareBase,
           resumeUrl: resumeUrl,
         }),
       })
@@ -134,7 +134,7 @@ export default function CareersForm({ roleTitle }: CareersFormProps) {
         email: '',
         phone: '',
         experience: '',
-        whyNurturly: '',
+        whyCareBase: '',
         resume: null,
         roleTitle,
       })
@@ -243,10 +243,10 @@ export default function CareersForm({ roleTitle }: CareersFormProps) {
         <label className="block text-sm font-label text-on-surface-variant mb-2">Tell Us About Yourself</label>
         <textarea
           className="w-full bg-surface-container-high border-0 border-b border-outline-variant/30 px-4 py-4 rounded-t-lg focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all duration-300 resize-none"
-          placeholder="Share your passion for care and what draws you to Nurturly..."
+          placeholder="Share your passion for care and what draws you to CareBase..."
           rows={5}
-          name="whyNurturly"
-          value={formData.whyNurturly}
+          name="whyCareBase"
+          value={formData.whyCareBase}
           onChange={handleChange}
         ></textarea>
       </div>

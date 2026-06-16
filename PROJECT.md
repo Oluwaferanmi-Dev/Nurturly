@@ -1,8 +1,8 @@
-# Nurturly — Complete Project Documentation
+# CareBase — Complete Project Documentation
 
 > **Version:** 1.0 · **Last Updated:** April 2026  
-> **Live URL:** [nurturlycare.com](https://nurturlycare.com)  
-> **Internal ATS:** [nurturlycare.com/ats](https://nurturlycare.com/ats)
+> **Live URL:** [yourcaredomain.com](https://yourcaredomain.com)  
+> **Internal ATS:** [yourcaredomain.com/ats](https://yourcaredomain.com/ats)
 
 ---
 
@@ -35,12 +35,12 @@
 
 ## 1. Project Overview
 
-**Nurturly** is a premium, conversion-optimized marketing and recruitment website for a **Houston, Texas-based non-medical home care company**. The project has two primary sides:
+**CareBase** is a premium, conversion-optimized marketing and recruitment website for a **[YOUR_CITY], [YOUR_STATE]-based non-medical home care company**. The project has two primary sides:
 
 | Side | Audience | Purpose |
 |---|---|---|
 | **Public Website** | Families, patients, referral partners, job seekers | Marketing, lead capture, careers |
-| **ATS Admin Portal** (`/ats`) | Nurturly staff only | Track, manage, and communicate with job applicants |
+| **ATS Admin Portal** (`/ats`) | CareBase staff only | Track, manage, and communicate with job applicants |
 
 The entire system is built on a **Next.js + Supabase + Resend** stack — no third-party CMS, no WordPress, no page builder. It is fully owned, fully portable, and deployable on any hosting platform.
 
@@ -48,8 +48,8 @@ The entire system is built on a **Next.js + Supabase + Resend** stack — no thi
 
 ## 2. Business Context & Mission
 
-### What Nurturly Does
-Nurturly provides **non-medical home care services** in the Houston, TX metro area. Their caregivers assist clients with:
+### What CareBase Does
+CareBase provides **non-medical home care services** in the [YOUR_CITY], [YOUR_STATE] metro area. Their caregivers assist clients with:
 - Companionship and emotional support
 - Personal care (bathing, dressing, grooming)
 - Meal preparation
@@ -62,7 +62,7 @@ Nurturly provides **non-medical home care services** in the Houston, TX metro ar
 - Post-hospital transitional care
 
 ### Mission Statement
-> *"Nurturly was created to bring comfort, trust, and human connection back into home care. We believe care should feel personal, consistent, and deeply human."*
+> *"CareBase was created to bring comfort, trust, and human connection back into home care. We believe care should feel personal, consistent, and deeply human."*
 
 ### Why This Site Was Built
 The client needed to move beyond a generic landing page to a fully functional platform that:
@@ -76,7 +76,7 @@ The client needed to move beyond a generic landing page to a fully functional pl
 |---|---|---|
 | **Families** | Find trusted, quality care for a loved one | Homepage → Contact form |
 | **Job Seekers / Caregivers** | Apply for a caregiver position | Careers page → Application form |
-| **Referral Partners** | Connect Nurturly with clients | For Professionals page |
+| **Referral Partners** | Connect CareBase with clients | For Professionals page |
 | **Admin / Recruiter** | Manage the applicant pipeline | `/ats` dashboard |
 
 ---
@@ -94,7 +94,7 @@ The client needed to move beyond a generic landing page to a fully functional pl
 | **Email** | [Resend](https://resend.com) | Transactional email API with HTML templates |
 | **Analytics** | Google Analytics 4 | Conversion + event tracking |
 | **Deployment** | [Vercel](https://vercel.com) | Zero-config Next.js hosting, edge CDN, preview deploys |
-| **Fonts** | Newsreader (serif headlines) + Manrope (body) | Premium editorial feel matching Nurturly's brand |
+| **Fonts** | Newsreader (serif headlines) + Manrope (body) | Premium editorial feel matching CareBase's brand |
 | **Icons** | Google Material Symbols Outlined | Consistent icon language across the site and ATS |
 
 ### Design System
@@ -175,7 +175,7 @@ Admin views applicant profile → clicks "Move to [Stage]"
 ## 5. Directory Structure
 
 ```
-nurturly/
+carebase/
 │
 ├── app/                          # Next.js App Router pages
 │   ├── layout.tsx                # Root layout: fonts, GA4, metadata, global providers
@@ -240,7 +240,7 @@ nurturly/
 │
 ├── styles/
 │   └── globals.css               # Tailwind base + CSS custom properties
-│                                 # Includes Nurturly ATS design tokens
+│                                 # Includes CareBase ATS design tokens
 │
 ├── public/                       # Static assets (logo, og-image, favicon)
 ├── .env                          # Local secrets (never commit)
@@ -259,8 +259,8 @@ Create a `.env` file in the project root (never commit this file):
 
 ```env
 # Supabase — get from app.supabase.com → Project Settings → API
-NEXT_PUBLIC_SUPABASE_URL="https://your-project.supabase.co"
-NEXT_PUBLIC_SUPABASE_ANON_KEY="your-anon-key"
+NEXT_PUBLIC_SUPABASE_URL="[YOUR_SUPABASE_URL]"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="[YOUR_SUPABASE_ANON_KEY]"
 
 # Resend — get from resend.com → API Keys
 RESEND_API_KEY="re_your_api_key"
@@ -343,17 +343,17 @@ Stores job applications from caregiver candidates. Also serves as the ATS data s
 
 **Sections:**
 - Hero: Headline + CTA ("Request a Care Plan" + "Learn How It Works")
-- Trust bar: Awards, certifications, Houston-local credibility signals
+- Trust bar: Awards, certifications, [YOUR_CITY], [YOUR_STATE]-local credibility signals
 - Services overview: 4 core services with icons
 - How It Works: 3-step summary with link to full page
-- Why Nurturly: 5 differentiators
+- Why CareBase: 5 differentiators
 - Testimonials: Social proof from families
 - Final CTA: Contact form shortcut
 
 **SEO:**
-- Title: `Nurturly | Premium Home Care in Houston, TX`
+- Title: `CareBase | Premium Home Care in [YOUR_CITY], [YOUR_STATE]`
 - Full JSON-LD schema: `LocalBusiness` + `HomeHealthCare` + `WebSite` + `BreadcrumbList`
-- Geo meta tags: Houston, TX coordinates
+- Geo meta tags: [YOUR_CITY], [YOUR_STATE] coordinates
 - Canonical URL
 
 ---
@@ -375,13 +375,13 @@ Stores job applications from caregiver candidates. Also serves as the ATS data s
 **Purpose:** Educate prospects on service offerings, convert to contact.
 
 **Sections:**
-- Hero: "Care That Feels Personal" · "Non-Medical Home Care · Houston, TX"
+- Hero: "Care That Feels Personal" · "Non-Medical Home Care · [YOUR_CITY], [YOUR_STATE]"
 - Main services grid (4): Companionship, Personal Care, Mobility Support, Meal Preparation
 - Additional services grid (5): Medication Reminders, Housekeeping, Transportation, Respite Care, Memory Care Support
 - Transitional care callout (post-hospital)
 - Final CTA: "Ready to get started?" + two buttons
 
-**SEO:** Houston-specific keywords, descriptive meta.
+**SEO:** [YOUR_CITY], [YOUR_STATE]-specific keywords, descriptive meta.
 
 ---
 
@@ -399,7 +399,7 @@ Stores job applications from caregiver candidates. Also serves as the ATS data s
 
 ---
 
-### Why Nurturly — `/why-us`
+### Why CareBase — `/why-us`
 **Purpose:** Differentiate from competitors on specifics, not generic claims.
 
 **Sections:**
@@ -408,9 +408,9 @@ Stores job applications from caregiver candidates. Also serves as the ATS data s
 ---
 
 ### Service Areas — `/service-areas`
-**Purpose:** Establish local SEO presence across Houston suburbs.
+**Purpose:** Establish local SEO presence across [YOUR_CITY], [YOUR_STATE] suburbs.
 
-**Content:** Greater Houston area listing, specific cities covered, map context.
+**Content:** Greater [YOUR_CITY], [YOUR_STATE] area listing, specific cities covered, map context.
 
 **Copy:** Uses exact client-approved copy.
 
@@ -450,7 +450,7 @@ Stores job applications from caregiver candidates. Also serves as the ATS data s
 
 **Application form fields:**
 - Full Name, Email, Phone Number
-- Location (Houston area)
+- Location ([YOUR_CITY], [YOUR_STATE] area)
 - Position Applied For (dropdown: Caregiver, CNA, HHA, Companion, Live-In)
 - Years of Experience (dropdown)
 - Certifications (multi-check: CNA, CPR, HHA, First Aid, Dementia Care, Other)
@@ -548,7 +548,7 @@ Stores job applications from caregiver candidates. Also serves as the ATS data s
 
 ### Email Modal (opens from profile page)
 **Fields:** Pre-filled subject + message template
-**Sends:** Branded Nurturly HTML email via Resend
+**Sends:** Branded CareBase HTML email via Resend
 **UX:** Modal overlay, close on backdrop click, success state auto-dismisses
 
 ---
@@ -587,7 +587,7 @@ Handles contact form submissions.
 {
   "name": "Jane Smith",
   "email": "jane@email.com",
-  "phone": "832-000-0000",
+  "phone": "[YOUR_PHONE_NUMBER]",
   "care_type": "Elderly companion care",
   "message": "Looking for care for my mother..."
 }
@@ -612,7 +612,7 @@ Handles caregiver job applications.
   "email": "john@email.com",
   "phone": "713-000-0000",
   "job_slug": "certified-caregiver",
-  "location": "Houston, TX",
+  "location": "[YOUR_CITY], [YOUR_STATE]",
   "experience": "3-5 years",
   "certifications": "CNA, CPR",
   "resume_url": "https://storage.supabase.co/...",
@@ -672,7 +672,7 @@ Services page → reads service descriptions
   ↓
 How It Works → reads 5-step process
   ↓
-Why Nurturly → reads differentiators
+Why CareBase → reads differentiators
   ↓
 About → reads mission + story
   ↓
@@ -825,20 +825,20 @@ Card moves column (Server Action + revalidation)
 
 | Page | Primary Keyword Target |
 |---|---|
-| Homepage | `home care Houston TX` |
-| Services | `non-medical home care Houston` |
-| How It Works | `how home care works Houston` |
-| About | `trusted home care company Houston` |
-| Careers | `caregiver jobs Houston` |
-| Service Areas | `home care Houston Sugar Land Pearland Katy` |
+| Homepage | `home care [YOUR_CITY], [YOUR_STATE] TX` |
+| Services | `non-medical home care [YOUR_CITY], [YOUR_STATE]` |
+| How It Works | `how home care works [YOUR_CITY], [YOUR_STATE]` |
+| About | `trusted home care company [YOUR_CITY], [YOUR_STATE]` |
+| Careers | `caregiver jobs [YOUR_CITY], [YOUR_STATE]` |
+| Service Areas | `home care [YOUR_CITY], [YOUR_STATE] Sugar Land Pearland Katy` |
 
 ### Local SEO (Partially Implemented)
 
 | Item | Status |
 |---|---|
-| Houston geo meta tags | ✅ Done |
+| [YOUR_CITY], [YOUR_STATE] geo meta tags | ✅ Done |
 | `areaServed` in JSON-LD (8 cities) | ✅ Done |
-| Houston keywords in page copy | ✅ Done |
+| [YOUR_CITY], [YOUR_STATE] keywords in page copy | ✅ Done |
 | Google Business Profile | ❌ Not done — needs client action |
 | NAP consistency (Name, Address, Phone) | ⚠️ Placeholder phone in schema |
 | Local citation building | ❌ Not done |
@@ -862,15 +862,15 @@ All emails are sent via **Resend** using branded HTML templates.
 ### Branded Design
 All emails use:
 - Gradient header (dark teal → teal)
-- "Nurturly" logotype in serif font
+- "CareBase" logotype in serif font
 - Clean white body with generous padding
 - Sand-colored footer with contact info
 
 ### Sender Config
-- **From:** `noreply@nurturlycare.com`
-- **From name:** `Nurturly Care Team`
+- **From:** `noreply@yourcaredomain.com`
+- **From name:** `CareBase Care Team`
 
-> ⚠️ The domain `nurturlycare.com` must be **verified in Resend** for emails to send successfully. Go to resend.com → Domains → Add domain → follow DNS verification steps.
+> ⚠️ The domain `yourcaredomain.com` must be **verified in Resend** for emails to send successfully. Go to resend.com → Domains → Add domain → follow DNS verification steps.
 
 ---
 
@@ -904,7 +904,7 @@ The site is deployed on **Vercel** with automatic deployments from the main Git 
 
 | Feature | Detail |
 |---|---|
-| URL | `nurturlycare.com` (custom domain) |
+| URL | `yourcaredomain.com` (custom domain) |
 | SSL/HTTPS | Automatic via Vercel |
 | Preview Deploys | Each PR gets a unique preview URL |
 | Edge Network | Global CDN via Vercel Edge |
@@ -948,17 +948,17 @@ pnpm build
 - [x] Unified `<Header />` with dropdown navigation (all pages)
 - [x] Unified `<Footer />` component (all pages)
 - [x] Fully mobile-responsive design throughout
-- [x] Nurturly brand design system (teal, sand, gold palette)
+- [x] CareBase brand design system (teal, sand, gold palette)
 - [x] Premium typography: Newsreader (serif) + Manrope (body)
 - [x] Material Symbols icon system throughout
 
 ### Website — Content
-- [x] Homepage: Hero, services, how-it-works, why Nurturly, testimonials, CTA
+- [x] Homepage: Hero, services, how-it-works, why CareBase, testimonials, CTA
 - [x] About: Client's exact approved copy
 - [x] Services: Concrete, benefit-led copy for all 9 services
 - [x] How It Works: Real 5-step process (no luxury jargon)
-- [x] Why Nurturly: 5 differentiators from client brief
-- [x] Service Areas: Client-approved copy, Houston suburb listing
+- [x] Why CareBase: 5 differentiators from client brief
+- [x] Service Areas: Client-approved copy, [YOUR_CITY], [YOUR_STATE] suburb listing
 - [x] For Families: Full page built from scratch (FAQ, 3-step process, CTA)
 - [x] For Professionals: Client-approved exact copy, 6 partner types
 - [x] Careers: Client's exact 6-step hiring process, 7 "Who We're Looking For" qualities
@@ -978,9 +978,9 @@ pnpm build
 - [x] Auto-generated `/sitemap.xml`
 - [x] Auto-generated `/robots.txt`
 - [x] JSON-LD schema: `LocalBusiness` + `HomeHealthCare` + `WebSite` + `BreadcrumbList`
-- [x] Geo meta tags (Houston coordinates)
+- [x] Geo meta tags ([YOUR_CITY], [YOUR_STATE] coordinates)
 - [x] Canonical URL on homepage
-- [x] Houston-specific keywords in metadata across all pages
+- [x] [YOUR_CITY], [YOUR_STATE]-specific keywords in metadata across all pages
 - [x] Semantic HTML throughout (h1, nav, main, section, article)
 
 ### Google Analytics 4
@@ -1013,8 +1013,8 @@ pnpm build
 | Item | Description |
 |---|---|
 | **GA4 ID** | Add `NEXT_PUBLIC_GA4_ID=G-XXXXXXXXXX` to `.env` and Vercel |
-| **Phone number** | Update placeholder `+1-832-000-0000` in homepage JSON-LD schema |
-| **Resend domain verification** | Verify `nurturlycare.com` in Resend dashboard (DNS records) |
+| **Phone number** | Update placeholder `[YOUR_PHONE_NUMBER]` in homepage JSON-LD schema |
+| **Resend domain verification** | Verify `yourcaredomain.com` in Resend dashboard (DNS records) |
 | **GA4 custom events** | Track form submissions, CTA clicks, scroll depth as GA4 events |
 | **ATS authentication** | Protect `/ats` with Supabase Auth — anyone with the URL can currently access it |
 
@@ -1022,7 +1022,7 @@ pnpm build
 
 | Item | Description |
 |---|---|
-| **Google Business Profile** | Create + verify GBP listing for Nurturly (Houston) |
+| **Google Business Profile** | Create + verify GBP listing for CareBase ([YOUR_CITY], [YOUR_STATE]) |
 | **Google Search Console** | Verify domain + submit sitemap |
 | **CRM integration** | Connect form submissions to HubSpot (free tier) or GoHighLevel |
 | **BreadcrumbList on inner pages** | Add JSON-LD schema to Services, About, Careers, etc. |
@@ -1037,8 +1037,8 @@ pnpm build
 | Item | Description |
 |---|---|
 | **Sanity CMS** | Install Sanity Studio at `/studio` so client can edit content without code |
-| **Blog/Insights** | Content marketing articles for SEO (caregiver tips, Houston care guides) |
-| **Houston SEO doc** | Keyword research + competitor analysis + local citation strategy document |
+| **Blog/Insights** | Content marketing articles for SEO (caregiver tips, [YOUR_CITY], [YOUR_STATE] care guides) |
+| **[YOUR_CITY], [YOUR_STATE] SEO doc** | Keyword research + competitor analysis + local citation strategy document |
 | **Local citations** | Submit NAP to Yelp, HomeAdvisor, Care.com, Caring.com, etc. |
 | **CRM-connected lead scoring** | Auto-score leads based on care type, urgency, location |
 | **ATS email templates** | Multiple pre-written email templates per stage (phone invite, rejection, offer) |
@@ -1055,17 +1055,17 @@ The `/ats` portal has **no login**. It is excluded from Google indexing but is p
 - Option C: Use middleware + hardcoded admin token
 
 ### Phone Number in Schema
-The phone number in the homepage JSON-LD (`+1-832-000-0000`) is a placeholder. **This must be updated** before the schema is crawled by Google.
+The phone number in the homepage JSON-LD (`[YOUR_PHONE_NUMBER]`) is a placeholder. **This must be updated** before the schema is crawled by Google.
 **File:** `app/page.tsx` → search for `telephone`
 
 ### Resend Domain Verification
-Emails will fail silently if `nurturlycare.com` is not verified as a sending domain in Resend. Go to [resend.com](https://resend.com) → Domains → Add → follow the DNS instructions.
+Emails will fail silently if `yourcaredomain.com` is not verified as a sending domain in Resend. Go to [resend.com](https://resend.com) → Domains → Add → follow the DNS instructions.
 
 ### Resources Page
 `/resources` has no real content. It is in the sitemap and navigation. Either add content or redirect it to the blog/contact until ready.
 
 ### Social Media URLs in Schema
-The `sameAs` links in the JSON-LD (`facebook.com/nurturlycare`, `instagram.com/nurturlycare`, etc.) are placeholder URLs. Update them once the client's real social profiles are established.
+The `sameAs` links in the JSON-LD (`[YOUR_FACEBOOK_URL]`, `[YOUR_INSTAGRAM_URL]`, etc.) are placeholder URLs. Update them once the client's real social profiles are established.
 
 ### ATS CSS Token System
 The ATS was originally built with Stitch/Material Design CSS tokens. These have been replaced with explicit hex values. The token variables exist in `globals.css` as a reference but are not actively used by Tailwind — the inline `style={}` props are the source of truth for ATS colors.
@@ -1079,7 +1079,7 @@ Before handing the project fully to the client, ensure:
 ### Technical
 - [ ] All environment variables set in Vercel
 - [ ] `NEXT_PUBLIC_GA4_ID` added and verified tracking in GA4 debug view
-- [ ] Resend domain `nurturlycare.com` verified (DNS)
+- [ ] Resend domain `yourcaredomain.com` verified (DNS)
 - [ ] Real phone number in JSON-LD schema
 - [ ] Real social media URLs in JSON-LD schema
 - [ ] ATS access protected (auth or password)  
@@ -1092,7 +1092,7 @@ Before handing the project fully to the client, ensure:
 - [ ] All team photos approved if used
 
 ### Business Tools
-- [ ] Google Business Profile created and verified (Houston)
+- [ ] Google Business Profile created and verified ([YOUR_CITY], [YOUR_STATE])
 - [ ] GA4 property created + connected to site
 - [ ] Resend account owned by client (or API key transferred)
 - [ ] Supabase project access transferred to client account

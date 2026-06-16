@@ -5,15 +5,14 @@ import Footer from '@/components/Footer'
 import CTALink from '@/components/CTALink'
 
 export const metadata: Metadata = {
-  title: 'Resources & Insights | Nurturly Home Care Houston',
-  description:
-    'Practical guides and insights for Houston families navigating home care — from recognizing when care is needed to choosing the right caregiver.',
+  title: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+  description: '[YOUR_META_DESCRIPTION]',
   keywords: [
-    'home care guides Houston',
+    'home care guides [YOUR_CITY], [YOUR_STATE]',
     'when to get home care',
-    'how to choose a caregiver Houston',
+    'how to choose a caregiver [YOUR_CITY], [YOUR_STATE]',
     'memory care at home',
-    'respite care family caregiver Houston',
+    'respite care family caregiver [YOUR_CITY], [YOUR_STATE]',
   ],
 }
 
@@ -21,15 +20,15 @@ const articles = [
   {
     category: 'Family Guidance',
     readTime: '5 min read',
-    title: 'What Is Non-Medical Home Care? A Family\'s Guide',
+    title: '[YOUR_ARTICLE_TITLE]',
     excerpt:
-      'Home care is support that helps people live safely and comfortably at home — without the clinical setting of a hospital or facility. It covers everything from companionship and personal hygiene to meal preparation, transportation, and medication reminders. For many families in the Houston area, it\'s the bridge between full independence and a facility move — one that can be delayed for years with the right support.',
+      'Home care is support that helps people live safely and comfortably at home — without the clinical setting of a hospital or facility. It covers everything from companionship and personal hygiene to meal preparation, transportation, and medication reminders. For many families in the [YOUR_CITY], [YOUR_STATE] area, it\'s the bridge between full independence and a facility move — one that can be delayed for years with the right support.',
     tags: ['Home Care Basics', 'Family Resources'],
   },
   {
     category: 'Family Guidance',
     readTime: '6 min read',
-    title: '5 Signs Your Loved One May Need Home Care Support',
+    title: '[YOUR_ARTICLE_TITLE]',
     excerpt:
       'It\'s rarely a single dramatic moment. More often, the signs appear gradually: a fridge full of expired food, missed medications, increasing isolation, or a small fall that could have been much worse. If you\'ve noticed your parent or spouse struggling with daily routines — bathing, meal prep, keeping up with household tasks — it may be time to consider home care support. Starting early makes the transition easier.',
     tags: ['Warning Signs', 'Caregiver Tips'],
@@ -37,10 +36,10 @@ const articles = [
   {
     category: 'Caregiver Tips',
     readTime: '7 min read',
-    title: 'How to Choose the Right Caregiver in Houston',
+    title: '[YOUR_ARTICLE_TITLE]',
     excerpt:
-      'Not all home care agencies are alike. When evaluating options in the Houston metro area, families should ask about caregiver screening processes, how matches are made, what happens if a caregiver is unavailable, and how the agency handles concerns or complaints. Beyond credentials, look for agencies that emphasize consistency — the same caregiver, the same routines. Relationships built on familiarity separate good care from great care.',
-    tags: ['Choosing Care', 'Houston Resources'],
+      'Not all home care agencies are alike. When evaluating options in the [YOUR_CITY], [YOUR_STATE] metro area, families should ask about caregiver screening processes, how matches are made, what happens if a caregiver is unavailable, and how the agency handles concerns or complaints. Beyond credentials, look for agencies that emphasize consistency — the same caregiver, the same routines. Relationships built on familiarity separate good care from great care.',
+    tags: ['Choosing Care', '[YOUR_CITY], [YOUR_STATE] Resources'],
   },
   {
     category: 'Memory Care',
@@ -87,7 +86,7 @@ export default function Resources() {
                 <span className="italic font-light text-soft-teal">navigating care.</span>
               </h1>
               <p className="text-xl md:text-2xl font-light text-deep-indigo/80 leading-relaxed max-w-2xl">
-                Practical, honest information to help Houston families make confident decisions about home care — without the overwhelm.
+                Practical, honest information to help [YOUR_CITY], [YOUR_STATE] families make confident decisions about home care — without the overwhelm.
               </p>
             </div>
           </div>

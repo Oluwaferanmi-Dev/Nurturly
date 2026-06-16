@@ -3,8 +3,8 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Accessibility | Nurturly',
-  description: 'Nurturly\'s commitment to accessibility and inclusive design.',
+  title: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+  description: '[YOUR_META_DESCRIPTION]',
 }
 
 export default function Accessibility() {
@@ -30,18 +30,18 @@ export default function Accessibility() {
             <h2 className="font-headline text-2xl font-bold text-deep-indigo mb-6">Our Commitment</h2>
             <div className="prose prose-lg max-w-none text-deep-indigo/80 font-light leading-relaxed">
               <p className="mb-6">
-                Nurturly strives to ensure that its services are accessible to people with disabilities. We have invested a significant amount of resources to help ensure that our website is made easier to use and more accessible for people with disabilities, with the strong belief that every person has the right to live with dignity, equality, comfort and independence.
+                CareBase strives to ensure that its services are accessible to people with disabilities. We have invested a significant amount of resources to help ensure that our website is made easier to use and more accessible for people with disabilities, with the strong belief that every person has the right to live with dignity, equality, comfort and independence.
               </p>
-              <h3 className="font-headline text-xl font-bold text-deep-indigo mt-8 mb-4">Accessibility on Nurturlycare.com</h3>
+              <h3 className="font-headline text-xl font-bold text-deep-indigo mt-8 mb-4">Accessibility on CareBasecare.com</h3>
               <p className="mb-6">
                 Our site makes available tools that allow the site to improve its compliance with the Web Content Accessibility Guidelines (WCAG 2.1).
               </p>
               <h3 className="font-headline text-xl font-bold text-deep-indigo mt-8 mb-4">Contact Us</h3>
               <p>
-                If you wish to report an accessibility issue, have any questions or need assistance, please contact Nurturly Customer Support as follows:
+                If you wish to report an accessibility issue, have any questions or need assistance, please contact CareBase Customer Support as follows:
               </p>
               <p className="mt-4 font-medium text-calm-blue">
-                Email: care@nurturlycare.com
+                Email: care@yourcaredomain.com
               </p>
             </div>
           </div>

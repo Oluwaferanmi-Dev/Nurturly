@@ -116,7 +116,7 @@ export default async function ApplicantsPage({ searchParams }: PageProps) {
                       <td className="px-5 py-4 text-sm font-medium" style={{ color: '#1c1c19' }}>{formatJobTitle(app.job_slug ?? '')}</td>
                       <td className="px-5 py-4 text-sm" style={{ color: '#4a6367' }}>{formatDate(app.created_at)}</td>
                       <td className="px-5 py-4">
-                        <span className="text-[10px] font-bold px-3 py-1 rounded-full"
+                        <span className="text-[10px] font-bold px-3 py-1 rounded-full whitespace-nowrap inline-block"
                           style={{ background: sc.bg, color: sc.text }}>
                           {getStageLabel(app.stage ?? 'application_received').toUpperCase()}
                         </span>
@@ -190,7 +190,7 @@ export default async function ApplicantsPage({ searchParams }: PageProps) {
                     </div>
                   </div>
                   <div className="flex items-center gap-2 ml-2 flex-shrink-0">
-                    <span className="text-[9px] font-bold px-2 py-1 rounded-full hidden sm:inline"
+                    <span className="text-[9px] font-bold px-2 py-1 rounded-full whitespace-nowrap hidden sm:inline"
                       style={{ background: sc.bg, color: sc.text }}>
                       {getStageLabel(app.stage ?? '').toUpperCase()}
                     </span>

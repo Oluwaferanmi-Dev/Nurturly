@@ -1,4 +1,4 @@
-# Sanity CMS Testing Guide for Nurturly Heritage
+# Sanity CMS Testing Guide for CareBase Heritage
 
 This guide provides step-by-step instructions to physically test all Sanity functionality in your project.
 
@@ -14,7 +14,7 @@ This guide provides step-by-step instructions to physically test all Sanity func
 
 ### Start the Next.js Dev Server
 ```bash
-cd c:\Users\Zod\Documents\code\nurturly
+cd c:\Users\Zod\Documents\code\carebase
 npm run dev
 ```
 The application will be available at `http://localhost:3000`
@@ -52,7 +52,7 @@ You should see the Sanity Studio interface with three document types:
 3. Fill in the following fields:
    - **Job Title**: "Certified Nursing Assistant (Test)"
    - **Slug**: auto-generates
-   - **Location**: "Houston, TX"
+   - **Location**: "[YOUR_CITY], [YOUR_STATE]"
    - **Employment Type**: "Full-Time"
    - **Active**: Toggle ON
    - **Short Description**: "Provide compassionate care in a luxury home environment"
@@ -73,7 +73,7 @@ You should see the Sanity Studio interface with three document types:
    - Email
    - Phone
    - Experience
-   - Why Nurturly
+   - Why CareBase
    - Resume (PDF or DOC file - max 5MB)
 
 5. Submit the form
@@ -159,7 +159,7 @@ curl -X POST http://localhost:3000/api/careers/apply \
     "phone": "7135551234",
     "roleTitle": "Certified Nursing Assistant",
     "experience": "5 years in home care",
-    "whyNurturly": "I believe in dignity-centered care",
+    "whyCareBase": "I believe in dignity-centered care",
     "resumeUrl": "https://example.com/resume.pdf"
   }'
 ```
@@ -362,4 +362,4 @@ Run these tests periodically:
 
 **Testing Environment**: Development
 **Last Updated**: May 5, 2026
-**Project**: Nurturly Heritage
+**Project**: CareBase Heritage

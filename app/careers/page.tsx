@@ -5,12 +5,12 @@ import Footer from '@/components/Footer'
 import { client } from '@/sanity/lib/client'
 
 export const metadata: Metadata = {
-  title: 'Careers | Nurturly Home Care Houston',
-  description:
-    'Join the Nurturly team in Houston, TX. We provide thoughtful, relationship-based home care. Meaningful work for people who care deeply.',
+  title: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+  description: '[YOUR_META_DESCRIPTION]',
 }
 
 export const revalidate = 60
+export const dynamic = 'force-dynamic'
 
 interface JobListing {
   _id: string
@@ -45,26 +45,22 @@ export default async function Careers() {
     {
       icon: 'calendar_today',
       title: 'Support Daily Routines',
-      description:
-        'Assist with activities of daily living and everyday routines, helping clients remain independent and comfortable.',
+      description: '[YOUR_META_DESCRIPTION]',
     },
     {
       icon: 'favorite',
       title: 'Companionship & Emotional Support',
-      description:
-        'Provide genuine companionship and emotional presence that makes each day feel meaningful and connected.',
+      description: '[YOUR_META_DESCRIPTION]',
     },
     {
       icon: 'home',
       title: 'Create a Calm Environment',
-      description:
-        'Help create a calm, safe, and comfortable home environment where clients feel secure and at ease.',
+      description: '[YOUR_META_DESCRIPTION]',
     },
     {
       icon: 'handshake',
       title: 'Build Trust with Families',
-      description:
-        'Develop consistent, reliable relationships with clients and their families built on honesty and care.',
+      description: '[YOUR_META_DESCRIPTION]',
     },
   ]
 
@@ -80,54 +76,49 @@ export default async function Careers() {
     {
       icon: 'workspace_premium',
       title: 'Dignity in Every Moment',
-      description:
-        'We treat every person with respect, protect their independence, and honor their choices.',
+      description: '[YOUR_META_DESCRIPTION]',
     },
     {
       icon: 'eco',
       title: 'Reliability Builds Trust',
-      description:
-        'Families depend on us, and we take that seriously. We show up, stay consistent, and follow through.',
+      description: '[YOUR_META_DESCRIPTION]',
     },
     {
       icon: 'volunteer_activism',
       title: 'Relationship-Centered Care',
-      description:
-        'Care should feel familiar. We prioritize consistency and real relationships.',
+      description: '[YOUR_META_DESCRIPTION]',
     },
     {
       icon: 'spa',
       title: 'The Warmth of Hospitality',
-      description:
-        'We bring attentiveness and thoughtful service into the home so every interaction feels personal.',
+      description: '[YOUR_META_DESCRIPTION]',
     },
   ]
 
   const process = [
-    { step: '01', title: 'Application', description: 'Submit your application and tell us about yourself.' },
-    { step: '02', title: 'Phone Interview', description: 'A brief call to learn more about you and answer your questions.' },
-    { step: '03', title: 'Reference Check', description: 'We reach out to your references to confirm your background.' },
-    { step: '04', title: 'In-Person Interview', description: 'Meet the team and get a feel for who we are.' },
-    { step: '05', title: 'Shadow Shift', description: 'Spend time with an experienced caregiver to see care in action.' },
-    { step: '06', title: 'Final Decision', description: 'We make our decision and welcome you to the Nurturly team.' },
+    { step: '01', title: 'Application', description: '[YOUR_META_DESCRIPTION]' },
+    { step: '02', title: 'Phone Interview', description: '[YOUR_META_DESCRIPTION]' },
+    { step: '03', title: 'Reference Check', description: '[YOUR_META_DESCRIPTION]' },
+    { step: '04', title: 'In-Person Interview', description: '[YOUR_META_DESCRIPTION]' },
+    { step: '05', title: 'Shadow Shift', description: '[YOUR_META_DESCRIPTION]' },
+    { step: '06', title: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]' },
   ]
 
   const jobPostingSchema = {
     '@context': 'https://schema.org',
     '@type': 'JobPosting',
     title: 'Caregiver',
-    description:
-      'Nurturly is hiring compassionate, reliable caregivers in the Houston, TX area. Provide non-medical home care including companionship, personal care, meal preparation, and mobility support. We prioritize relationships over task-based care.',
+    description: '[YOUR_META_DESCRIPTION]',
     hiringOrganization: {
       '@type': 'Organization',
-      name: 'Nurturly',
-      sameAs: 'https://nurturlycare.com',
+      name: 'CareBase',
+      sameAs: 'https://yourcaredomain.com',
     },
     jobLocation: {
       '@type': 'Place',
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Houston',
+        addressLocality: '[YOUR_CITY], [YOUR_STATE]',
         addressRegion: 'TX',
         addressCountry: 'US',
       },
@@ -137,7 +128,7 @@ export default async function Careers() {
     validThrough: '2027-04-01',
     applicantLocationRequirements: {
       '@type': 'City',
-      name: 'Houston',
+      name: '[YOUR_CITY], [YOUR_STATE]',
     },
     jobBenefits: 'Flexible scheduling, meaningful work, supportive team environment',
     qualifications:
@@ -148,8 +139,8 @@ export default async function Careers() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nurturlycare.com' },
-      { '@type': 'ListItem', position: 2, name: 'Careers', item: 'https://nurturlycare.com/careers' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://yourcaredomain.com' },
+      { '@type': 'ListItem', position: 2, name: 'Careers', item: 'https://yourcaredomain.com/careers' },
     ],
   }
 
@@ -166,7 +157,7 @@ export default async function Careers() {
           <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="z-10 relative">
               <span className="text-calm-blue font-bold tracking-widest text-xs uppercase mb-6 block">
-                Careers at Nurturly
+                Careers at CareBase
               </span>
               <h1 className="font-headline font-bold text-5xl md:text-6xl text-deep-indigo leading-[1.1] mb-6">
                 Work That Feels <br />
@@ -186,7 +177,8 @@ export default async function Careers() {
             </div>
             
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-[4/5]">
-              <img
+              {/* TODO: Replace with your own images */}
+                <img
                 alt="Caregiver in a natural, welcoming setting"
                 className="w-full h-full object-cover"
                 src="https://images.unsplash.com/photo-1641723345378-a701b30b2d36?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -204,7 +196,7 @@ export default async function Careers() {
                   We Care <span className="italic font-light text-soft-teal">Differently</span>
                 </h2>
                 <p className="text-lg text-deep-indigo/80 font-light leading-relaxed mb-6">
-                  At Nurturly, we provide thoughtful, relationship-based care designed to feel calm, personal, and human.
+                  At CareBase, we provide thoughtful, relationship-based care designed to feel calm, personal, and human.
                 </p>
                 <p className="text-lg text-deep-indigo/80 font-light leading-relaxed">
                   You care for one family deeply instead of many clients quickly. We prioritize relationships over rushed, task-based care. This isn't just a job — it's meaningful work done well.
@@ -213,12 +205,14 @@ export default async function Careers() {
               <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-warm-yellow/20 rounded-full blur-3xl -z-10"></div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <img
+              {/* TODO: Replace with your own images */}
+                <img
                 alt="Caregiver providing attentive care"
                 className="rounded-2xl w-full h-64 sm:h-80 object-cover shadow-sm"
                 src="https://plus.unsplash.com/premium_photo-1661549534902-df85d8d1b943?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
-              <img
+              {/* TODO: Replace with your own images */}
+                <img
                 alt="Caregiver in warm interaction with client"
                 className="rounded-2xl w-full h-64 sm:h-80 object-cover shadow-sm sm:mt-16"
                 src="https://plus.unsplash.com/premium_photo-1665203568927-bf0e58ee3d20?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -322,7 +316,7 @@ export default async function Careers() {
                 Open Roles
               </h2>
               <p className="text-deep-indigo/80 text-lg font-light max-w-2xl mx-auto">
-                Explore the opportunities available at Nurturly right now.
+                Explore the opportunities available at CareBase right now.
               </p>
             </div>
 

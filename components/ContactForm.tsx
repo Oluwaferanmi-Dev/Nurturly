@@ -176,7 +176,7 @@ export default function ContactForm() {
           <label className={labelClass}>ZIP Code / City</label>
           <input
             className={inputClass}
-            placeholder="Houston, TX or ZIP code"
+            placeholder="[YOUR_CITY], [YOUR_STATE] or ZIP code"
             type="text"
             name="zip_code"
             value={formData.zip_code}

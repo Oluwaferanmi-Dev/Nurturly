@@ -14,8 +14,8 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-8">
             <Link href="/" className="inline-block bg-white p-2 rounded-xl">
               <img
-                src="/nurturly-logo.png"
-                alt="Nurturly Care"
+                src="/carebase-logo.png"
+                alt="CareBase Care"
                 className="h-10 w-auto object-contain"
               />
             </Link>
@@ -25,7 +25,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="mailto:hello@nurturlycare.com"
+                href="mailto:hello@yourcaredomain.com"
                 className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:bg-soft-teal hover:border-soft-teal hover:text-white transition-all shadow-sm"
                 aria-label="Email us"
               >
@@ -58,7 +58,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li><Link href="/about" className="text-sm font-light text-white/70 hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="/how-it-works" className="text-sm font-light text-white/70 hover:text-white transition-colors">How It Works</Link></li>
-              <li><Link href="/why-us" className="text-sm font-light text-white/70 hover:text-white transition-colors">Why Nurturly</Link></li>
+              <li><Link href="/why-us" className="text-sm font-light text-white/70 hover:text-white transition-colors">Why CareBase</Link></li>
               <li><Link href="/careers" className="text-sm font-light text-white/70 hover:text-white transition-colors">Careers</Link></li>
               <li><Link href="/resources" className="text-sm font-light text-white/70 hover:text-white transition-colors">Resources</Link></li>
             </ul>
@@ -88,7 +88,7 @@ export default function Footer() {
         <div className="border-t border-white/10 pt-10 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex flex-col items-start gap-1">
               <p className="text-xs font-light text-white/30 tracking-wide">
-                © {year} Nurturly Care. All rights reserved.
+                © {year} CareBase Care. All rights reserved.
               </p>
               <p className="text-xs font-light text-white/50 tracking-wide italic">
                 Redefining Care. Redefining Time.

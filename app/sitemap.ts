@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://nurturlycare.com'
+  const baseUrl = 'https://yourcaredomain.com'
 
   const routes = [
     { path: '/', priority: 1.0, changeFrequency: 'monthly' as const },

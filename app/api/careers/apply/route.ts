@@ -9,7 +9,7 @@ const careerApplicationSchema = z.object({
   phone: z.string().min(10, 'Please enter a valid phone number'),
   roleTitle: z.string().optional().nullable(),
   experience: z.string().optional().nullable(),
-  whyNurturly: z.string().optional().nullable(),
+  whyCareBase: z.string().optional().nullable(),
   resumeUrl: z.string().url('Invalid resume URL').optional().nullable(),
 })
 
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
       phone: validatedData.phone,
       roleTitle: validatedData.roleTitle || null,
       experience: validatedData.experience || null,
-      whyNurturly: validatedData.whyNurturly || null,
+      whyCareBase: validatedData.whyCareBase || null,
       resumeUrl: validatedData.resumeUrl || null,
       submittedAt: new Date().toISOString(),
       status: 'new',

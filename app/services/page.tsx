@@ -5,9 +5,9 @@ import Footer from '@/components/Footer'
 import CTALink from '@/components/CTALink'
 
 export const metadata: Metadata = {
-  title: 'Our Services | Nurturly Home Care Houston',
-  description: 'Nurturly provides non-medical home care in Houston, TX — companionship, personal care, meal prep, mobility support, memory care, and more. Care that feels personal, consistent, and deeply human.',
-  keywords: ['home care Houston', 'non-medical home care', 'in-home caregiver Houston Texas', 'senior care Houston', 'companionship care', 'personal care services'],
+  title: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+  description: '[YOUR_META_DESCRIPTION]',
+  keywords: ['home care [YOUR_CITY], [YOUR_STATE]', 'non-medical home care', 'in-home caregiver [YOUR_CITY], [YOUR_STATE] Texas', 'senior care [YOUR_CITY], [YOUR_STATE]', 'companionship care', 'personal care services'],
 }
 
 export default function Services() {
@@ -15,22 +15,22 @@ export default function Services() {
     {
       icon: 'favorite',
       title: 'Companionship',
-      description: 'Genuine conversation, shared activities, and a steady presence so your loved one never feels alone — because connection is care too.',
+      description: '[YOUR_META_DESCRIPTION]',
     },
     {
       icon: 'wash',
       title: 'Personal Care',
-      description: 'Sensitive, dignified assistance with bathing, dressing, and grooming — delivered with the respect every person deserves.',
+      description: '[YOUR_META_DESCRIPTION]',
     },
     {
       icon: 'assist_walker',
       title: 'Mobility Support',
-      description: 'Safe assistance with moving around the home, transfers, and gentle activity to maintain independence and reduce fall risk.',
+      description: '[YOUR_META_DESCRIPTION]',
     },
     {
       icon: 'restaurant',
       title: 'Meal Preparation',
-      description: 'Fresh, nourishing meals planned around dietary needs, personal preferences, and cultural comfort — cooked with care, not convenience.',
+      description: '[YOUR_META_DESCRIPTION]',
     },
   ]
 
@@ -38,27 +38,27 @@ export default function Services() {
     {
       icon: 'alarm',
       title: 'Medication Reminders',
-      description: 'Gentle, consistent reminders to take medications on schedule — keeping health routines intact without clinical pressure.',
+      description: '[YOUR_META_DESCRIPTION]',
     },
     {
       icon: 'cleaning_services',
       title: 'Light Housekeeping',
-      description: 'A tidy, safe, and organized home environment so your loved one can move comfortably and live with ease.',
+      description: '[YOUR_META_DESCRIPTION]',
     },
     {
       icon: 'directions_car',
       title: 'Transportation',
-      description: 'Reliable, safe rides to medical appointments, errands, and social outings — so life doesn\'t stop at the front door.',
+      description: '[YOUR_SERVICE_DESCRIPTION]',
     },
     {
       icon: 'weekend',
       title: 'Respite Care',
-      description: 'Planned relief for family caregivers — so you can rest, recharge, and return to your role without burning out.',
+      description: '[YOUR_META_DESCRIPTION]',
     },
     {
       icon: 'psychology',
       title: 'Memory Care Support',
-      description: 'Patient, technique-driven support for clients living with Alzheimer\'s or dementia — focused on safety, calm, and dignity.',
+      description: '[YOUR_SERVICE_DESCRIPTION]',
     },
   ]
 
@@ -66,8 +66,8 @@ export default function Services() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nurturlycare.com' },
-      { '@type': 'ListItem', position: 2, name: 'Our Services', item: 'https://nurturlycare.com/services' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://yourcaredomain.com' },
+      { '@type': 'ListItem', position: 2, name: 'Our Services', item: 'https://yourcaredomain.com/services' },
     ],
   }
 
@@ -81,14 +81,14 @@ export default function Services() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="z-10">
               <span className="text-calm-blue font-bold tracking-widest text-xs uppercase mb-6 block">
-                Non-Medical Home Care · Houston, TX
+                Non-Medical Home Care · [YOUR_CITY], [YOUR_STATE]
               </span>
               <h1 className="font-headline text-5xl md:text-7xl font-bold text-deep-indigo leading-[1.1] mb-8">
                 Care That Feels
                 <em className="block not-italic text-soft-teal font-light">Personal</em>
               </h1>
               <p className="text-xl md:text-2xl text-deep-indigo/80 font-light leading-relaxed mb-10 max-w-xl">
-                We provide non-medical home care and personal assistance across Houston — built around the individual, not a one-size-fits-all package.
+                We provide non-medical home care and personal assistance across [YOUR_CITY], [YOUR_STATE] — built around the individual, not a one-size-fits-all package.
               </p>
               <CTALink
                 href="/contact"
@@ -101,6 +101,7 @@ export default function Services() {
 
             <div className="relative hidden lg:block">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative z-10 transform -rotate-2">
+                {/* TODO: Replace with your own images */}
                 <img
                   alt="Caregiver and client in moment of care"
                   className="w-full h-full object-cover object-center"

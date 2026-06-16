@@ -1,16 +1,16 @@
-# Nurturly End-to-End User Journeys
+# CareBase End-to-End User Journeys
 
-This document outlines the complete, end-to-end user flows for the two primary personas interacting with the Nurturly platform: **The Family/Service Seeker (Client)** and **The Job Applicant (Candidate)**. It also covers how internal **Nurturly Admins** interact with these users.
+This document outlines the complete, end-to-end user flows for the two primary personas interacting with the CareBase platform: **The Family/Service Seeker (Client)** and **The Job Applicant (Candidate)**. It also covers how internal **CareBase Admins** interact with these users.
 
 ---
 
 ## 1. The Family / Service Seeker Flow (Client Journey)
 
-The goal of this flow is to convert a visitor seeking care into a qualified lead, seamlessly notifying the Nurturly team while providing the user with immediate reassurance.
+The goal of this flow is to convert a visitor seeking care into a qualified lead, seamlessly notifying the CareBase team while providing the user with immediate reassurance.
 
 ### Phase 1: Discovery & Education
 1. **Landing:** The user arrives via the Home page (`/`) or Services page (`/services`). They experience the premium, trustworthy brand identity through high-quality typography, smooth animations, and clear value propositions.
-2. **Exploration:** The user reads about specific care types (e.g., Post-Surgery, Senior Care) and reviews the "Why Nurturly" differentiators.
+2. **Exploration:** The user reads about specific care types (e.g., Post-Surgery, Senior Care) and reviews the "Why CareBase" differentiators.
 3. **Call to Action (CTA):** Prompted by sticky navigation or end-of-section CTAs ("Book a Consultation", "Get in Touch"), the user navigates to the `/contact` page.
 
 ### Phase 2: Inquiry & Data Capture
@@ -24,13 +24,13 @@ The goal of this flow is to convert a visitor seeking care into a qualified lead
 ### Phase 3: System Processing & Notifications
 1. **Database Storage:** The form data is securely inserted into the Supabase `inquiries` table.
 2. **Automated Communication (via Resend):**
-   - **Internal Alert:** An email is dispatched to `admin@nurturlycare.com` notifying the team of a new lead, containing all submitted details.
-   - **User Confirmation:** A beautifully branded, automated email (from `hello@nurturlycare.com`) is sent to the user, confirming receipt and outlining the next steps (e.g., "A care coordinator will be in touch within 24 hours").
+   - **Internal Alert:** An email is dispatched to `admin@yourcaredomain.com` notifying the team of a new lead, containing all submitted details.
+   - **User Confirmation:** A beautifully branded, automated email (from `hello@yourcaredomain.com`) is sent to the user, confirming receipt and outlining the next steps (e.g., "A care coordinator will be in touch within 24 hours").
 3. **Success State:** The UI transitions to a success message, thanking the user and setting expectations.
 
 ### Phase 4: Internal Admin Action
-1. **Review:** A Nurturly Admin receives the email or views the Supabase `inquiries` dashboard.
-2. **Follow-Up:** The admin reaches out to the family via phone or email (`hello@nurturlycare.com`) to schedule the initial consultation
+1. **Review:** A CareBase Admin receives the email or views the Supabase `inquiries` dashboard.
+2. **Follow-Up:** The admin reaches out to the family via phone or email (`hello@yourcaredomain.com`) to schedule the initial consultation
 
 ---
 
@@ -54,12 +54,12 @@ The goal of this flow is to attract top-tier caregiver talent, capture their app
 ### Phase 3: System Processing
 1. **Database Entry:** The application is inserted into the Supabase `applications` table. By default, it is assigned the stage `application_received` and the status `active`.
 2. **Automated Communication:**
-   - **Internal Alert:** An email is sent to `admin@nurturlycare.com` notifying the recruitment team of a new applicant.
-   - **Candidate Confirmation:** A branded confirmation email (from `hello@nurturlycare.com`) is sent to the applicant, acknowledging their submission.
+   - **Internal Alert:** An email is sent to `admin@yourcaredomain.com` notifying the recruitment team of a new applicant.
+   - **Candidate Confirmation:** A branded confirmation email (from `hello@yourcaredomain.com`) is sent to the applicant, acknowledging their submission.
 3. **Success State:** The UI updates to confirm the application was received successfully.
 
 ### Phase 4: The ATS Pipeline (Internal Admin Journey)
-This phase describes how Nurturly Admins evaluate the candidate using the custom-built ATS.
+This phase describes how CareBase Admins evaluate the candidate using the custom-built ATS.
 
 1. **Authentication:** The Admin navigates to `/ats`. The `proxy.ts` middleware intercepts the request. If not logged in, they are redirected to `/ats/login`. Upon secure login, they enter the ATS.
 2. **Pipeline Overview (`/ats/pipeline`):**
@@ -74,6 +74,6 @@ This phase describes how Nurturly Admins evaluate the candidate using the custom
    - A Server Action updates the Supabase database (`stage` and `stage_updated_at`), securely authorized via RLS policies.
    - The UI automatically refreshes (`router.refresh()`), moving the candidate's card to the next column.
 5. **Direct Communication:**
-   - Using the **EmailModal**, the Admin can draft and send branded emails directly from the ATS to the candidate (e.g., to request interview availability or send an offer). These emails are dispatched via Resend from `hello@nurturlycare.com`.
+   - Using the **EmailModal**, the Admin can draft and send branded emails directly from the ATS to the candidate (e.g., to request interview availability or send an offer). These emails are dispatched via Resend from `hello@yourcaredomain.com`.
 6. **Archiving:**
    - If a candidate is rejected or hired, the Admin clicks "Archive". The application's status is changed to `archived`, removing them from the active pipeline board while preserving their historical data in the database.

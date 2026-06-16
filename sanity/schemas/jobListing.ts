@@ -28,7 +28,7 @@ export default defineType({
       name: 'location',
       title: 'Location',
       type: 'string',
-      description: 'e.g. "Houston, TX" or "Remote"',
+      description: 'e.g. "[YOUR_CITY], [YOUR_STATE]" or "Remote"',
     }),
     defineField({
       name: 'type',

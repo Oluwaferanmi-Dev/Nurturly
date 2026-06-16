@@ -5,9 +5,9 @@ import Footer from '@/components/Footer'
 import CTALink from '@/components/CTALink'
 
 export const metadata: Metadata = {
-  title: 'How It Works | Nurturly Home Care Houston',
-  description: 'Starting home care with Nurturly is simple. Learn our 5-step process — from your first call to ongoing support — and see why Houston families trust us.',
-  keywords: ['how home care works', 'starting home care Houston', 'home care process', 'caregiver matching Houston'],
+  title: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+  description: '[YOUR_META_DESCRIPTION]',
+  keywords: ['how home care works', 'starting home care [YOUR_CITY], [YOUR_STATE]', 'home care process', 'caregiver matching [YOUR_CITY], [YOUR_STATE]'],
 }
 
 export default function HowItWorks() {
@@ -15,8 +15,8 @@ export default function HowItWorks() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nurturlycare.com' },
-      { '@type': 'ListItem', position: 2, name: 'How It Works', item: 'https://nurturlycare.com/how-it-works' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://yourcaredomain.com' },
+      { '@type': 'ListItem', position: 2, name: 'How It Works', item: 'https://yourcaredomain.com/how-it-works' },
     ],
   }
 
@@ -31,7 +31,7 @@ export default function HowItWorks() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="z-10 relative">
               <span className="text-calm-blue font-bold tracking-widest text-xs uppercase mb-6 block">
-                Our Process · Houston, TX
+                Our Process · [YOUR_CITY], [YOUR_STATE]
               </span>
               <h1 className="font-headline font-bold text-5xl md:text-7xl text-deep-indigo leading-tight mb-8">
                 How It Works
@@ -43,6 +43,7 @@ export default function HowItWorks() {
 
             <div className="relative hidden lg:block">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+                {/* TODO: Replace with your own images */}
                 <img
                   alt="Caregiver and senior sharing a warm conversation"
                   className="w-full h-full object-cover"
@@ -50,7 +51,7 @@ export default function HowItWorks() {
                 />
               </div>
               <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-xl shadow-lg max-w-xs border border-soft-teal/10">
-                <p className="font-headline italic text-xl text-deep-indigo">"We built Nurturly to feel personal, consistent, and deeply human."</p>
+                <p className="font-headline italic text-xl text-deep-indigo">"We built CareBase to feel personal, consistent, and deeply human."</p>
               </div>
             </div>
           </div>
@@ -68,7 +69,7 @@ export default function HowItWorks() {
                   <h2 className="font-headline font-bold text-4xl text-deep-indigo">Start with a conversation</h2>
                 </div>
                 <p className="text-lg text-deep-indigo/80 font-light leading-relaxed">
-                  Reach out through our contact form or give us a call. We'll have a relaxed, no-pressure conversation to understand your situation, answer your questions, and explain exactly how Nurturly works.
+                  Reach out through our contact form or give us a call. We'll have a relaxed, no-pressure conversation to understand your situation, answer your questions, and explain exactly how CareBase works.
                 </p>
                 <ul className="space-y-4 py-4 mt-4 border-t border-soft-teal/10">
                   <li className="flex items-center gap-4 text-deep-indigo font-medium">
@@ -84,6 +85,7 @@ export default function HowItWorks() {
             </div>
             <div className="w-full md:w-1/2 order-1 md:order-2">
               <div className="aspect-video rounded-3xl overflow-hidden shadow-lg border border-soft-teal/10">
+                {/* TODO: Replace with your own images */}
                 <img
                   alt="Caregiver having a conversation with client"
                   className="w-full h-full object-cover"
@@ -97,6 +99,7 @@ export default function HowItWorks() {
           <div className="flex flex-col md:flex-row items-center gap-16 lg:gap-24">
             <div className="w-full md:w-1/2">
               <div className="aspect-video rounded-3xl overflow-hidden shadow-lg border border-soft-teal/10 bg-background">
+                {/* TODO: Replace with your own images */}
                 <img
                   alt="Care assessment and planning process"
                   className="w-full h-full object-cover"
@@ -146,14 +149,16 @@ export default function HowItWorks() {
               </div>
               <div className="w-full lg:w-1/2 grid grid-cols-2 gap-6 relative">
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-lg transform -rotate-3 z-10 hover:rotate-0 transition-transform duration-500">
-                  <img
+                  {/* TODO: Replace with your own images */}
+                <img
                     alt="Portrait of a compassionate caregiver"
                     className="w-full h-full object-cover"
                     src="https://images.unsplash.com/photo-1765896387398-1e1ae8d2eb85?q=80&w=1421&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   />
                 </div>
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-lg transform rotate-3 mt-12 z-0 hover:rotate-0 transition-transform duration-500">
-                  <img
+                  {/* TODO: Replace with your own images */}
+                <img
                     alt="Another compassionate caregiver"
                     className="w-full h-full object-cover"
                     src="https://images.unsplash.com/photo-1765896387387-0538bc9f997e?q=80&w=821&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -178,13 +183,14 @@ export default function HowItWorks() {
                   <div className="absolute left-0 top-0 w-2 h-full bg-sage"></div>
                   <h4 className="text-deep-indigo font-bold text-lg mb-2">Supervised First Visit</h4>
                   <p className="text-deep-indigo/70 font-light text-sm leading-relaxed">
-                    A Nurturly Care Manager is present on the first visit — not just to observe, but to ensure everything starts right and everyone feels comfortable.
+                    A CareBase Care Manager is present on the first visit — not just to observe, but to ensure everything starts right and everyone feels comfortable.
                   </p>
                 </div>
               </div>
             </div>
             <div className="w-full md:w-1/2 order-1 md:order-2">
               <div className="aspect-video rounded-3xl overflow-hidden shadow-lg border border-soft-teal/10">
+                {/* TODO: Replace with your own images */}
                 <img
                   alt="Caregiver assisting with daily living activities"
                   className="w-full h-full object-cover"
@@ -198,6 +204,7 @@ export default function HowItWorks() {
           <div className="flex flex-col md:flex-row items-center gap-16 lg:gap-24">
             <div className="w-full md:w-1/2">
               <div className="aspect-video rounded-3xl overflow-hidden shadow-lg border border-soft-teal/10">
+                {/* TODO: Replace with your own images */}
                 <img
                   alt="Ongoing care support and check-ins"
                   className="w-full h-full object-cover"

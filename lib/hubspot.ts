@@ -43,7 +43,7 @@ function formatInquiryNote(data: {
   hours_per_week?: string | null
   message?: string | null
 }): string {
-  const lines: string[] = ['[Nurturly Website Inquiry]', '']
+  const lines: string[] = ['[CareBase Website Inquiry]', '']
   if (data.care_type) lines.push(`Type of Care: ${data.care_type}`)
   if (data.relationship_to_patient) lines.push(`Relationship to Patient: ${data.relationship_to_patient}`)
   if (data.zip_code) lines.push(`Location / ZIP: ${data.zip_code}`)
@@ -164,7 +164,7 @@ export async function upsertHubSpotApplicant(
     lifecyclestage: 'other',
     hs_lead_status: 'NEW',
     lead_source: 'website_job_application',
-    message: `[Nurturly Job Application]\nPosition: ${data.job_slug}\nExperience: ${data.experience ?? 'not specified'}`,
+    message: `[CareBase Job Application]\nPosition: ${data.job_slug}\nExperience: ${data.experience ?? 'not specified'}`,
   }
 
   if (data.phone) properties.phone = data.phone

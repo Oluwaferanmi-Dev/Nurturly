@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import CTALink from '@/components/CTALink'
 
 export const metadata: Metadata = {
-  title: 'About Nurturly | Care that feels like home',
-  description: 'Learn about Nurturly\'s mission to bring comfort, trust, and human connection back into home care. A sanctuary of service built on hospitality and dignity.',
+  title: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+  description: '[YOUR_META_DESCRIPTION]',
 }
 
 export default function About() {
@@ -14,8 +14,8 @@ export default function About() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nurturlycare.com' },
-      { '@type': 'ListItem', position: 2, name: 'About Us', item: 'https://nurturlycare.com/about' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://yourcaredomain.com' },
+      { '@type': 'ListItem', position: 2, name: 'About Us', item: 'https://yourcaredomain.com/about' },
     ],
   }
 
@@ -36,7 +36,7 @@ export default function About() {
                 Care that <br/><span className="italic font-light">feels</span> like home.
               </h1>
               <p className="text-xl md:text-2xl text-deep-indigo/80 font-light leading-relaxed mb-12 max-w-xl">
-                Nurturly was created to bring comfort, trust, and human connection back into home care.
+                CareBase was created to bring comfort, trust, and human connection back into home care.
               </p>
               <div className="flex flex-wrap gap-4">
                 <CTALink
@@ -50,6 +50,7 @@ export default function About() {
             </div>
 
             <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-square">
+              {/* TODO: Replace with your own images */}
               <img
                 alt="Caregiver and senior sharing a warm moment"
                 className="w-full h-full object-cover"
@@ -108,15 +109,12 @@ export default function About() {
               </h2>
               <div className="space-y-6 text-lg text-deep-indigo/80 font-light leading-relaxed">
                 <p>
-                  We believe care should feel personal, consistent, and deeply human. Too often, home care feels rushed, impersonal, and transactional. We built Nurturly to be different.
-                </p>
-                <p>
-                  Born from the principles of hospitality, our approach focuses on attentiveness, reliability, and thoughtful service. We pay attention to routines, preferences, personalities, and the small details that make people feel comfortable and at ease.
+                  [YOUR_FOUNDING_STORY]
                 </p>
                 <div className="pt-8 border-t border-soft-teal/20 mt-8">
                   <p className="font-bold text-deep-indigo mb-4 uppercase tracking-widest text-sm">Our purpose is simple:</p>
                   <blockquote className="italic font-light text-2xl font-headline text-calm-blue leading-relaxed border-l-4 border-soft-teal pl-6">
-                    "To help people live comfortably, safely, and with dignity at home — while giving families peace of mind."
+                    "[YOUR_MISSION_STATEMENT]"
                   </blockquote>
                 </div>
               </div>
@@ -124,6 +122,7 @@ export default function About() {
 
             <div className="lg:w-1/2 space-y-12">
               <div className="rounded-2xl overflow-hidden shadow-xl aspect-video">
+                {/* TODO: Replace with your own images */}
                 <img
                   alt="Older adult enjoying leisure time outdoors"
                   className="w-full h-full object-cover"
@@ -136,7 +135,7 @@ export default function About() {
                   Why Hospitality Matters
                 </h4>
                 <p className="text-deep-indigo/70 font-light mb-8 leading-relaxed">
-                  In a hospital, you are a patient. In a hotel, you are a guest. At Nurturly, you are the host of your own life, and we are here to ensure your environment remains a sanctuary of peace and comfort.
+                  In a hospital, you are a patient. In a hotel, you are a guest. At CareBase, you are the host of your own life, and we are here to ensure your environment remains a sanctuary of peace and comfort.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-center gap-4 text-deep-indigo font-bold">

@@ -10,9 +10,9 @@ interface EmailModalProps {
   currentStage: string
 }
 
-const DEFAULT_SUBJECT = (name: string) => `Next Steps — Your Nurturly Application`
+const DEFAULT_SUBJECT = (name: string) => `Next Steps — Your CareBase Application`
 const DEFAULT_MESSAGE = (name: string) =>
-  `Dear ${name},\n\nThank you for your interest in joining the Nurturly team. We have reviewed your application and would love to connect further.\n\nPlease let us know your availability for a brief call at your earliest convenience.\n\nWarm regards,\nThe Nurturly Care Team`
+  `Dear ${name},\n\nThank you for your interest in joining the CareBase team. We have reviewed your application and would love to connect further.\n\nPlease let us know your availability for a brief call at your earliest convenience.\n\nWarm regards,\nThe CareBase Care Team`
 
 export default function EmailModal({ applicantName, applicantEmail }: EmailModalProps) {
   const [subject, setSubject] = useState(DEFAULT_SUBJECT(applicantName))

@@ -4,8 +4,8 @@ import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Nurturly',
-  description: 'Get in touch with Nurturly to learn more about our home care services.',
+  title: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+  description: '[YOUR_META_DESCRIPTION]',
 }
 
 export default function Contact() {
@@ -13,8 +13,8 @@ export default function Contact() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nurturlycare.com' },
-      { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://nurturlycare.com/contact' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://yourcaredomain.com' },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://yourcaredomain.com/contact' },
     ],
   }
 
@@ -53,7 +53,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-bold uppercase tracking-widest text-deep-indigo/60 mb-1">Email</p>
-                    <p className="text-2xl font-headline font-bold text-deep-indigo">hello@nurturlycare.com</p>
+                    <p className="text-2xl font-headline font-bold text-deep-indigo">hello@yourcaredomain.com</p>
                   </div>
                 </div>
                 
@@ -72,7 +72,8 @@ export default function Contact() {
             <div className="relative">
               {/* Image */}
               <div className="relative z-10 w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
-              <img
+              {/* TODO: Replace with your own images */}
+                <img
                 alt="Warm conversation between caregiver and senior"
                 className="w-full h-full object-cover"
                 src="https://images.unsplash.com/photo-7QXyc8b4Mxc?auto=format&fit=crop&q=80&w=1200"
@@ -100,16 +101,17 @@ export default function Contact() {
           {/* Location Section */}
           <section className="mt-32 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="order-2 md:order-1 rounded-3xl overflow-hidden h-[400px] shadow-lg border border-soft-teal/10 relative">
-              <img 
+              {/* TODO: Replace with your own images */}
+                <img 
                 src="https://images.unsplash.com/photo-1531218150217-5afc4900b475?auto=format&fit=crop&q=80" 
-                alt="Houston skyline" 
+                alt="[YOUR_CITY], [YOUR_STATE] skyline" 
                 className="w-full h-full object-cover absolute inset-0"
               />
               <div className="absolute inset-0 bg-deep-indigo/40 mix-blend-multiply"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <span className="material-symbols-outlined text-white text-5xl drop-shadow-md">location_on</span>
                 <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-xl shadow-xl mt-4">
-                  <p className="text-lg font-bold text-deep-indigo">Houston, TX</p>
+                  <p className="text-lg font-bold text-deep-indigo">[YOUR_CITY], [YOUR_STATE]</p>
                 </div>
               </div>
             </div>
@@ -119,15 +121,15 @@ export default function Contact() {
                 Rooted in our community.
               </h3>
               <p className="text-lg text-deep-indigo/80 font-light leading-relaxed">
-                We provide personalized, hospitality-informed home care across the greater Houston metro area. Our heart is in the homes of our clients — and in the communities they call home.
+                We provide personalized, hospitality-informed home care across the greater [YOUR_CITY], [YOUR_STATE] metro area. Our heart is in the homes of our clients — and in the communities they call home.
               </p>
               <div className="pt-6 border-t border-soft-teal/10 space-y-2">
                 <p className="font-bold text-deep-indigo flex items-center gap-2">
                   <span className="material-symbols-outlined text-soft-teal text-sm">home_work</span>
-                  Greater Houston Area
+                  Greater [YOUR_CITY], [YOUR_STATE] Area
                 </p>
                 <p className="text-deep-indigo/70 font-light pl-6">
-                  Serving Houston, Sugar Land, Katy, Pearland, and The Woodlands.
+                  Serving [YOUR_CITY], [YOUR_STATE], Sugar Land, Katy, Pearland, and The Woodlands.
                 </p>
               </div>
             </div>

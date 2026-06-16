@@ -1,4 +1,4 @@
-# Nurturly Brand Standards Guideline
+# CareBase Brand Standards Guideline
 
 ---
 
@@ -16,11 +16,11 @@
 
 ## Logo System
 
-The Nurturly logo system is designed to be simple, flexible, and instantly recognizable. It consists of a primary logo and a supporting icon, each serving a distinct role across brand applications.
+The CareBase logo system is designed to be simple, flexible, and instantly recognizable. It consists of a primary logo and a supporting icon, each serving a distinct role across brand applications.
 
 ### Primary Logo
 
-The primary logo is the core representation of the Nurturly brand system and should be used in all standard applications.
+The primary logo is the core representation of the CareBase brand system and should be used in all standard applications.
 
 - Use the primary logo whenever space allows
 - Prioritize it across all brand touchpoints
@@ -99,7 +99,7 @@ These examples are not exhaustive but represent the most common misapplications.
 
 ## Typography
 
-Nurturly's typography system is designed to be clean, modern, and highly legible. A single typeface family is used to create consistency across all applications while allowing flexibility through weight and style.
+CareBase's typography system is designed to be clean, modern, and highly legible. A single typeface family is used to create consistency across all applications while allowing flexibility through weight and style.
 
 **Typeface:** Roboto (available on [Google Fonts](https://fonts.google.com))
 
@@ -161,7 +161,7 @@ Photos that highlight genuine bonds between caregivers, residents, and loved one
 
 ## Brand in Application
 
-The Nurturly brand is applied consistently across digital and physical touchpoints:
+The CareBase brand is applied consistently across digital and physical touchpoints:
 
 - **Website:** Soft Teal navigation bar, Warm Yellow header band, Deep Indigo background elements, clean sans-serif typography
 - **Business Cards:** Deep Indigo on the front with Calm Blue logo; Warm Yellow reverse with teal typography and icon

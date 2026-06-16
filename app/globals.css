@@ -40,7 +40,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Official Nurturly Brand Colors */
+  /* Official CareBase Brand Colors */
   --color-soft-teal: #00788E;
   --color-calm-blue: #00A5B6;
   --color-deep-indigo: #093859;

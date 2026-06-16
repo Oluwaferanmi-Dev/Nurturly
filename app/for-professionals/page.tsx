@@ -4,8 +4,8 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'For Professionals & Referral Partners | Nurturly Houston',
-  description: 'Partner with Nurturly to provide trusted, hospitality-informed home care solutions for your clients in Houston, TX.',
+  title: '[YOUR_AGENCY_NAME] | [YOUR_TAGLINE] in [YOUR_CITY], [YOUR_STATE]',
+  description: '[YOUR_META_DESCRIPTION]',
 }
 
 export default function ForProfessionals() {
@@ -22,8 +22,8 @@ export default function ForProfessionals() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nurturlycare.com' },
-      { '@type': 'ListItem', position: 2, name: 'For Professionals', item: 'https://nurturlycare.com/for-professionals' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://yourcaredomain.com' },
+      { '@type': 'ListItem', position: 2, name: 'For Professionals', item: 'https://yourcaredomain.com/for-professionals' },
     ],
   }
 
@@ -38,7 +38,7 @@ export default function ForProfessionals() {
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="z-10 relative">
               <span className="text-calm-blue font-bold tracking-widest text-xs uppercase mb-6 block">
-                Partnerships · Houston, TX
+                Partnerships · [YOUR_CITY], [YOUR_STATE]
               </span>
               <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl leading-tight font-bold text-deep-indigo mb-8">
                 For Professionals &<br />
@@ -57,6 +57,7 @@ export default function ForProfessionals() {
             
             <div className="relative hidden lg:block">
               <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-soft-teal/10">
+                {/* TODO: Replace with your own images */}
                 <img
                   alt="Two professionals having a thoughtful discussion"
                   className="w-full h-full object-cover"
